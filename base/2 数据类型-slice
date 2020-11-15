@@ -1,4 +1,4 @@
-1 runtime包下的定义:
+1 runtime包下的定义: slice的底层确实引用一个数组对象
 type slice struct {
 	array unsafe.Pointer
 	len   int
@@ -12,3 +12,8 @@ type slice struct {
 	二: 一个固定的slice值在不同的时刻可能包含不同的元素，因为底层数组的元素可能会被修改。
 		Go语言中map的key只做简单的浅拷贝，它要求key在整个生命周期内保持不变性
 		而用深度相等判断的话，显然在map的key这种场合不合适
+
+4 make:
+	make创建了一个匿名的数组变量，然后返回一个slice
+	slice只引用了底层数组的前len个元素，但是容量将包含整个的数组。额外的元素是留给未来的增长用的。
+
