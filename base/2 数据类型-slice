@@ -1,0 +1,14 @@
+1 runtime包下的定义:
+type slice struct {
+	array unsafe.Pointer
+	len   int
+	cap   int
+}
+
+2 如果切片操作超出cap(s)的上限将导致一个panic异常，但是超出len(s)则是意味着扩展了slice，因为新slice的长度会变大
+
+3 为何slice不直接支持比较运算符?
+	一: 一个slice的元素是间接引用的，一个slice甚至可以包含自身(当slice声明为[]interface{}时，slice的元素可以是自身)
+	二: 一个固定的slice值在不同的时刻可能包含不同的元素，因为底层数组的元素可能会被修改。
+		Go语言中map的key只做简单的浅拷贝，它要求key在整个生命周期内保持不变性
+		而用深度相等判断的话，显然在map的key这种场合不合适
