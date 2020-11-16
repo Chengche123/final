@@ -1,0 +1,4 @@
+1 用于发送和接收结构化信息的标准协议
+2 主要包括:JSON XML ASN.1 ProtocolBuffers
+  由标准库中的encoding/json、encoding/xml、encoding/asn1等包提供支持
+  （译注：Protocol Buffers的支持由 github.com/golang/protobuf 包提供）
