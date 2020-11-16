@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+type myT struct {
+	x int
+}
 
 func main() {
 
+}

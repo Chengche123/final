@@ -1,6 +1,4 @@
-1 无函数体函数:func Sin(x float64) float //implemented in assembly language
-
-2 捕获迭代变量的错误写法:
+1 捕获迭代变量的错误写法:
     var rmdirs []func()
     dirs := tempDirs()
     for i := 0; i < len(dirs); i++ {
@@ -10,4 +8,10 @@
         })
     }
     正确写法要加上 i := i
+
+2 defer:
+    一: 直到包含该defer语句的函数执行完毕时，defer后的函数才会被执行，
+        不论包含defer语句的函数是通过return正常结束，还是由于panic导致的异常结束
+    二: 你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反。
+    三: defer语句中的函数会在return语句更新返回值变量后再执行,被延迟执行的匿名函数甚至可以修改函数返回给调用者的返回值
 

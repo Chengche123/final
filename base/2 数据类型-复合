@@ -5,3 +5,18 @@
     二: 外层的结构体不仅仅是获得了匿名成员类型的所有成员，而且也获得了该类型导出的全部的方法。
         这个机制可以用于将一些有简单行为的对象组合成有复杂行为的对象。
     三: 组合是Go语言中面向对象编程的核心
+
+3 组合-内部实现:
+    内嵌字段会指导编译器去生成额外的包装方法来委托已经声明好的方法，和下面的形式是等价的：
+    func (p ColoredPoint) Distance(q Point) float64 {
+        return p.Point.Distance(q)
+    }
+    该包装方法调用时，它的接收器值是p.Point，而不是p
+
+4 组合-技巧:给匿名struct定义方法:
+    var cache = struct {
+        sync.Mutex
+        mapping map[string]string
+    }{
+        mapping: make(map[string]string),
+    }
