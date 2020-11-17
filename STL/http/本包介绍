@@ -1,0 +1,16 @@
+1 官方包为net/http 提供http客户端和服务器实现。
+2 子包:
+cgi 
+Package cgi implements CGI (Common Gateway Interface) as specified in RFC 3875. 
+cookiejar 
+Package cookiejar implements an in-memory RFC 6265-compliant http.CookieJar. 
+fcgi 
+Package fcgi implements the FastCGI protocol. 
+httptest 
+Package httptest provides utilities for HTTP testing. 
+httptrace 
+Package httptrace provides mechanisms to trace the events within HTTP client requests. 
+httputil 
+Package httputil provides HTTP utility functions, complementing the more common ones in the net/http package. 
+pprof 
+Package pprof serves via its HTTP server runtime profiling data in the format expected by the pprof visualization tool. 
