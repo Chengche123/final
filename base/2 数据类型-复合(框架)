@@ -1,19 +1,31 @@
-1 结构体和数组:传参时会发生元素的拷贝
-2 组合-结构体匿名成员:
+1 (框架)组合-结构体匿名成员:
     一: Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。
         匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针。
     二: 外层的结构体不仅仅是获得了匿名成员类型的所有成员，而且也获得了该类型导出的全部的方法。
         这个机制可以用于将一些有简单行为的对象组合成有复杂行为的对象。
     三: 组合是Go语言中面向对象编程的核心
 
-3 组合-内部实现:
+2 (框架)覆盖:
+    package sort
+
+    type reverse struct{ Interface } // that is, sort.Interface
+
+    func (r reverse) Less(i, j int) bool { return r.Interface.Less(j, i) }
+
+    func Reverse(data Interface) Interface { return reverse{data} }
+    
+    reverse的另外两个方法Len和Swap隐式地由原有内嵌的sort.Interface提供。
+
+3 结构体和数组:传参时会发生元素的拷贝
+
+4 组合-内部实现:
     内嵌字段会指导编译器去生成额外的包装方法来委托已经声明好的方法，和下面的形式是等价的：
     func (p ColoredPoint) Distance(q Point) float64 {
         return p.Point.Distance(q)
     }
     该包装方法调用时，它的接收器值是p.Point，而不是p
 
-4 组合-技巧:给匿名struct定义方法:
+5 组合-技巧:给匿名struct定义方法:
     var cache = struct {
         sync.Mutex
         mapping map[string]string
