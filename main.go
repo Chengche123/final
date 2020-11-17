@@ -1,7 +1,6 @@
 package main
 
 import (
-<<<<<<< HEAD
 	"container/heap"
 	"fmt"
 )
@@ -28,19 +27,4 @@ func main() {
 	for range *h {
 		fmt.Printf("%d\t", heap.Pop(h)) // 1       2       4       4       5
 	}
-=======
-	"fmt"
-	"io"
-	"os"
-)
-
-type myT struct {
-	x int
-}
-
-func main() {
-	var x interface{} = os.Stdout
-	var y io.Writer = os.Stdout
-	fmt.Println(x == y) // true
->>>>>>> base
 }
