@@ -1,4 +1,4 @@
-1 runtime包下的定义: slice的底层确实引用一个数组对象
+1 (框架)runtime包下的定义: slice的底层确实引用一个数组对象
 type slice struct {
 	array unsafe.Pointer
 	len   int
