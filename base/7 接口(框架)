@@ -7,10 +7,14 @@
         value:os.Stdout
     }
 
-2 (框架)理解接口:
+2 (框架)理解接口:重点在于方法上，而不是具体的类型上
     io.Writer:它提供了所有类型的写入bytes的抽象，包括文件类型，内存缓冲区，网络链接，HTTP客户端，压缩工具，哈希等等
     io.Reader:Reader可以代表任意可以读取bytes的类型
     io.Closer:Closer可以是任意可以关闭的值
+
+3 (框架) discriminated unions（可辨识联合）:重点在于具体的类型满足这个接口，而不在于接口的方法
+    利用一个接口值可以持有各种具体类型值的能力，将这个接口认为是这些类型的联合。
+    类型断言用来动态地区别这些类型，使得对每一种情况都不一样
 
 2 Go的接口与c++和java等其他语言的不同之处:
     很多面向对象的语言都有相似的接口概念，但Go语言中接口类型的独特之处在于它是满足隐式实现的。
@@ -23,6 +27,8 @@
     fmt.Stringer
     flag.Value
     sort.Interface
+    http.Handler
+    error
 
 
 5 断言:var _ io.Writer = (*bytes.Buffer)(nil)

@@ -1,0 +1,40 @@
+包-不涉及命令:
+
+1 (框架)以_或.开头的源文件会被构建工具忽略
+
+2 一个internal包只能被和internal目录有同一个父目录的包所导入
+  例如，net/http/internal/chunked内部包只能被net/http/httputil或net/http包导入，但是不能被net/url包导入
+
+3 增量迁移:
+  一: Go模块的每个不同的主要版本（v1，v2等）都使用不同的模块路径：从v2开始，该路径必须以主要版本结尾。
+  二: rsc.io/quote的v3不再是rsc.io/quote：而是由模块路径rsc.io/quote/v3标识。此约定称为语义导入版本控制，
+      它为不兼容的程序包（具有不同主要版本的程序包）提供了不同的名称
+  三: 相反，rsc.io/quote的v1.6.0应该与v1.5.2向后兼容，因此它重用了名称rsc.io/quote
+  四: 程序无法同时使用rsc.io/quote v1.5.2和rsc.io/quote v1.6.0来构建。
+      同时，允许模块的不同主要版本（因为它们具有不同的路径）使模块使用者可以逐步升级到新的主要版本
+
+4 其它一些包，可能只描述了单一的数据类型，例如html/template和math/rand等，
+  只暴露一个主要的数据结构和与它相关的方法，还有一个以New命名的函数用于创建实例。
+
+工具-涉及命令:
+1 (框架-模块):
+  查看依赖: go list -m all
+  把依赖更新为最新的标记版本: go get golang.org/x/text(go get可以下载一个单一的包或者用...下载整个子目录里面的每个包)
+  查看可用的依赖版本: go list -m -versions rsc.io/sampler
+  切换版本: go get rsc.io/sampler@v1.3.1 (默认值为@latest，它将解析为先前定义的最新版本)
+  Removing unused dependencies: go mod tidy
+
+2 (框架): https://tonybai.com/2015/03/09/understanding-import-packages/
+  一: 在使用第三方包的时候，当源码和.a均已安装的情况下，编译器链接的是源码
+  二: 所谓的使用第三方包源码，实际上是链接了以该最新源码编译的临时目录下的.a文件而已。
+  三: 标准库在编译时也是必须要源码,即便你修改了fmt包的源码，用户源码编译时，
+      也不会尝试重新编译fmt包的，依旧只是在链接时链接已经编译好的fmt.a
+
+3 竞争条件检测:
+    只要在go build，go run或者go test命令后面加上-race的flag
+
+4 go env:
+  GOPATH=E:\software\GOPATH
+  GOPROXY=https://goproxy.cn
+  GOARCH=amd64
+  GOOS=windows

@@ -1,0 +1,39 @@
+1 (框架)基于channels发送消息有两个重要方面。首先每个消息都有一个值，但是有时候通讯的事实和发生的时刻也同样重要。
+
+2 (框架-select多路复用):
+    一: 利用default,可以实现非阻塞
+    二: 如果多个case同时就绪时，select会随机地选择一个执行
+    三: 对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
+
+3 (框架)close后的channel:
+    发送:panic
+    接收:零值
+    关闭操作只用于断言不再向channel发送新的数据,对一个只接收的channel调用close将是一个编译错误
+
+4 (框架)分别约束函数外部的行为和函数内部的行为:
+    一:
+        // 前一个版本的方法声明更适合存在于接口类型中，因为它可以作为该接口的实现规则之一。
+        type SignalNotifier interface {
+            Notify(c chan<- os.Signal, sig ...os.Signal)
+        }
+        // 后一个版本的声明更适用于函数或结构体的方法，原因是它可以约束对函数或方法的结果值的使用方式。
+        type SignalNotifier interface {
+            Notify(sig ...os.Signal) <-chan os.Signal
+        }
+    二: 通道允许的数据传递方向是其类型的一部分。对于两个通道类型而言，数据传递方向的不同就意味着它们类型的不同。
+        利用函数声明将双向通道转换为单向通道的做法，只能算是Go语言的一个语法糖。
+
+.1 经由通道传递的值至少会被复制一次，至多会被复制两次。
+  当向一个已空的通道发送值，且已有至少一个接收方因此等待时，该通道会绕过本身的缓冲队列，直接把这个值复制给最早等待的那个接收方。
+
+.2 和map类似，channel也对应一个make创建的底层数据结构的引用(消息队列)
+
+.3 用channel传递结构体和数组时会发生元素的拷贝
+
+.4 语法:
+    ch <- x  // a send statement
+    x = <-ch // a receive expression in an assignment statement
+    <-ch     // a receive statement; result is discarded
+    类型chan<- int表示一个只发送int的channel
+    类型<-chan int表示一个只接收int的channel
+    for range 与 for select

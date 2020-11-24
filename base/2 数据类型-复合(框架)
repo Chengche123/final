@@ -16,16 +16,18 @@
     
     reverse的另外两个方法Len和Swap隐式地由原有内嵌的sort.Interface提供。
 
-3 结构体和数组:传参时会发生元素的拷贝
+3 空结构体类型的变量是不占用内存空间的，并且所有该类型的变量都拥有相同的内存地址
 
-4 组合-内部实现:
+4 结构体和数组:传参时会发生元素的拷贝
+
+5 组合-内部实现:
     内嵌字段会指导编译器去生成额外的包装方法来委托已经声明好的方法，和下面的形式是等价的：
     func (p ColoredPoint) Distance(q Point) float64 {
         return p.Point.Distance(q)
     }
     该包装方法调用时，它的接收器值是p.Point，而不是p
 
-5 组合-技巧:给匿名struct定义方法:
+6 组合-技巧:给匿名struct定义方法:
     var cache = struct {
         sync.Mutex
         mapping map[string]string

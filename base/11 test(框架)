@@ -1,0 +1,56 @@
+1 (框架)所有以_test.go为后缀名的源文件在执行go build时不会被构建成包的一部分，它们是go test测试的一部分
+
+2 (框架)在*_test.go文件中，有三种类型的函数：测试函数、基准测试（benchmark）函数、示例函数:
+    一: 一个测试函数是以Test为函数名前缀的函数,用于测试程序的一些逻辑行为是否正确
+    二: 基准测试函数是以Benchmark为函数名前缀的函数,它们用于衡量一些函数的性能,
+        go test命令会多次运行基准测试函数以计算一个平均的执行时间
+    三: 示例函数是以Example为函数名前缀的函数,提供一个由编译器保证正确性的示例文档
+
+3 (框架-命令):
+    一: go build命令要编译的部分:go list -f={{.GoFiles}} fmt // [doc.go format.go print.go scan.go]
+    二: 内部测试代码:go list -f={{.TestGoFiles}} fmt // [export_test.go]
+    三: 外部测试包的测试代码，也就是fmt_test包:go list -f={{.XTestGoFiles}} fmt 
+        // [fmt_test.go scan_test.go stringer_test.go]
+
+4 (框架-测试函数):
+    一: 测试失败的信息一般的形式是“f(x) = y, want z”，
+        其中f(x)解释了失败的操作和对应的输入，y是实际的运行结果，z是期望的正确的结果。
+        func TestIsPalindrome(t *testing.T) {
+            var tests = []struct {
+                input string
+                want  bool
+            }{
+                {"Et se resservir, ivresse reste.", true},
+                {"palindrome", false}, // non-palindrome
+                {"desserts", false},   // semi-palindrome
+            }
+            for _, test := range tests {
+                if got := IsPalindrome(test.input); got != test.want {
+                    t.Errorf("IsPalindrome(%q) = %v", test.input, got)
+                }
+            }
+        }
+    二: 随机测试:github.com/google/gofuzz
+    三: 测试覆盖率:
+        go test -run=Coverage -coverprofile=c.out gopl.io/ch7/eval
+        go tool cover -html=c.out
+
+5 (框架-基准测试):
+    一: go test -bench=. // BenchmarkIsPalindrome-12    4163347        289 ns/op
+        go test -bench=. -benchmem // BenchmarkIsPalindrome-12  3919260   279 ns/op  248 B/op   5 allocs/op
+        func BenchmarkIsPalindrome(b *testing.B) {
+            for i := 0; i < b.N; i++ {
+                IsPalindrome("A man, a plan, a canal: Panama")
+            }
+        }
+
+6 (框架-profiling):
+    一: 只需要开启下面其中一个标志参数就可以生成各种分析文件
+        $ go test -cpuprofile=cpu.out
+        $ go test -blockprofile=block.out
+        $ go test -memprofile=mem.out
+    二: go tool pprof:
+        该命令有许多特性和选项，但是最基本的是两个参数：生成这个概要文件的可执行程序(foo.test)和对应的剖析数据。
+    三: 示例:
+        go test -run=NONE -bench=ClientServerParallelTLS64 -cpuprofile=cpu.log net/http
+        go tool pprof -text -nodecount=10 ./http.test cpu.log
