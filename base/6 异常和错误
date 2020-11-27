@@ -1,8 +1,0 @@
-1 panic:当panic异常发生时，程序会中断运行，并立即执行在该goroutine中被延迟的函数（defer 机制）
-  只执行当前发生panic协程的defer函数,并且执行该协程函数栈中的所有defer函数
-
-2 Must包装函数:
-    包装函数使得调用者可以便捷的用一个编译后的正则表达式为包级别的变量赋值：
-    var httpSchemeRE = regexp.MustCompile(`^https?:`) //"http:" or "https:"
-
-3 由于错误信息经常是以链式组合在一起的，所以错误信息中应避免大写和换行符。
