@@ -100,15 +100,15 @@ func main() {
 	}
 	blockFile.Close()
 
-	// memf, err := os.Create("mem.prof")
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// err = pprof.WriteHeapProfile(memf)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// memf.Close()
+	memf, err := os.Create("mem.prof")
+	if err != nil {
+		panic(err)
+	}
+	err = pprof.WriteHeapProfile(memf)
+	if err != nil {
+		panic(err)
+	}
+	memf.Close()
 }
 
 func reverse1(s string) string {
