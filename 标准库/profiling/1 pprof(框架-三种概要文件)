@@ -40,3 +40,6 @@
             panic(err)
         }
         blockFile.Close()
+
+4 (框架 GoTest):
+    go test -v -run TestStart -cpuprofile cpu.prof -blockprofile block.prof -memprofile mem.prof
