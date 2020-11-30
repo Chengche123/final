@@ -41,5 +41,5 @@
         }
         blockFile.Close()
 
-4 (框架 GoTest):
-    go test -v -run TestStart -cpuprofile cpu.prof -blockprofile block.prof -memprofile mem.prof
+4 (框架-go test):
+    go test -v -run TestReverse -cpuprofile cpu.prof -blockprofile block.prof -memprofile mem.prof

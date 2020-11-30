@@ -1,0 +1,2 @@
+1 (框架):
+    go tool trace trace.prof

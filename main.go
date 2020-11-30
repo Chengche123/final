@@ -2,6 +2,8 @@ package main
 
 import (
 	"log"
+	"net/http"
+	_ "net/http/pprof"
 	"os"
 	"os/signal"
 	"runtime"
@@ -12,6 +14,10 @@ import (
 )
 
 func main() {
+	panic(http.ListenAndServe("0.0.0.0:8000", nil))
+}
+
+func main1() {
 	runtime.SetBlockProfileRate(1)
 
 	f, err := os.Create("cpu.prof")

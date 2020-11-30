@@ -1,0 +1,61 @@
+1 (框架-互斥量自旋):
+    一: 当要访问的临界资源的状态不满足要求时,需要不断询问
+    二: 代码:
+        func (df *myDataFile) Read() (rsn int64, d Data, err error) {
+            // 读取并更新读偏移量
+            // 省略若干代码
+
+            // 读取一个数据块
+            rsn = offset / int64(df.dataLen)
+            bytes := make([]byte, df.dataLen)
+            for {
+                df.fmutex.RLock()
+                _, err = df.f.ReadAt(bytes, offset)
+                if err != nil {
+                    if err == io.EOF {
+                        df.fmutex.RUnlock()
+                        continue
+                    }
+                    df.fmutex.RUnlock()
+                    return
+                }
+                d = bytes
+                df.fmutex.RUnlock()
+                return
+            }
+        }
+
+2 (框架-条件变量概述):
+    一: 条件变量总是与互斥量组合使用。当线程成功锁定互斥量并访问到共享数据时，共享数据的状态并不一定正好满足它的要求。
+    二: 与互斥量不同，条件变量的作用是在对应的共享数据的状态发生变化时，通知其他因此而被阻塞的线程。
+
+3 (框架-条件变量的wait和发送通知操作):
+    一: wait:等待通知操作所包含的解锁互斥量和阻塞当前线程的步骤共同形成了一个原子操作
+    二: wait:当等待通知操作因收到条件变量发送的通知而唤醒当前线程后，会首先重新锁定与该条件变量绑定在一起的那个互斥量。
+        如果该互斥量已经被其他线程抢先锁定，那么当前线程会再次进入睡眠状态
+    三: 发送通知操作:通知稍纵即逝，并且不会留下任何痕迹
+        在通知被发送的时候，如果没有任何线程正在等待此条件变量的通知，那么该通知就会被直接丢弃
+
+4 (框架-条件变量的非自旋操作):
+    func (df *myDataFile) Read() (rsn int64, d Data, err error) {
+        // 读取并更新读偏移量
+        // 省略若干代码
+
+        // 读取一个数据块
+        rsn = offset / int64(df.dataLen)
+        bytes := make([]byte, df.dataLen)
+        df.fmutex.RLock()
+        defer df.fmutex.RUnlock()
+        for {
+            _, err = df.f.ReadAt(bytes, offset)
+            if err != nil {
+                if err == io.EOF {
+                    df.rcond.Wait()
+                    continue
+                }
+                return
+            }
+            d = bytes
+            return
+        }
+    }
