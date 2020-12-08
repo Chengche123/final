@@ -10,5 +10,13 @@
     二: 下载cpuprofile memprofile blockprofile或者trace文件
         http://127.0.0.1:8000/debug/pprof/(trace|block|heap|profile)?seconds=10
 
-2 (框架-go test):
+2 (框架-在线产生):
+	f, err := os.Create("trace.prof")
+	if err != nil {
+		panic(err)
+	}
+	trace.Start(f)
+	defer trace.Stop()
+
+3 (框架-go test):
     go test -v -run TestReverse -trace trace.prof

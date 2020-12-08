@@ -1,0 +1,83 @@
+1 (框架-惰性初始化):
+    延迟初始化是延迟到需要域的值时才将它初始化的这种行为
+
+2 (框架-双重检查锁定):
+  一: 作用: 防止并发初始化(重复抑制)和初始化未完成就返回
+  二: 源码
+        type Once struct {
+            done uint32
+            m    Mutex
+        }
+        func (o *Once) Do(f func()) {
+            if atomic.LoadUint32(&o.done) == 0 {
+                o.doSlow(f)
+            }
+        }
+        func (o *Once) doSlow(f func()) {
+            o.m.Lock()
+            defer o.m.Unlock()
+            // 双检查
+            if o.done == 0 {
+                defer atomic.StoreUint32(&o.done, 1)
+                f()
+            }
+        }
+
+3 (框架-三种初始化单例资源的方法):
+    一: 定义 package 级别的变量
+    二: 在 init 函数中进行初始化
+    三: 在 main 函数开始执行的时候，执行一个初始化的函数
+
+.1 增加Done方法:
+    // Once 是一个扩展的sync.Once类型，提供了一个Done方法
+    type Once struct {
+        sync.Once
+    }
+    // Done 返回此Once是否执行过
+    // 如果执行过则返回true
+    // 如果没有执行过或者正在执行，返回false
+    func (o *Once) Done() bool {
+        return atomic.LoadUint32((*uint32)(unsafe.Pointer(&o.Once))) == 1
+    }
+
+.2 封装一个只初始化一次的值 math/big/sqrt.go:
+   // 值是3.0或者0.0的一个数据结构
+   var threeOnce struct {
+    sync.Once
+    v *Float
+  }
+  
+    // 返回此数据结构的值，如果还没有初始化为3.0，则初始化
+  func three() *Float {
+    threeOnce.Do(func() { // 使用Once初始化
+      threeOnce.v = NewFloat(3.0)
+    })
+    return threeOnce.v
+  }
+
+.3 非封装:
+    func Default() *Cache { // 获取默认的Cache
+    defaultOnce.Do(initDefaultCache) // 初始化cache
+    return defaultCache
+  }
+  
+    // 定义一个全局的cache变量，使用Once初始化，所以也定义了一个Once变量
+  var (
+    defaultOnce  sync.Once
+    defaultCache *Cache
+  )
+
+    func initDefaultCache() { //初始化cache,也就是Once.Do使用的f函数
+    ......
+    defaultCache = c
+  }
+
+    // 其它一些Once初始化的变量，比如defaultDir
+    var (
+    defaultDirOnce sync.Once
+    defaultDir     string
+    defaultDirErr  error
+  )
+
+
+

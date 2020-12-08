@@ -1,0 +1,22 @@
+1 概述:
+    初版: 信号量阻塞队列
+    给新人机会: 把锁交给正在占用 CPU 时间片的 goroutine 
+    多给些机会: 在获取锁的时候尝试一定次数的自旋
+    解决饥饿: 
+        复了一个大 Bug：总是把唤醒的 goroutine 放在等待队列的尾部，会导致更加不公平的等待时间。
+        加入饥饿模式,优先让等待者先获取到锁，新来的同学主动谦让一下，给老同志一些机会。
+
+2 4种易错场景大盘点:
+    Lock/Unlock 不是成对出现
+    Copy 已使用的 Mutex
+    死锁
+    重入:手误和重入导致的死锁，是最常见的使用 Mutex 的 Bug
+
+3 Mutex 本身并没有记录持有这把锁的 goroutine 的信息:
+    一: 导致的问题: Unlock可以被任意goroutine调用 不能重入
+    二: 解决办法: 
+        方案一: 通过 hacker 的方式获取到 goroutine id，记录下获取锁的 goroutine id
+        方案二: 调用 Lock/Unlock 方法时，由 goroutine 提供一个 token，用来标识它自己
+        
+
+

@@ -2,19 +2,20 @@ package main
 
 import (
 	"log"
-	"net/http"
 	_ "net/http/pprof"
 	"os"
 	"os/signal"
 	"runtime"
 	"runtime/pprof"
 	"syscall"
+	"test/testmodule"
 	"time"
 	"unicode/utf8"
 )
 
 func main() {
-	panic(http.ListenAndServe("0.0.0.0:8000", nil))
+	var i testmodule.Pair
+	i.Next()
 }
 
 func main1() {

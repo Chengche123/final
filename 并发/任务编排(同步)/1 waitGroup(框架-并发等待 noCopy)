@@ -1,0 +1,25 @@
+1 (框架-并发等待):
+    WaitGroup 很简单，就是 package sync 用来做任务编排的一个并发原语。它要解决的就是并发 - 等待的问题
+
+2 (框架-noCopy):
+    一: vet 会对实现 Locker 接口的数据类型做静态检查，一旦代码中有复制使用这种数据类型的情况，就会发出警告
+    二: 
+        type noCopy struct{}
+        // Lock is a no-op used by -copylocks checker from `go vet`.
+        func (*noCopy) Lock()   {}
+        func (*noCopy) Unlock() {}
+
+
+.1 常见问题:
+    一: 计数器设置为负值
+    二: 不期望的 Add 时机
+    三: 前一个 Wait 还没结束就重用 WaitGroup
+
+.2 计数周期:
+    一: 一个计数周期总是从对Add 方法的调用开始的，并且也总是以对Add 方法或Done 方法的调用为结束标志的
+    二: 若在一个计数周期之内（不包含给定计数为0 的两端）调用Wait 方法，
+        就会使调用所在的goroutine阻塞，直至该计数周期结束的那一刻。
+
+.3 复用:
+    sync.WaitGroup 类型值是可以复用的。也就是说，此类值的生命周期可以包含任意个计数周期。
+

@@ -1,0 +1,19 @@
+1 (框架-加读写锁或分片加锁):
+    如果是追求更高的性能，显然是分片(Shard)加锁更好，因为它可以降低锁的粒度，进而提高访问此 map 对象的吞吐。
+    如果并发性能要求不是那么高的场景，简单加锁方式更简单。
+
+.1 第三方库:分片并发 map:github.com/orcaman/concurrent-map
+
+.2 fnv hash算法:
+    一: 适用于hash一些非常相近的字符串
+    二: 介绍: https://blog.csdn.net/hustfoxy/article/details/23687239
+    三: 开箱即用:
+        func fnv32(key string) uint32 {
+            hash := uint32(2166136261)
+            const prime32 = uint32(16777619)
+            for i := 0; i < len(key); i++ {
+                hash *= prime32
+                hash ^= uint32(key[i])
+            }
+            return hash
+        }

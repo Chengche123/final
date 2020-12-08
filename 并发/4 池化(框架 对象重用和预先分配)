@@ -1,0 +1,56 @@
+1 (框架-对象重用和预先分配):
+    Pool 是一个通用的概念，也是解决对象重用和预先分配的一个常用的优化手段。
+    在使用其它库的时候，就享受到应用 Pool 的好处了，比如数据库的访问、http API 的请求等等。
+
+2 (框架-池化技术):
+    一: 内存池:采用对象池的方式，把不用的对象回收起来，避免被垃圾回收掉，这样使用的时候就不必在堆上重新创建
+        如果你发现程序中有一种 GC 耗时特别高，有大量的相同类型的临时对象，不断地被创建销毁，
+        这时，你就可以考虑看看，是不是可以通过池化的手段重用这些对象。
+    二: 连接池:把连接保存下来，避免每次使用的时候都重新创建
+        有大量的并发 Client 请求，如果 Client 的耗时占比很大，你也可以考虑池化 Client，以便重用。
+    三: Worker Pool:使用有限的 goroutine 资源去处理大量的业务数据
+        系统中的 goroutine 数量非常多，程序的内存资源占用比较大，而且整体系统的耗时和 GC 也比较高
+        否能够通过 Worker Pool 解决大量 goroutine 的问题，从而降低这些指标。
+
+3 (框架-sync.Pool 临时对象池):
+    它池化的对象会在未来的某个时候被毫无预兆地移除掉。
+    而且，如果没有别的对象引用这个被移除的对象的话，这个被移除的对象就会被垃圾回收掉。
+
+4 (框架-sync.Pool的坑):
+    一: 内存泄漏: 在使用 sync.Pool 回收 buffer 的时候，一定要检查回收的对象的大小。
+        如果 buffer 太大，就不要回收了，否则就太浪费了。
+    二: 内存浪费: 要做到物尽其用，尽可能不浪费的话，我们可以将 buffer 池分成几层:
+        // net/http/server.go
+        var (
+            bufioWriter2kPool sync.Pool
+            bufioWriter4kPool sync.Pool
+        )
+        func bufioWriterPool(size int) *sync.Pool {
+            switch size {
+            case 2 << 10:
+                return &bufioWriter2kPool
+            case 4 << 10:
+                return &bufioWriter4kPool
+            }
+            return nil
+        }
+
+.1 常用第三方Buffer池:
+    github.com/vitessio/vitess/blob/master/go/bucketpool/bucketpool: 底层使用sync.Pool实现
+    github.com/valyala/bytebufferpool: 底层使用sync.Pool实现
+    github.com/oxtoacart/bpool: 底层基于channel实现
+
+.2 连接池:
+    一: 标准库中的 http client 池: 
+        http.Client 实现连接池的代码是在 Transport 类型中，它使用 idleConn 保存持久化的可重用的长连接：
+    二: TCP 连接池: 最常用的一个 TCP 连接池是 fatih 开发的github.com/fatih/pool
+        它的 Pool 是通过 Channel 实现的，空闲的连接放入到 Channel 中，这也是 Channel 的一个应用场景
+
+.3 Worker Pool 第三方库:
+    一: gammazero/workerpool
+    二: ivpusic/grpool
+    三: dpaks/goworkers
+    四: github.com/alitto/pond : 也是一个非常不错的 Worker Pool，关注度目前不是很高，但是功能非常齐全。
+
+
+
