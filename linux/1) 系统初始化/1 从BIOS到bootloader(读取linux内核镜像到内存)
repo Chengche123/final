@@ -1,0 +1,25 @@
+1 BIOS时期:
+    一: 在x86系统中，将1M空间最上面的0xF0000到0xFFFFF这64K映射给ROM，
+        也就是说，到这部分地址访问的时候，会访问ROM。
+    二: 当电脑刚加电的时候，将CS设置为0xFFFF，将IP设置为0x0000，所以第一条指令就会指向0xFFFF0，正是在ROM的范围
+        在这里，有一个JMP命令会跳到ROM中做初始化工作的代码
+
+2 bootloader时期:
+    一: 启动盘: 大部分情况下在第一个扇区，占512字节，而且以0xAA55结束。
+    二: MBR: 启动盘的第一个扇区。这个扇区通常称为MBR（Master Boot Record，主引导记录/扇区）
+        boot.img。它由boot.S编译而成，一共512字节，安装到启动盘的第一个扇区
+    三: BIOS完成任务后，会将boot.img从硬盘加载到内存中的0x7c00来运行。
+        boot.img的主要作用是加载grub2的另一个镜像core.img。
+    四: core.img由lzma_decompress.img、diskboot.img、kernel.img和一系列的模块组成
+    五: kernel.img不是Linux的内核，而是grub的内核
+        kernel.img对应的代码是startup.S以及一堆c文件，在startup.S中会调用grub kernel的主函数grub_main
+        ...
+        grub_cmd_linux()函数会读取Linux内核镜像头部的一些数据结构放到内存中，进行检查。
+        如果检查通过，则会读取整个Linux内核镜像到内存。
+        ...
+        grub_command_execute (“boot”, 0, 0)会开始真正地启动内核。
+
+
+
+    
+

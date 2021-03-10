@@ -1,0 +1,11 @@
+1 超级块super_block:
+    一: 对整个文件系统的情况进行描述
+    二: 这里面有整个文件系统一共有多少inode，s_inodes_count；
+        一共有多少块，s_blocks_count_lo，每个块组有多少inode，s_inodes_per_group，每个块组有多少块，s_blocks_per_group等。
+
+2 块设备的工作过程:
+    一: mknod创建出来的块设备文件在devtemfs文件系统里面，特殊inode里面有块设备号；
+    二: mount一个块设备上的文件系统，调用这个文件系统的mount接口；
+    三: 通过按照/dev/xxx在文件系统devtmpfs文件系统上搜索到特殊inode，得到块设备号；
+    四: 创建被mount的文件系统的super_block。
+

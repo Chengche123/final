@@ -1,0 +1,18 @@
+1 ELF:
+    一: 第一种类型 可重定位文件（Relocatable File）
+        有的section，例如.rel.text, .rel.data就与重定位有关
+    二: 第二种类型 可执行文件
+        各个section是多个.o文件合并而成,小的section合成了大的段segment,并在最前面加一个段头表
+    三: 第三种类型 共享对象文件（Shared Object）
+        多了一个.interp的Segment，这里面是ld-linux.so，是动态链接器
+        还多了两个section，一个是.plt，过程链接表（Procedure Linkage Table，PLT），
+        一个是.got.plt，全局偏移量表（Global Offset Table，GOT）
+
+2 工具:
+    一: readelf工具用于分析ELF的信息
+    二: objdump工具用来显示二进制文件的信息
+    三: hexdump工具用来查看文件的十六进制编码
+    四: nm 工具用来显示关于指定文件中符号的信息
+
+
+        

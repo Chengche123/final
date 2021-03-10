@@ -1,0 +1,23 @@
+1 反射是什么:
+    反射可以让我们将类型本身作为第一类的值类型处理
+
+2 reflect.Value 和 interface{}:
+    一: reflect.Value 和 interface{} 都能装载任意的值
+    二: 一个空的接口只有我们知道具体的动态类型才能使用类型断言来访问内部的值
+    三: 相比之下，一个 Value 则有很多方法来检查其内容，无论它的具体类型是什么
+    四: 使用reflect.Value的Kind方法来替代类型断言。虽然还是有无穷多的类型，但是它们的kinds类型却是有限的
+        Bool、String 和 所有数字类型的基础类型
+        Array 和 Struct 对应的复合类型
+        Chan、Func、Ptr、Slice 和 Map 对应的引用类型
+        interface 类型
+        还有表示空值的 Invalid 类型（空的 reflect.Value 的 kind 即为 Invalid。）
+
+3 reflect.Value:
+    函数 reflect.ValueOf 接受任意的 interface{} 类型，并返回一个装载着其动态值的 reflect.Value
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+0 SELECT 的执行顺序:
+    一: 关键字的顺序:
+        SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ...
+    二: SELECT 语句的执行顺序（在 MySQL 和 Oracle 中，SELECT 执行顺序基本相同）：
+        FROM > WHERE(筛选过滤) > GROUP BY(分组) > HAVING(分组过滤) > SELECT 的字段 > DISTINCT > ORDER BY > LIMIT
+    三: 更详细:
+        1)FROM 子句组装数据（包括通过 ON 进行连接）；
+        2)WHERE 子句进行条件筛选；
+        3)GROUP BY 分组 ；
+        4)使用聚集函数进行计算；
+        5)HAVING 筛选分组；
+        6)计算所有的表达式；
+        7)SELECT 的字段；
+        8)ORDER BY 排序；
+        9)LIMIT 筛选。
+
+1 起别名:
+    一般来说起别名的作用是对原有名称进行简化，从而让 SQL 语句看起来更精简。
+    同样我们也可以对表名称起别名，这个在多表连接查询的时候会用到。
+    SQL：SELECT name AS n, hp_max AS hm, mp_max AS mm, attack_max AS am, defense_max AS dm FROM heros
+
+2 查询常数:
+    如果我们想整合不同的数据源，用常数列作为这个表的标记，就需要查询常数。
+    SQL：SELECT '王者荣耀' as platform, name FROM heros
+        +--------------+--------------+
+        | platform     | name         |
+        +--------------+--------------+
+        | 王者荣耀     | 夏侯惇       |
+        | 王者荣耀     | 钟无艳       |
+
+3 去除重复行:
+    DISTINCT 需要放到所有列名的前面
+    DISTINCT 其实是对后面所有列名的组合进行去重
+    SQL：SELECT DISTINCT attack_range, name FROM heros
+
+4 约束返回结果的数量:
+    SQL：SELECT name, hp_max FROM heros ORDER BY hp_max DESC LIMIT 5
+    约束返回结果的数量可以减少数据表的网络传输量，也可以提升查询效率
+    当找到指定条结果的时候就不会继续扫描了，这样会加快查询速度
+
+

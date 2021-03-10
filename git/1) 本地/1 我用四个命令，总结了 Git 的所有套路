@@ -1,0 +1,32 @@
+1 本地git:
+    一: 本地 Git 的三个分区分别是：working directory(工作目录)，stage/index area(暂存区)，commit history(提交历史)。
+    二: work dir ---> stage: git add . 或者 git add a.txt
+    三: stage ---> work dir: git checkout .
+    四: stage ---> history: git commit -m '一些描述'
+    五: history ---> stage: git reset .
+    六: work dir ---> history: git commit -a -m '一些描述'
+    七: history ---> work dir: git checkout HEAD(或者哈希值) .
+
+2 其他技巧:
+    一: 合并多个commit
+        $ git reset 17bd20c
+        $ git add .
+        $ git commit -m 'balabala'
+        把 HEAD 移到了17bd20c这个commit,且不会修改work dir中的数据
+    二: 由于HEAD指针的回退，导致有的commit在git log命令中无法看到，怎么得到它们的 Hash 值呢？
+        $ git reflog
+    三: 怎么解决冲突？
+        可视化 Git 工具
+
+3 分支:
+    一: 创建和切换
+        1)创建新的分支 git branch <your-branch-name>
+        2)切换到新的分支 git checkout <name>
+        3)创建一个新的分支同时切换到新创建的分支 git checkout -b <your-branch-name>
+    二: 合并
+        1) 将对应分支合并到当前分支上 git merge <name>
+    三: 在提交树上移动
+        1) 分离HEAD git checkout <name>
+
+    
+

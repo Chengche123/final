@@ -1,0 +1,34 @@
+1 一个字符设备要能够工作，需要三部分配合:
+    一: 有一个设备驱动程序的ko模块，里面有模块初始化函数、中断处理函数、设备操作函数。
+    二: 在/dev目录下有一个文件表示这个设备，这个文件在特殊的devtmpfs文件系统上，因而也有相应的dentry和inode。
+        这里的inode是一个特殊的inode，里面有设备号,通过它可以找到设备驱动程序
+    三: 打开一个字符设备文件和打开一个普通的文件有类似的数据结构，
+        有文件描述符、有struct file、指向字符设备文件的dentry和inode
+
+2 init_special_inode: 特殊的inode
+    一: 代码
+            void init_special_inode(struct inode *inode, umode_t mode, dev_t rdev)
+            {
+                inode->i_mode = mode;
+                if (S_ISCHR(mode)) {
+                    inode->i_fop = &def_chr_fops;
+                    inode->i_rdev = rdev;
+                } else if (S_ISBLK(mode)) {
+                    inode->i_fop = &def_blk_fops;
+                    inode->i_rdev = rdev;
+                } else if (S_ISFIFO(mode))
+                    inode->i_fop = &pipefifo_fops;
+                else if (S_ISSOCK(mode))
+                    ;	/* leave it no_open_fops */
+            }
+    二: 这个inode可以关联字符设备、块设备、FIFO文件、Socket等
+
+3 使用IOCTL控制设备:
+    一: 除了读写设备，还会调用ioctl，做一些特殊的I/O操作。
+    二: 对于命令和命令的参数，使用ioctl系统调用的用户和驱动程序的开发人员约定好行为即可。
+
+4 中断处理:
+    一: 中断是从外部设备发起的，会形成外部中断。
+    二: 外部中断会到达中断控制器，中断控制器会发送中断向量Interrupt Vector给CPU。
+    三: 对于每一个CPU，都要求有一个idt_table，里面存放了不同的中断向量的处理函数。
+

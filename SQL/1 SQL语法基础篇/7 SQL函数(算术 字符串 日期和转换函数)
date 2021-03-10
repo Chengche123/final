@@ -1,0 +1,62 @@
+1 我们可以把内置函数分成四类：
+    算术函数
+    字符串函数
+    日期函数
+    转换函数
+
+2 数据表中字段类型的定义有哪几种:
+    一: 一些数值，不论是整数类型，还是浮点类型，实际上对应的就是数值类型
+    二: 一些文本内容，可能是人名，也可能是某个说明，对应的就是字符串类型
+    三: 此外我们还需要保存时间，也就是日期类型
+    四: 那么针对数值、字符串和日期类型的数据，我们可以对它们分别进行算术函数、字符串函数以及日期函数的操作。
+        如果想要完成不同类型数据之间的转换，就可以使用转换函数。
+
+3 算术函数:
+    SELECT ABS(-2)，运行结果为 2。
+    SELECT MOD(101,3)，运行结果 2。
+    SELECT ROUND(37.25,1)，运行结果 37.3。
+
+4 字符串函数:
+    SELECT CONCAT('abc', 123)，运行结果为 abc123。
+    SELECT LENGTH('你好')，运行结果为 6。
+    SELECT CHAR_LENGTH('你好')，运行结果为 2。
+    SELECT LOWER('ABC')，运行结果为 abc。
+    SELECT UPPER('abc')，运行结果 ABC。
+    SELECT REPLACE('fabcd', 'abc', 123)，运行结果为 f123d。
+    SELECT SUBSTRING('fabcd', 1,3)，运行结果为 fab。
+
+5 日期函数:
+    SELECT CURRENT_DATE()，运行结果为 2019-04-03。
+    SELECT CURRENT_TIME()，运行结果为 21:26:34。
+    SELECT CURRENT_TIMESTAMP()，运行结果为 2019-04-03 21:26:34。
+    SELECT EXTRACT(YEAR FROM '2019-04-03')，运行结果为 2019。
+    SELECT DATE('2019-04-01 12:00:05')，运行结果为 2019-04-01。
+    如果要进行日期比较，就要使用 DATE 函数，不要直接使用日期与字符串进行比较
+
+6 转换函数:
+    SELECT CAST(123.123 AS INT)，运行结果会报错。
+    SELECT CAST(123.123 AS DECIMAL(8,2))，运行结果为 123.12。
+    SELECT COALESCE(null,1,2)，运行结果为 1。
+
+7 王者荣耀数据库:
+    一: 显示英雄的名字，以及他们的名字字数，需要用到CHAR_LENGTH函数。
+        SQL：SELECT CHAR_LENGTH(name), name FROM heros
+            +-------------------+--------------+
+            | CHAR_LENGTH(name) | name         |
+            +-------------------+--------------+
+            |                 3 | 夏侯惇       |
+            |                 3 | 钟无艳       |
+            |                 2 | 张飞         |
+            |                 2 | 牛魔         |
+            |                 2 | 吕布         |
+            |                 2 | 亚瑟         |
+            |                 2 | 芈月         |
+    二: 提取英雄上线日期（对应字段 birthdate）的年份:
+        SQL： SELECT name, EXTRACT(YEAR FROM birthdate) AS birthdate FROM heros WHERE birthdate is NOT NULL
+        SQL: SELECT name, YEAR(birthdate) AS birthdate FROM heros WHERE birthdate is NOT NULL
+    三: 找出在 2016 年 10 月 1 日之后上线的所有英雄
+        SQL： SELECT * FROM heros WHERE DATE(birthdate)>'2016-10-01'
+    四: 在 2016 年 10 月 1 日之后上线英雄的平均最大生命值、平均最大法力和最高物攻最大值
+        SQL： SELECT AVG(hp_max), AVG(mp_max), MAX(attack_max) FROM heros WHERE DATE(birthdate)>'2016-10-01'
+
+

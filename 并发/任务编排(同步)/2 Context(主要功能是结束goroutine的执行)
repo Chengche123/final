@@ -1,0 +1,39 @@
+1 适用场景:
+    一: 上下文信息传递 （request-scoped），比如处理 http 请求、在请求处理链路上传递信息；
+    二: 控制子 goroutine 的运行；
+    三: 超时控制的方法调用；
+    四: 可以取消的方法调用。
+
+2 接口:
+    一: type Context interface {
+            Deadline() (deadline time.Time, ok bool)
+            Done() <-chan struct{}
+            Err() error
+            Value(key interface{}) interface{}
+        }
+    二: Deadline 方法会返回这个 Context 被取消的截止日期。如果没有设置截止日期，ok 的值是 false。
+    三: Done 方法返回一个 Channel 对象。在 Context 被取消时，此 Channel 会被 close，如果没被取消，可能会返回 nil。
+    四: 当 Done 被 close 的时候，你可以通过 ctx.Err 获取错误信息。
+    五: Value 返回此 ctx 中和指定的 key 相关联的 value。
+
+3 在使用 Context 的时候，有一些约定俗成的规则:
+    一: 一般函数使用 Context 的时候，会把这个参数放在第一个参数的位置。
+    二: key 的类型不应该是字符串类型或者其它内建类型，否则容易在包之间使用 Context 时候产生冲突。
+        使用 WithValue 时，key 的类型应该是自己定义的类型。
+    
+4 创建特殊用途 Context 的方法:
+    一: WithValue 基于 parent Context 生成一个新的 Context，保存了一个 key-value 键值对。它常常用来传递上下文。
+        type valueCtx struct {
+            Context
+            key, val interface{}
+        }
+        它持有一个 key-value 键值对，还持有 parent 的 Context。
+        它覆盖了 Value 方法，优先从自己的存储中检查这个 key，不存在的话会从 parent 中继续检查。
+    二: WithCancel 方法返回 parent 的副本，只是副本中的 Done Channel 是新建的对象，它的类型是 cancelCtx。
+        cancel 是向下传递的，如果一个 WithCancel 生成的 Context 被 cancel 时，
+        如果它的子 Context也是 cancelCtx 类型的，就会被 cancel
+        但是不会向上传递。parent Context 不会因为子 Context 被 cancel 而 cancel。
+    三: WithDeadline 会返回一个 parent 的副本，并且设置了一个不晚于参数 d 的截止时间，
+        类型为 timerCtx（或者是 cancelCtx）。
+    四: WithTimeout 其实是和 WithDeadline 一样，只不过一个参数是超时时间，一个参数是截止时间。
+

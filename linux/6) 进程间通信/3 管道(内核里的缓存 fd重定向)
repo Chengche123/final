@@ -1,0 +1,26 @@
+1 匿名管道（Anonymous Pipes）:
+    一: 匿名管道来自一个特殊的文件系统pipefs。这个文件系统被挂载后，用new_inode_pseudo函数创建一个特殊的inode
+    二: 所谓的匿名管道，其实就是内核里面的一串缓存。
+
+2 使管道跨两个进程:
+    一: 调用fork创建的子进程会复制父进程的struct files_struct，在这里面的fd的数组会复制一份
+        但是fd指向的struct file对于同一个文件还是只有一份,两个进程各有两个fd指向同一个struct file
+    二: 因为父进程和子进程都可以写入，也都可以读出，这种模式会造成混乱
+        通常的方法是父进程关闭读取的fd，只保留写入的fd，而子进程关闭写入的fd，只保留读取的fd
+
+3 shell中A|B的实现:
+    一: 首先从shell创建子进程A，然后在shell和A之间建立一个管道，其中shell保留读取端，A进程保留写入端，
+    二: 然后shell再创建子进程B。shell里面保留的读取端的fd也被复制到了子进程B里面。
+    三: shell主动关闭读取端，就变成了一管道，写入端在A进程，读取端在B进程。
+    四: 用dup2系统调用将这个管道的两端和输入输出关联起来
+        1) int dup2(int oldfd, int newfd); 将老的文件描述符赋值给新的文件描述符，让newfd的值和oldfd一样。
+        2) 在A进程中，写入端可以做这样的操作：dup2(fd[1],STDOUT_FILENO)
+           将STDOUT_FILENO不再指向标准输出，而是指向创建的管道文件
+        3) 在B进程中，读取端可以做这样的操作，dup2(fd[0],STDIN_FILENO)
+           将STDIN_FILENO也即第零项不再指向标准输入，而是指向创建的管道文件
+
+4 匿名管道和命名管道:
+    一: 无论是匿名管道，还是命名管道，在内核都是一个文件,对应特殊的inode
+        这个inode对应内存里面的缓存,file_operations也指向管道特殊的pipefifo_fops。
+    二: 写入一个pipe就是从struct file结构找到缓存写入，读取一个pipe就是从struct file结构找到缓存读出。
+

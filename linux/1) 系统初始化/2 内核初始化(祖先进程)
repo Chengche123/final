@@ -1,0 +1,12 @@
+1 0号进程:
+    一: struct task_struct init_task = INIT_TASK(init_task)。它是系统创建的第一个进程，我们称为0号进程。
+    二: 这是唯一一个没有通过fork或者kernel_thread产生的进程，是进程列表的第一个。
+
+2 1号进程: 用户态祖先进程的创建；
+    一: rest_init的第一大工作是，用kernel_thread(kernel_init, NULL, CLONE_FS)创建第二个进程，这个是1号进程。
+    二: 该进程会运行kernel_init函数。
+
+3 2号进程: 内核态祖先进程的创建。
+    一: 使用kernel_thread(kthreadd, NULL, CLONE_FS | CLONE_FILES)函数创建进程
+    二: 函数kthreadd，负责所有内核态的线程的调度和管理，是内核态所有线程运行的祖先。
+

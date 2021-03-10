@@ -1,0 +1,24 @@
+1 打包命令:
+    一:
+        • tar 打包命令
+        • 常⽤参数
+        • c 打包
+        • x 解包
+        • f 指定操作类型为⽂件
+
+2 压缩和解压缩:
+    一:
+        可以使⽤ gzip 和 bzip2 命令单独操作
+        • 通常和 tar 命令配合操作
+        • 常⽤参数
+        • -z gzip 格式压缩和解压缩
+        • -j bzip2 格式压缩和解压缩
+
+3 举例:
+    一: tar cf /tmp/etc-backup.tar /etc
+    二: tar czf /tmp/etc-backup.tar.gz /etc
+    三: tar cjf /tmp/etc-backup.tar.bz2 /etc
+    四: tar xf /tmp/etc-backup.tar -C /root
+    五: tar zxf /tmp/etc-backup.tar.gz -C /root
+    六: tar jxf /tmp/etc-backup.tar.bz2 -C /root
+

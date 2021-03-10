@@ -1,0 +1,60 @@
+1 CREATE VIEW:
+    一: 查询比 NBA 球员平均身高高的球员都有哪些，显示他们的球员 ID 和身高:
+            CREATE VIEW player_above_avg_height AS
+            SELECT player_id, height
+            FROM player
+            WHERE height > (SELECT AVG(height) from player)
+
+2 ALTER VIEW:
+    一: 更新视图 player_above_avg_height，增加一个 player_name 字段:
+            ALTER VIEW player_above_avg_height AS
+            SELECT player_id, player_name, height
+            FROM player
+            WHERE height > (SELECT AVG(height) from player)
+
+3 DROP VIEW:
+    一: 把刚才创建的视图删除:
+        DROP VIEW player_above_avg_height
+    二: SQLite 不支持视图的修改，仅支持只读视图，也就是说你只能使用 CREATE VIEW 和 DROP VIEW
+        如果想要修改视图，就需要先 DROP 然后再 CREATE
+
+4 如何使用视图简化 SQL 操作: 视图就是对 SELECT 语句进行了封装，方便我们重用它们
+    一: 利用视图完成复杂的连接:
+        创建视图:
+            CREATE VIEW player_height_grades AS
+            SELECT p.player_name,p.height,h.height_level
+            FROM player AS p JOIN height_grades AS h
+            ON p.height BETWEEN h.height_lowest AND h.height_highest;
+        直接通过视图查询:
+            SELECT * 
+            FROM player_height_grades 
+            WHERE height >= 1.90 AND height <= 2.08;
+    二: 利用视图对数据进行格式化:
+        比如我们想输出球员姓名和对应的球队，对应格式为 player_name(team_name):
+        创建视图:
+            CREATE VIEW player_team AS
+            SELECT CONCAT(p.player_name,'(',t.team_name,')') AS player_team
+            FROM player AS p JOIN team AS t ON p.team_id = t.team_id;
+        直接查询视图，就可以得到格式化后的结果:
+            SELECT * FROM player_team;
+                +-----------------------------------------------------+
+                | player_team                                         |
+                +-----------------------------------------------------+
+                | 韦恩-艾灵顿(底特律活塞)                             |
+                | 雷吉-杰克逊(底特律活塞)                             |
+                | 安德烈-德拉蒙德(底特律活塞)                         |
+    三: 使用视图与计算字段:
+        在数据查询中，有很多统计的需求可以通过视图来完成
+        统计每位球员在每场比赛中的二分球、三分球和罚球的得分，可以通过创建视图完成：
+            CREATE VIEW game_player_score AS
+            SELECT game_id, player_id, (shoot_hits-shoot_3_hits)*2 AS shoot_2_points, shoot_3_hits*3 AS shoot_3_points, shoot_p_hits AS shoot_p_points, score  
+            FROM player_score;
+        然后通过查询视图就可以完成:
+            SELECT * FROM game_player_score;
+                +---------+-----------+----------------+----------------+----------------+-------+
+                | game_id | player_id | shoot_2_points | shoot_3_points | shoot_p_points | score |
+                +---------+-----------+----------------+----------------+----------------+-------+
+                |   10001 |     10001 |             12 |             12 |              2 |    26 |
+                |   10001 |     10002 |             14 |              3 |              5 |    22 |
+                |   10001 |     10003 |             16 |              0 |              2 |    18 |
+        

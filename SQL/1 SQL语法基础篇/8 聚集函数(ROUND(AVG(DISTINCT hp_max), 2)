@@ -1,0 +1,44 @@
+1 聚集函数和分组过滤: 
+    一: 聚集函数，它是对一组数据进行汇总的函数，输入的是一组数据的集合，输出的是单个值
+    二: 如果稍微复杂一些，我们还需要先对数据做筛选，然后再进行聚集，
+        比如先按照某个条件进行分组，对分组条件进行筛选，然后得到筛选后的分组的汇总信息。
+
+2 聚集函数都有哪些:
+    一: COUNT(总行数) SUM AVG MAX MIN
+    二: 查询最大生命值大于 6000，且有次要定位的英雄数量:
+        SQL：SELECT COUNT(role_assist) FROM heros WHERE hp_max > 6000
+        COUNT(role_assist)会忽略值为 NULL 的数据行
+    三: 射手（主要定位或者次要定位是射手）的英雄数、平均最大生命值、法力最大值的最大值、攻击最大值的最小值，
+        以及这些英雄总的防御最大值等汇总数据。
+        SQL: SELECT COUNT(*), AVG(hp_max), MAX(mp_max), MIN(attack_max), SUM(defense_max) 
+        FROM heros WHERE role_main = '射手' or role_assist = '射手'
+    四: 假如我们想要统计不同生命最大值英雄的平均生命最大值，保留小数点后两位:
+        SQL: SELECT ROUND(AVG(DISTINCT hp_max), 2) FROM heros
+
+3 分组，并进行聚集统计:
+    一: 对英雄按照次要定位进行分组，并统计每组英雄的数量:
+        SELECT COUNT(*), role_assist FROM heros GROUP BY role_assist
+    二: 按照英雄的主要定位、次要定位进行分组，查看这些英雄的数量:
+        SELECT COUNT(*) as num, role_main, role_assist FROM heros GROUP BY role_main, role_assist ORDER BY num DESC
+            +-----+-----------+-------------+
+            | num | role_main | role_assist |
+            +-----+-----------+-------------+
+            |  12 | 法师      | NULL        |
+            |   9 | 射手      | NULL        |
+            |   8 | 战士      | NULL        |
+            |   6 | 战士      | 坦克        |
+    
+4 使用 HAVING 过滤分组:
+    一: 当我们创建出很多分组的时候，有时候就需要对分组进行过滤。
+        HAVING 支持所有 WHERE 的操作，因此所有需要 WHERE 子句实现的功能，你都可以使用 HAVING 对分组进行筛选
+    二: 筛选最大生命值大于 6000 的英雄，按照主要定位、次要定位进行分组，
+        并且显示分组中英雄数量大于 5 的分组，按照数量从高到低进行排序
+        SQL: SELECT COUNT(*) as num, role_main, role_assist FROM heros WHERE hp_max > 6000 
+        GROUP BY role_main, role_assist HAVING num > 5 ORDER BY num DESC
+            +-----+-----------+-------------+
+            | num | role_main | role_assist |
+            +-----+-----------+-------------+
+            |   8 | 战士      | NULL        |
+            |   6 | 战士      | 坦克        |
+            +-----+-----------+-------------+
+

@@ -18,6 +18,19 @@
     atomic.AddUint64(&ui64, ^uint64(-NN-1))
     这表示原子地把uint64 类型的变量ui64 的值增加NN （或者说减小-NN ）
 
+4 第三方库的扩展:
+    一: 关注度比较高的uber-go/atomic，它定义和封装了几种与常见类型相对应的原子操作类型，这些类型提供了原子操作的方法。
+        这些类型包括 Bool、Duration、Error、Float64、Int32、Int64、String、Uint32、Uint64 等。
+    二: 
+        var running atomic.Bool
+        running.Store(true)
+        running.Toggle()
+        fmt.Println(running.Load()) // false
+        
+5 数据一致性:
+    一: atomic 不仅仅可以保证赋值的数据完整性，
+        还能保证数据的可见性，一旦一个核更新了该地址的值，其它处理器总是能读取到它的最新值。
+
 .1 应用层的原子操作是用同步操作实现的并发安全的操作，真正的原子操作不需要同步原语，直接由CPU保证
 
 .2 CAS+LOAD for 循环:

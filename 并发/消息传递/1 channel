@@ -1,0 +1,14 @@
+1 接收数据:
+    一: 接收数据时，还可以返回两个值。第一个值是返回的 chan 中的元素
+    二: 第二个值是 bool 类型，代表是否成功地从 chan 中读取到一个值，
+        如果第二个参数是 false，chan 已经被 close 而且 chan 中没有缓存的数据
+    三: 如果从 chan 读取到一个零值，可能是 sender 真正发送的零值，也可能是 closed 的并且没有缓存元素产生的零值。
+
+2 其它操作:
+    一: close 会把 chan 关闭掉，cap 返回 chan 的容量，len 返回 chan 中缓存的还未被取走的元素数量。
+
+3 会 panic 的情况:
+    一: close 为 nil 的 chan；
+    二: send 已经 close 的 chan；
+    三: close 已经 close 的 chan。
+

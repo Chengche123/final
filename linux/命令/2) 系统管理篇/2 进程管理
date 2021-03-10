@@ -1,0 +1,54 @@
+1 进程的查看命令:
+    一: • ps
+        -e 显示所有进程。
+        -f 　显示UID,PPID,C STIME CMD
+        # ps -efL     #查看线程数
+    二: • pstree 查看进程树
+    三: • top 动态显示进程信息、内存占用率、CPU占用率
+        up 1:22  系统运行时间，格式为时:分
+        2 users   当前登录用户数
+        load average: 0.06, 0.60, 0.48  系统负载，即任务队列的平均长度。用来衡量系统繁忙程度
+
+        -p<进程号> 指定进程
+
+2 进程的优先级调整:
+    一: nice 范围从-20 到 19 ，值越⼩优先级越⾼，抢占资源就越多
+        # nice -n 19 vim &  #设置优先级为19
+    二: renice 重新设置优先级
+        # renice -5 -p 5200   #PID为5200的进程nice设为-5 
+
+3 进程的作业控制:
+    一: jobs和&
+        常用: jobs fg bg ctrl+z
+
+4 守护进程:
+    一: nohup(非守护进程,仅仅忽略 hangup（挂起）信号)
+        # nohup crontab_php.sh >test 2>&1 &   
+        例子说明：
+            #退出后继续执行sh文件,将标准错误2重定向到标准输出1，然后将标准输出导入文件，结果就是包含了标准输出和标准错误输出
+    二: screen: 使用ssh登陆到远程linux机器上做一些耗时的操作。
+        • screen 进⼊ screen 环境
+        • ctrl+a d 退出 (detached) screen 环境
+        • screen -ls 查看 screen 的会话
+        • screen -r sessionid 恢复会话
+        • screen -S test      #创建一个带名字的screen会话，并且attached模式
+            三: 系统⽇志: /var/log
+        1) messages: 系统报错日志。它包含了系统启动时的引导消息，以及系统运行时的其他状态消息。
+        2) dmesg: 内核启动日志
+        3) cron: 计划任务日志信息
+    四: service
+        脚本存放位置: /etc/init.d/
+    五: systemctl
+        1)软件包安装的服务单元 /usr/lib/systemd/system/
+        2)systemctl status | start | stop | restart | reload | enable | disable 服务名称
+        3)# systemctl get-default   # 查看当前运行级别
+          # systemctl set-default graphical.target  # 设置当前级别为图形化级别，也就是级别5
+        4) /etc/systemd/system和/usr/lib/systemd/system 的区别:
+           Systemd 默认从目录/etc/systemd/system/读取配置文件,里面存放的大部分文件都是符号链接，指向目录/usr/lib/systemd/system/
+
+
+
+
+
+
+

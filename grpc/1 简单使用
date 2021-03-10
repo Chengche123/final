@@ -1,0 +1,39 @@
+1 生成客户端和服务端的代码:
+    一: protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative <file_name>
+
+2 创建服务端:
+    一: 实现RPC接口
+        1) 简单RPC:
+           func (s *routeGuideServer) GetFeature(ctx context.Context, point *pb.Point) (*pb.Feature, error)
+        2) 服务端流式RPC:
+           func (s *routeGuideServer) ListFeatures(rect *pb.Rectangle, stream pb.RouteGuide_ListFeaturesServer) error
+           不同于简单的req和res,而是用一个特殊的RouteGuide_ListFeaturesServer对象去发送res,使用它的Send方法
+        3) 客户端流式RPC:
+           func (s *routeGuideServer) RecordRoute(stream pb.RouteGuide_RecordRouteServer)
+           同样有一个流对象,调用Recv接收req和调用SendAndClose发送res,当接收到的err为io.EOF时说明客户端不再发送req
+        4) 双向流RPC:
+           func (s *routeGuideServer) RouteChat(stream pb.RouteGuide_RouteChatServer) error
+           调用流对象的Send方法发送res和Recv方法接收req
+           单独的一个流的接收会按对方的发送顺序,但是两个流之间互相独立
+    二: 运行服务
+        1) 创建套接字 lis, err := net.Listen(...).
+        2) 创建gRPC服务器的对象实例 var opts []grpc.ServerOption ... ; grpcServer := grpc.NewServer(opts...)
+        3) 注册服务的实现 pb.RegisterRouteGuideServer(grpcServer, newServer())
+        4) 调用Serve开始阻塞,可以调用Stop停止服务 grpcServer.Serve(lis)
+
+3 创建客户端:
+    一: 创建套接字: var opts []grpc.DialOption ...; conn, err := grpc.Dial(*serverAddr, opts...)
+        可以通过DialOptions设置鉴权功能,例如TLS,GCE或者JWT等
+    二: 创建stub: 套接字创建好后,需要stub来执行rpc调用
+        client := pb.NewRouteGuideClient(conn)
+    三: rpc调用: gRPC-Go中的rpc调用是阻塞的
+        1) 简单RPC调用: feature, err := client.GetFeature(context.Background(), &pb.Point{409146138, -746188906})
+        2) 服务端流式RPC调用: stream, err := client.ListFeatures(context.Background(), rect)
+           多次调用Recv方法接收res,直到返回io.EOF
+        3) 客户端流式RPC调用: stream, err := client.RecordRoute(context.Background())
+           多次调用Send方法发送req,调用CloseAndRecv接收res
+        4) 双向流式RPC调用: stream, err := client.RouteChat(context.Background())
+           多次调用Send发送req,多次调用Recv接收res,调用CloseSend关闭输出流
+        
+
+           

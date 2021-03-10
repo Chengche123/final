@@ -1,0 +1,55 @@
+定义类与类之间的交互关系
+    一: 泛化（Generalization）可以简单理解为继承关系
+            public class A { ... }
+            public class B extends A { ... }
+    二: 实现（Realization）一般是指接口和实现类之间的关系
+            public interface A {...}
+            public class B implements A { ... }
+    三: 聚合（Aggregation）是一种包含关系，A 类对象包含 B 类对象，B 类对象的生命周期可以不依赖 A 类对象的生命周期
+            public class A {
+            private B b;
+            public A(B b) {
+                this.b = b;
+            }
+            }
+    四: 组合（Composition）也是一种包含关系。A 类对象包含 B 类对象，B 类对象的生命周期依赖 A 类对象的生命周期
+            public class A {
+            private B b;
+            public A() {
+                this.b = new B();
+            }
+            }
+    五: 关联（Association）是一种非常弱的关系，包含聚合、组合两种关系。
+            public class A {
+            private B b;
+            public A(B b) {
+                this.b = b;
+            }
+            }
+            或者
+            public class A {
+            private B b;
+            public A() {
+                this.b = new B();
+            }
+            }
+    六: 依赖（Dependency）是一种比关联关系更加弱的关系，包含关联关系。
+        不管是 B 类对象是 A 类对象的成员变量，还是 A 类的方法使用 B 类对象作为参数或者返回值、局部变量，
+        只要 B 类对象和 A 类对象有任何使用关系，我们都称它们有依赖关系。
+            public class A {
+            private B b;
+            public A(B b) {
+                this.b = b;
+            }
+            }
+            或者
+            public class A {
+            private B b;
+            public A() {
+                this.b = new B();
+            }
+            }
+            或者
+            public class A {
+            public void func(B b) { ... }
+            }

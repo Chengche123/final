@@ -1,0 +1,49 @@
+1 软件包管理器:
+    一: 包管理器是⽅便软件安装、卸载，解决软件依赖关系的重要⼯具
+    二: CentOS、RedHat 使⽤ yum 包管理器，软件安装包格式为 rpm
+    三: Debian、Ubuntu 使⽤ apt 包管理器，软件安装包格式为 deb
+
+2 rpm 包:
+    一: rpm 包格式
+        vim-common-7.4.10-5.el7.x86_64.rpm
+        软件名称   软件版本 系统版本 平台
+
+3 rpm 命令:
+    一: -q 查询软件包
+        rpm -qa查询已安装的所有软件包 rpm -q vim-common查询指定软件包
+    二: -i 安装软件包
+        rpm -i vim-common-7.4.10-5.el7.x86_64.rpm
+        # rpm -ivh ipchains-1.3.6-1.i386.rpm     #安装包，并显示详细进度
+    三: -e 卸载软件包
+        rpm -e vim-common
+
+4 yum配置文件:
+    一: 位置: /etc/yum.repos.d/CentOS-Base.repo
+    二: 更换源:
+        wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+        运行 yum makecache 生成缓存
+    三: 阿里巴巴开源镜像站: http://opsx.alibaba.com/
+
+5 yum命令常⽤选项
+    一: 常用选项
+        • install 安装软件包
+        • remove 卸载软件包
+        • list| grouplist 查看软件包
+        • update 升级软件包
+
+6 其他方式安装:
+    一: ⼆进制安装
+    二: 源代码编译安装
+        • wget https://openresty.org/download/openresty-1.15.8.1.tar.gz
+        • tar -zxf openresty-VERSION.tar.gz
+        • cd openresty-VERSION/
+        • ./configure --prefix=/usr/local/openresty
+        • make -j2
+        • make install
+
+
+
+    
+
+
+

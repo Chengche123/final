@@ -1,21 +1,96 @@
 package main
 
 import (
+	"context"
+	"errors"
+	"fmt"
 	"log"
 	_ "net/http/pprof"
 	"os"
 	"os/signal"
 	"runtime"
 	"runtime/pprof"
+	"sync"
 	"syscall"
-	"test/testmodule"
 	"time"
 	"unicode/utf8"
 )
 
 func main() {
-	var i testmodule.Pair
-	i.Next()
+	var wg sync.WaitGroup
+	type result struct {
+		v   int
+		err error
+	}
+	ch := make(chan *result)
+	ctx, cancel := context.WithCancel(context.Background())
+
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func(v int, c context.Context) {
+			defer wg.Done()
+
+			select {
+			case <-c.Done():
+				return
+			default:
+			}
+
+			if v == 5 {
+				ch <- &result{
+					v:   v,
+					err: errors.New("test"),
+				}
+			} else {
+				ch <- &result{
+					v:   v,
+					err: nil,
+				}
+			}
+
+		}(i, ctx)
+	}
+
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
+
+	for v := range ch {
+		if v.err != nil {
+			cancel()
+			log.Println(v.err)
+			for range ch {
+			}
+			return
+		}
+
+		fmt.Println(v.v)
+	}
+}
+
+func main2() {
+	log.Println("ok")
+
+	now := time.Now()
+	for i := 1; i <= 100; i++ {
+		for j := 1; j <= 1000; j++ {
+			for k := 1; k <= 10000; k++ {
+
+			}
+		}
+	}
+	fmt.Println(time.Now().Sub(now))
+
+	now = time.Now()
+	for i := 1; i <= 10000; i++ {
+		for j := 1; j <= 1000; j++ {
+			for k := 1; k <= 100; k++ {
+
+			}
+		}
+	}
+	fmt.Println(time.Now().Sub(now))
 }
 
 func main1() {

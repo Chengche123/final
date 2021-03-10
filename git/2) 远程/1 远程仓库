@@ -1,0 +1,31 @@
+1 远程仓库:
+    一: 远程分支有一个特别的属性，在你检出时自动进入分离 HEAD 状态。
+    二: 远程分支反映了远程仓库在你最后一次与它通信时的状态
+        (框架)git fetch 不会更新你的本地的非远程分支, 只是下载提交记录
+    三: 先抓取更新再合并到本地分支
+        git pull 就是 git fetch 和 git merge 的缩写！
+    四: git push 负责将你的变更上传到指定的远程仓库，并在远程仓库上合并你的新提交记录
+    五: git push会强制你先合并远程最新的代码，然后才能分享你的工作
+        合并远程最新的代码: git fetch && get merge o/main
+    六: 非同名跟踪远程分支
+        git checkout -b totallyNotMain o/main
+        git branch -u o/main foo
+    七: git push参数
+        1) git push origin main
+           切到本地仓库中的“main”分支，获取所有的提交，再到远程仓库“origin”中找到“main”分支，将远程仓库中没有的提交记录都添加上去
+        2) git push origin foo:bar
+           比如你想把本地的 foo 分支推送到远程仓库中的 bar 分支。
+    八: git fetch参数
+        1) git fetch origin foo
+           Git 会到远程仓库的 foo 分支上，然后获取所有本地不存在的提交，放到本地的 o/foo 上。
+
+    
+
+2 同步github:
+    一: 添加远程库
+        git remote add [shortname] [url]
+        git remote add origin git@github.com:tianqixin/runoob-git-test.git
+    二: 查看当前的远程库
+        $ git remote -v
+    三: 删除远程仓库
+        git remote rm [别名]

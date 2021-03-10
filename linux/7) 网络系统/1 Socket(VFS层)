@@ -1,0 +1,12 @@
+1 发送网络包:
+    一: VFS层：write系统调用找到struct file，根据里面的file_operations的定义，调用sock_write_iter函数。
+        sock_write_iter函数调用sock_sendmsg函数。
+    二: Socket层：从struct file里面的private_data得到struct socket，根据里面ops的定义，调用inet_sendmsg函数。
+    ...
+
+2 发送网络包:
+    一: VFS层：read系统调用找到struct file，根据里面的file_operations的定义，调用sock_read_iter函数。
+        sock_read_iter函数调用sock_recvmsg函数。
+    二: Socket层：从struct file里面的private_data得到struct socket，根据里面ops的定义，调用inet_recvmsg函数。
+    ...
+

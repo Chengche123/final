@@ -1,0 +1,12 @@
+1 man:
+    一: man是⼀条命令，分为 9 章，可以使⽤ man 命令获得 man 的帮助
+        # man 7 man
+
+2 help:
+    一: 内部命令使⽤ help 帮助 # help cd
+    二: 外部命令使⽤help帮助 # ls --help
+
+3 info:
+    一: info 帮助⽐ help 更详细，作为 help 的补充
+        # info ls
+
