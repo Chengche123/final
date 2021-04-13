@@ -1,0 +1,25 @@
+1 获取视频详情接口:
+    1)用videoId做通配请求
+    2)在video表中找到相应的行
+    3)返回全部信息(id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等)
+2 获取视频剧集列表接口:
+    1)用videoId做通配请求
+    2)在video_episodes表中找到相应的行,按 第几集 排序
+    3)返回id,标题,添加时间,第几集,播放地址,评论数信息
+
+3 Redis改造获取视频详情models:
+    1)定义redisKey为video:id:加上video_id,用exists判断缓存是否存在
+    2)若缓存miss,调用原来的models方法获取到一个video对象,用hmset保存到redis中,设置过期时间为1天
+    3)若缓存命中,用hgetall获取在哈希表中的所有字段和值,反序列化成video对象
+    4)返回video对象
+
+4 Redis改造获取视频剧集列表models:
+    1)定义redisKey为video:episodes:videoId:加上video_id,用exists判断缓存是否存在
+    2)若缓存miss,调用原来的models方法获取到episodes(剧集对象数组)
+      遍历剧集对象数组,对每个剧集对象json序列化,接着用rpush保存到redis中
+      设置缓存过期时间为1天
+    3)若缓存命中,用llen得到list长度,遍历list取出字符串,将字符串json反序列化为剧集对象,添加到episodes(剧集对象数组)中
+    4)返回episodes(剧集对象数组)
+
+
+

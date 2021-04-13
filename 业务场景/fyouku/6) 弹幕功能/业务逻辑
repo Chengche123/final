@@ -1,0 +1,11 @@
+1 获取弹幕websocket接口:
+    1)收到http通配连接请求后,立即Upgrade成websocket协议
+    2)等待客户端消息,客户端消息中需带有视频的当前播放时间curren_time和episodes_id字段
+    3)根据episodes_id,在barrage表中找到[curren_time,curren_time+60)一分钟之内的弹幕
+    4)返回满足条件的弹幕id,内容和发射时间
+
+2 保存弹幕接口:
+    1)用用户id,弹幕内容,发射时间,剧集id和视频id做通配请求
+    2)将相应的弹幕保存到barrage表中
+    3)返回状态信息
+

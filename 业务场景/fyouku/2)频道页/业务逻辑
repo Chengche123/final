@@ -1,0 +1,59 @@
+1 获取顶部广告接口用channelId字段做通配请求,返回相应的频道广告信息(广告图片,跳转地址等)
+
+2 获取正在热播接口:
+    1)用channelId和limit字段做通配请求
+    2)在video表中找相应的正在热播(is_hot=1)和状态正常(status=1)的视频
+    3)返回id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+3 根据频道地区获取推荐的视频接口:
+    1)用channelId,regionId和limit做通配请求
+    2)在video表中找相应的正在推荐(is_recommend=1)的视频
+    3)返回id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+4 根据频道类型获取推荐视频
+    1)用channelId,typeId和limit字段通配请求
+    2)在video表中找相应的正在推荐(is_recommend=1)的视频
+    3)返回id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+5 根据频道获取排行榜接口:
+    1)用channelId和limit字段做通配请求
+    2)在video表中找到相应的status正常的行,根据评论数降序排序
+    3)返回视频的id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+6 根据类型获取排行榜接口:
+    1)用typeId和limit字段做通配请求
+    2)在video表中找到相应的status正常的行,根据评论数降序排序
+    3)返回视频的id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+7 Redis改造获取频道排行榜models:
+    1)定义redisKey为video:top:channel:channelId:加上频道id,用exists判断缓存是否存在
+    2)若缓存miss,调用原来的models方法获取到videos(视频对象数组)
+      遍历视频对象数组,对于得到的每个视频对象,用zadd添加到redis中,score为评论数,value为视频id
+      设置缓存过期时间为1天
+    3)若缓存命中,用zrevrange 按照score降序得到前10对键值对,取出每对键值对中的视频id
+      根据视频id调用models中的获取视频详情方法,得到video对象,将其添加到videos数组中
+    4)返回videos(视频对象数组)
+
+8 Redis改造获取类型排行榜models:
+    1)定义redisKey为video:top:type:typeId:加上类型id,用exists判断缓存是否存在
+    2)若缓存miss,调用原来的models方法获取到videos(视频对象数组)
+      遍历视频对象数组,对于得到的每个视频对象,用zadd添加到redis中,score为评论数,value为视频id
+      设置缓存过期时间为1天
+    3)若缓存命中,用zrevrange 按照score降序得到前10对键值对,取出每对键值对中的视频id
+      根据视频id调用models中的获取视频详情方法,得到video对象,将其添加到videos数组中
+    4)返回videos(视频对象数组)
+
+9 MQ改造发布评论后更新排行榜功能models:
+    0)原因: 获取排行榜的请求对实时性要求不高,加快发布评论后的响应可以提升用户体验
+    1)调用原来的models方法将评论插入到comment表中,并且更新video和video_episodes表中相应行的comment(评论数)字段
+    2)定义exchange为空字符串,queue_name为fyouku_top,使用简单模式
+      将video_id包成json字符串,然后publish
+    3)开一个单独进程,接收fyouku_top队列的消息
+      从消息中拿出video_id,调用获取视频详情的models方法,从返回的video对象中拿到对应的频道id和类型id
+      用频道id拼出频道排行榜缓存key 用zincrby 根据video_id找到相应的value 将score(评论数)加1
+      用类型id拼出类型排行榜缓存key 用zincrby 根据video_id找到相应的value 将score(评论数)加1
+
+
+
+
+

@@ -1,0 +1,4 @@
+1 注册接口用mobile和password字段做post请求,注册成功只返回状态信息,不返回业务字段
+2 登录接口用mobile和password字段做通配请求,登录成功返回uid和username
+3 密码不直接存储在数据库中,而是加上一个简短密钥再做MD5
+4 在每个表中都有相应自增主键id,状态字段status,添加时间字段add_time

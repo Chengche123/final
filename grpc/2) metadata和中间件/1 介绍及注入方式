@@ -1,0 +1,24 @@
+1 metadata是map[string][]string类型,可以注入到context中发送给被调用方,可用于携带token等信息
+
+2 注入方式:
+    一: 新建metadata
+        //第一种方式
+        md := metadata.New(map[string]string{"key1": "val1", "key2": "val2"})
+        //第二种方式 key不区分大小写，会被统一转成小写。
+        md := metadata.Pairs(
+            "key1", "val1",
+            "key1", "val1-2", // "key1" will have map value []string{"val1", "val1-2"}
+            "key2", "val2",
+        )
+    二: 发送metadata
+        md := metadata.Pairs("key", "val")
+        // 新建一个有 metadata 的 context
+        ctx := metadata.NewOutgoingContext(context.Background(), md)
+        // 单向 RPC
+        response, err := client.SomeRPC(ctx, someRequest)
+    三: 接收metadata
+        func (s *server) SomeRPC(ctx context.Context, in *pb.SomeRequest) (*pb.SomeResponse, err) {
+            md, ok := metadata.FromIncomingContext(ctx)
+            // do something with metadata
+        }
+

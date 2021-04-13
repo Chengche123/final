@@ -1,0 +1,41 @@
+1 获取频道地区列表接口:
+    1)用channelId做通配请求
+    2)在channel_region表中找相应的状态正常(status=1)的行
+    3)返回所有行的id和分类名称(日本,中国大陆,美国)
+
+2 获取频道类型列表接口:
+    1)用channelId做通配请求
+    2)在channel_type表中找相应的状态正常(status=1)的行
+    3)返回所有行的id和分类名称(少女,热血,青春)
+
+3 根据传入参数获取视频列表接口:
+    1)用频道ID,频道地区ID,频道类型ID,状态,排序,页码信息(limit,offset)做通配请求
+    2)在video表中找相应的符合条件的行
+    3)返回id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+4 我的视频管理接口:
+    1)用uid做通配请求
+    2)在video表中找相应的符合条件的行,根据添加时间降序排序
+    3)返回id,标题,副标题,添加时间,横版缩略图,竖版缩略图,集数和是否完结等信息
+
+5 ElasticSearch改造视频搜索models:
+    1)在es中创建fyouku_video索引,并且在该索引下创建与video表中字段相对应的mapping
+      写个脚本将video表中的数据导入到es中
+    2)该models方法接收要搜索的关键字keyword,offset和limit参数
+    3)用keyword构造esAPI的query字段;构造sort字段,按照id降序;
+      用offset构造from字段;用limit构造size字段;
+    4)请求参数放到body中,用POST方法调用esAPI,得到json格式的字符串,经一系列反序列化后得到video对象数组
+    5)返回video对象数组
+
+6 ElasticSearch改造根据传入参数获取视频列表models:
+    1)在es中创建fyouku_video索引,并且在该索引下创建与video表中字段相对应的mapping
+      写个脚本将video表中的数据导入到es中
+    2)该models方法接收channel_id,region_id,type_id,is_end,sort_type,offset和limit参数
+    3)用channel_id,region_id,type_id,is_end构造esAPI的query字段;用sort_type构造sort字段;
+      用offset构造from字段;用limit构造size字段;
+    4)请求参数放到body中,用POST方法调用esAPI,得到json格式的字符串,经一系列反序列化后得到video对象数组
+    5)返回video对象数组
+
+
+
+

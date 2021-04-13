@@ -2,6 +2,8 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"log"
@@ -17,6 +19,11 @@ import (
 )
 
 func main() {
+	fmt.Println(base64.RawStdEncoding.EncodeToString([]byte("Hello Gopher!")))
+	fmt.Println(hex.EncodeToString([]byte("Hello Gopher!")))
+}
+
+func main3() {
 	var wg sync.WaitGroup
 	type result struct {
 		v   int

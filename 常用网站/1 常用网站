@@ -1,0 +1,13 @@
+1 SSL For Free: https://www.sslforfree.com/
+2 公密钥生成: https://cryptotools.net/rsagen
+3 在线验证jwt: https://jwt.io/
+
+4 http1 vs http2: https://http1.akamai.com/demo/http2-lab.html
+5 免费证书申请: 运行https://get.acme.sh脚本安装acme命令
+  例: ./acme.sh --issue -d www.chengche.ink --webroot /usr/share/
+
+6 flutter第三方包下载: pub.dev
+7 docker镜像: https://www.daocloud.io/mirror
+
+8 json to go: https://mholt.github.io/json-to-go/
+9 json to dart: https://javiercbk.github.io/json_to_dart/

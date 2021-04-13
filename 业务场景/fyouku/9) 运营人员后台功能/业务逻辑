@@ -1,0 +1,20 @@
+1 批量发送通知消息接口:
+    1)用uids和content做通配请求
+    2)将消息内容和添加时间保存到message表中,得到message_id
+    3)将uids字符串用','分割成多个user_id;对每个user_id,将message_id,user_id,添加时间保存到message_user表中
+    4)返回状态信息
+
+2 MQ改造保存消息接收人models:
+    0)原因: 若消息接受人比较多,达到十万或百万级别后,用同步调用会导致响应时间过慢
+    1)定义exchange为空字符串,queue_name为fyouku_send_message_user,使用简单模式
+      将该models方法接收到的user_id和message_id包成json字符串,然后publish
+    2)开一个单独进程,接收fyouku_send_message_user队列的消息
+      从消息中拿出user_id和message_id,调用原来的直接打在db上的保存消息接收人的models方法
+
+3 Goroutine改造批量发送通知消息接口:
+    1)其他业务逻辑保持不变,仅在获取到消息的message_id和接收消息的用户id后,从原来的串行调用发送消息的models方法,改为并发调用
+    2)如果不用返回状态信息,那么可以直接将原来串行的代码用go语句包起来
+    3)如果需要返回状态信息,因为要限制并发数,任务编排用channel
+
+
+
