@@ -1,0 +1,16 @@
+1 (框架)内核实现和工作效率:轮询和回调
+    select和poll采用的都是轮询的方式,它们检测就绪事件的算法的时间复杂度是O（n）
+    epoll_wait则不同，它采用的是回调的方式。内核检测到就绪的文件描述符时，将触发回调函数,算法时间复杂度是O（1）
+
+2 (框架)适用情况:并发连接数量和连接活跃情况
+    当活动连接比较多的时候，epoll_wait的效率未必比select和poll高，因为此时回调函数被触发得过于频繁。
+    所以epoll_wait适用于连接数量多，但活动连接较少的情况。
+
+3 (框架)工作模式:LT和ET
+    select和poll:LT模式
+    epoll:可以工作在ET高效模式。并且epoll还支持EPOLLONESHOT事件
+
+4 (框架)最大支持文件描述符数:
+    poll和epoll:65535（cat/proc/sys/fs/file-max）
+    select:fd_set能容纳的文件描述符数量由FD_SETSIZE指定
+

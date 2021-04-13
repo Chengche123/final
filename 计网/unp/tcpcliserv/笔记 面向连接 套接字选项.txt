@@ -1,0 +1,28 @@
+1 SO_KEEPALIVE: 本选项一般由服务器使用，不过客户也可以使用。
+服务器使用本选项是因为它们花大部分时间阻塞在等待穿越TCP连接的输入上，也就是说在等待客户的请求。
+然而如果客户主机连接掉线、电源掉电或系统崩溃，服务器进程将永远不会知道，并将继续等待永远不会到达的输入。
+我们称这种情况为半开连接（half-open connection）。保持存活选项将检测出这些半开连接并终止它们。
+
+2 SO_LINGER:
+书籍:
+1)默认操作是close立即返回，但是如果有数据残留在套接字发送缓冲区中，系统将试着把这些数据发送给对端。
+2)如果l_onoff为非0值且l_linger为0，那么当close某个连接时TCP将中止该连接（TCPv2第1019～1020页）。
+这就是说TCP将丢弃保留在套接字发送缓冲区中的任何数据，并发送一个RST给对端，而没有通常的四分组连接终止序列（2.6节）。
+3) 如果l_onoff为非0值且l_linger也为非0值，那么当套接字关闭时内核将拖延一段时间。
+这就是说如果在套接字发送缓冲区中仍残留有数据，那么进程将被投入睡眠，直到（a）所有数据都已发送完且均被对方确认或（b）延滞时间到。
+
+Golang API:
+func (c *TCPConn) SetLinger(sec int) error
+SetLinger sets the behavior of Close on a connection which still has data waiting to be sent or to be acknowledged.
+
+If sec < 0 (the default), the operating system finishes sending the data in the background.
+
+If sec == 0, the operating system discards any unsent or unacknowledged data.
+
+If sec > 0, the data is sent in the background as with sec < 0. On some operating systems after sec seconds have elapsed any remaining unsent data may be discarded. 
+
+3 SO_REUSEADDR选项:
+默认情况下，当监听服务器在步骤d通过调用socket、bind和listen重新启动时，
+由于它试图捆绑一个现有连接（即正由早先派生的那个子进程处理着的连接）上的端口，从而bind调用会失败。
+但是如果该服务器在socket和bind两个调用之间设置了SO_REUSEADDR套接字选项，那么bind将成功。
+所有TCP服务器都应该指定本套接字选项，以允许服务器在这种情形下被重新启动。

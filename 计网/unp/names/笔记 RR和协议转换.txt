@@ -1,0 +1,8 @@
+1 资源记录:
+freebsd　　　　IN　　A　　　　 12.106.32.254
+　　　　　　　　IN　　AAAA　　　3ffe:b80:8d:1:a00:20ff:fea7:686b
+　　　　　　　　IN　　MX　　　　5　freebsd.unpbook.com.
+　　　　　　　　IN　　MX　　　　10 mailhost.unpbook.com.
+2 协议转换:
+解析器使用UDP向本地名字服务器发出查询。如果本地名字服务器不知道答案，它通常就会使用UDP在整个因特网上查询其他名字服务器。
+如果答案太长，超出了UDP消息的承载能力，本地名字服务器和解析器会自动切换到TCP。

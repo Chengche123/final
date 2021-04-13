@@ -1,0 +1,3 @@
+1 windows本地DNS缓存:
+1) 查看命令: ipconfig /displaydns
+2) 刷新命令: ipconfig /flushdns
