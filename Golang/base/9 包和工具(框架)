@@ -44,3 +44,11 @@
   GOPROXY=https://goproxy.cn
   GOARCH=amd64
   GOOS=windows
+
+5 交叉编译linux:
+  一: SETLOCAL
+      SET CGO_ENABLED=0
+      SET GOOS=linux
+      SET GOARCH=amd64
+      go build %1%
+      ENDLOCAL

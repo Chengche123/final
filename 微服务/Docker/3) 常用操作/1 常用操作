@@ -1,0 +1,19 @@
+1 修改运行中的docker容器的端口映射
+    一: 删除原有容器，重新建新容器
+    二: 修改容器配置文件，重启docker服务
+        1)操作过程(略)
+        2)优缺点：这个方法的优点是没有副作用，操作简单。缺点是需要重启整个docker服务，
+          如果在同一个宿主机上运行着多个容器服务的话，就会影响其他容器服务。
+    三: 利用docker commit新构镜像
+        1)停止docker容器
+          docker stop container01
+        2)commit该docker容器
+          docker commit container01 new_image:tag
+        3)用前一步新生成的镜像重新起一个容器
+          docker run --name container02 -p 80:80 new_image:tag
+        4)优缺点：这种方式的优点是不会影响统一宿主机上的其他容器，缺点是管理起来显得比较乱，没有第二种方法那么直观。
+
+2 创建容器时忘了添加参数 --restart=always ，当Docker重启时，容器未能自动启动
+    一: Docker 命令修改
+        docker container update --restart=always 容器名字
+

@@ -1,0 +1,29 @@
+1 micro框架服务端:
+    一: 接口实现
+        // 实现 server.HandlerWrapper
+        func logWrapper(fn server.HandlerFunc) server.HandlerFunc {
+            return func(ctx context.Context, req server.Request, rsp interface{}) error {
+                fmt.Printf("[%v] server request: %s", time.Now(), req.Endpoint())
+                return fn(ctx, req, rsp)
+            }
+        }
+    二: 注入
+        service := micro.NewService(
+            micro.Name("greeter"),
+            // wrap the handler
+            micro.WrapHandler(logWrapper),
+        )
+
+2 micro框架客户端:
+    一: 接口
+        type CallWrapper func(CallFunc) CallFunc
+        type CallFunc func(ctx context.Context, node *registry.Node, req Request, rsp interface{}, opts CallOptions) error
+
+3 grpc原生服务端:
+    一: 接口
+        type UnaryHandler func(ctx context.Context, req interface{}) (interface{}, error)
+
+4 grpc原生客户端
+    一: 接口
+        type UnaryInvoker func(ctx context.Context, method string, req, reply interface{}, cc *ClientConn, opts ...CallOption) error
+
