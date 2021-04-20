@@ -1,0 +1,10 @@
+1 三者区别
+    一: RUN 每RUN一串命令加一层layer,在docker build时有用
+    二: CMD 是在容器启动时默认执行的命令,在docker run时可以覆盖,存在多个CMD时只有最后一个会执行
+    三: ENTRYPOINT 不被docker run的参数覆盖,并且docker run的参数会传给ENTRYPOINT脚本
+        1)最佳实践:
+            COPY docker-entrypoint.sh /usr/local/bin/
+            ENTRYPOINT ["docker-entrypoint.sh"]
+            EXPOSE 27017
+            CMD ["mongod"] # ENTRYPOINT默认参数,可被docker run覆盖
+

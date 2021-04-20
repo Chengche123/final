@@ -1,0 +1,11 @@
+1 push到docker hub:
+    一: docker login
+        docker push chengche123/auth-micro-grpc-service:1.0
+
+2 将docker hub和github关联起来:
+    一: docker hub后台服务器会订阅github仓库中的Dockerfile文件更新记录
+        然后自动build
+
+3 构建私有hub:
+    一: 用docker官方镜像registry
+

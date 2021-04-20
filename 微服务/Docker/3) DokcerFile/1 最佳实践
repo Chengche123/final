@@ -1,0 +1,31 @@
+1 最佳实践: 
+    一: from的要是安全的镜像
+        FROM scratch
+        FROM centos
+        FROM ubuntu:14.04
+    二: lable不能少
+        LABEL version="1.0"
+        LABEL maintainer="1107640282@qq.com"
+        LABEL description="this is description"
+    三: 每run一次加一层layer，所以多个命令最好放在一个run里
+        RUN yum update && yum install \
+           -y vim python-dev
+    四: workdir尽量使用绝对路径,另外不要用RUN cd
+        WORKDIR /test
+        WORKDIR demo
+        RUN pwd # 输出结果应该是 /test/demo
+    五: add和copy，推荐用copy，add有些坑
+        ADD hello /
+        ADD test.tar.gz / # 添加到根目录并解压
+
+        WORKDIR /root
+        COPY hello test/ # /root/test/hello
+    六: 尽量使用env增加扩展性
+        ENV MYSQL_VERSION 5.6
+        RUN apt-get install -y mysql-server="${MYSQL_VERSION}" # 引用环境变量
+
+2 命令逻辑上的先后顺序:
+    一: FROM LABLE RUN 准备环境
+        COPY 添加应用程序
+        EXPOSE 暴露端口
+        WORKDIR ENTRYPOINT/CMD 运行应用程序

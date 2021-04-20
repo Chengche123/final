@@ -1,0 +1,9 @@
+1 docker应用层:
+    一: docker有一个守护进程dockerd，dockerd提供rest api,docker cli可以通过rest api操作docker
+    二: 用from scratch可以打一个最小镜像
+    三: container是在image上的一个读写层
+    四: 打镜像常用的两种方法，对现有容器docker commit，
+        或者对dockerfile做docker build，
+        build image时Dockerfile中每条命令都会生成一个临时image,可以找到相应的hash值,用docker run来运行
+
+

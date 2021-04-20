@@ -10,3 +10,9 @@
         runoob@runoob:~$ docker exec -it mynginx /bin/sh /root/runoob.sh
     二: 在容器 mynginx 中开启一个交互模式的终端:
         runoob@runoob:~$ docker exec -it mynginx /bin/bash
+
+3 删除所有已经退出的容器:
+    一: docker rm $(docker ps -aq)
+
+4 获取容器/镜像的元数据
+    一: docker inspect
