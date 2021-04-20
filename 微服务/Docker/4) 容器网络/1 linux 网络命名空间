@@ -1,0 +1,5 @@
+1 常用命令:
+    一: 查看netns列表: ip netns list
+    二: 查看netns详细信息: ip netns exec test1 ip a
+    三: 添加netns: ip netns add test1
+    四: 删除netns: ip netns delete test1

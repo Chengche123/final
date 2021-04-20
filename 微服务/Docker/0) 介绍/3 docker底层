@@ -1,0 +1,4 @@
+1 底层技术支持:
+    一: Namespace: 隔离pid,net,ipc,mnt,uts
+    二: Control groups: 做资源限制
+    三: Union file systems: Container和image的分层

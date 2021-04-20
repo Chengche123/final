@@ -17,6 +17,10 @@
         $ git reflog
     三: 怎么解决冲突？
         可视化 Git 工具
+    四: 更改.gitignore之后使其生效
+        git rm -r --cached .
+        git add .
+        git commit -m 'update .gitignore'
 
 3 分支:
     一: 创建和切换

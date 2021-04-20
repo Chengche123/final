@@ -16,3 +16,9 @@
 
 4 获取容器/镜像的元数据
     一: docker inspect
+
+5 容器资源的限制:
+    一: docker run --memory=200M [image_name] # 交换分区大小在没有指定时默认和内存大小相等
+    二: docker run --cpu-shares 10 --name=test1 [image_name] # --cpu-shares 后跟占用cpu的相对权重
+        docker run --cpu-shares 5 --name=test1 [image_name]
+        此时若test1和test2两个容器占满cpu,那么test1大约占66%,test2大约占33%

@@ -1,0 +1,7 @@
+1 常用命令:
+    一: 新建一个bridge: docker network create -d bridge my-bridge
+    二: 查看新建bridge: docker network ls
+    三: 将容器与新建bridge绑起来:
+        1) docker run --name test3 --network my-bridge [image_name]
+        2) docker network connect my-bridge test3
+

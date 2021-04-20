@@ -1,0 +1,4 @@
+1 link参数:
+    一: docker run --name test2 -- link test1 [image_name]
+        该命令在test2容器中添加一条dns记录,内容是test1和该容器的ip
+    二: 在自己创建的bridge中会自动添加每台容器的名字到ip的dns记录,所以用不到该参数
