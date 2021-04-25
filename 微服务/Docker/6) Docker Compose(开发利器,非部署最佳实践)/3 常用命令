@@ -1,0 +1,6 @@
+1 常用命令:
+    一: 启services docker-compose up -d
+    二: stop和start docker-compose start/stop
+    三: 删除全部资源包括volumes docker-compose down -v
+    四: ps和images docker-compose ps -a 和 docker-compose images
+    五: 水平扩展 docker-compose up -d --scale web=3
