@@ -1,0 +1,8 @@
+.
+├── admin: 运营管理服务
+├── common: common
+├── infra: 基础设施
+├── interface: gateway
+├── job: 异步job
+├── service: rpc内部服务
+└── tool: tool

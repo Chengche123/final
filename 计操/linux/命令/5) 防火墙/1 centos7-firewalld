@@ -1,0 +1,10 @@
+1 常用命令:
+    一: 查看状态 firewall-cmd --state
+    二: 查看public下的所有规则 firewall-cmd --zone=public --list-all
+    三: 查看所有zone firewall-cmd --get-zones
+    四: 查看默认的zone和激活的zone firewall-cmd --get-default(active)-zone
+    五: 添加或者移除默认zone(public)的规则:
+        1)firewall-cmd --add(remove)-service=https --permanent #添加service
+        2)firewall-cmd --add(remove)-port=81/tcp --permanent #添加port
+        如果有--permanent参数需要 firewall-cmd --reload才会生效
+    六: 允许单个ip访问 firewall-cmd --add-source=47.115.48.243 --zone=trusted --permanent && firewall-cmd --reload

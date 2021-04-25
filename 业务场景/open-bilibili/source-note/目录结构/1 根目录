@@ -1,0 +1,5 @@
+.
+├── app: 业务
+├── build: 脚本
+├── library: 本地lib
+└── vendor: 第三方lib

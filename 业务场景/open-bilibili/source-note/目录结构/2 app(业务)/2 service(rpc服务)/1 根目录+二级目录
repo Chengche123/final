@@ -1,0 +1,25 @@
+1 根目录:
+    .
+    ├── bbq: 视频
+    ├── ep: service很少
+    ├── live: 直播
+    ├── main: 主要业务
+    ├── openplatform: 开放平台
+    ├── ops: service很少
+    └── video: service很少
+
+2 bbq(视频):
+    .
+    ├── cms
+    ├── comment
+    ├── common
+    ├── notice-service
+    ├── push
+    ├── recsys: 推荐服务
+    ├── recsys-recall: 推荐召回服务
+    ├── search
+    ├── sys-msg
+    ├── topic
+    ├── user
+    ├── video
+    └── video-image

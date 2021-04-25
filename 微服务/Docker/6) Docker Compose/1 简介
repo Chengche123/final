@@ -1,0 +1,41 @@
+1 是什么:
+    一: 可以通过一个yml文件定义多个容器的docker应用
+    二: 通过简单的命令去创建和管理多个容器
+    三: 默认文件名: docker-compose.yml
+    四: 版本: v3支持多机部署 v2只支持单机
+
+2 三大概念 services networks和volumes
+    一: services 可以看成一个container,可以从Dockerfile build来,也可以直接从docker hub拉
+    二: networks和volumes
+        1) 和docker run时的--network和-v参数一样
+        2) services:
+             db:
+               image: postgres:9.4
+               volumes:
+                 - "db-data:/var/lib/postgres/data"
+               networks:
+                 - back-tier
+           和docker run --network back-tier -v db-data:/var/lib/postgres/data postgres:9.4一样
+        3) 从本地build:
+           services:
+             worker:
+               build: ./worker
+               links: #在docker compose中不需要,只有连在docker0上时需要
+                 - db
+                 - redis
+               networks:
+                 - back-tier
+        4) volumes:
+             db-data:
+           和 docker volume create db-data一样
+        5) networks:
+             front-tier:
+               driver: bridge
+             back-tier:
+               driver: bridge
+           和 docekr network create -d bridge front-tier
+              docker network create -d bridge back-tier一样
+
+
+        
+

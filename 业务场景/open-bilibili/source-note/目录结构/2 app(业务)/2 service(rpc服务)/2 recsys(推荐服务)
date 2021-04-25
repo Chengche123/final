@@ -1,0 +1,27 @@
+1 proto包名:
+    一: package bbq.service.recsys.v1;
+        option go_package = "v1";
+
+2 业务字段:
+    一: 请求字段
+        int64 mid: 用户id 
+        string buvid: 设备id 
+        int32 limit: 响应数量 
+        int32 offset: 第几页开始
+        int64 svid: 视频id
+        string abtest: ab测试
+        string traceID: 用于服务追踪和监控
+        bool debug_flag: debug信息
+        string debug_type: debug信息
+        string queryID: 标识此次请求id
+        string app: app名字
+        string appVersion: app版本
+    二: 响应字段
+        map<string, string> message: kv
+        repeated RecsysRecord list: 视频列表
+        int64 svid: 视频id
+        double score: 权重
+        map<string, string> map: kv
+
+
+

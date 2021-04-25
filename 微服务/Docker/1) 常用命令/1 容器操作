@@ -15,7 +15,8 @@
     一: docker rm $(docker ps -aq)
 
 4 获取容器/镜像的元数据
-    一: docker inspect
+    一: docker inspect [container_hash or container_name]
+        docker image inspect [image_name]
 
 5 容器资源的限制:
     一: docker run --memory=200M [image_name] # 交换分区大小在没有指定时默认和内存大小相等

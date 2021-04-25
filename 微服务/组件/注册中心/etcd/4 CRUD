@@ -1,0 +1,6 @@
+1 常用命令:
+    1) 增改: ./etcdctl put "name" "chengche"
+    2) 查: ./etcdctl get "name"
+           ./etcdctl get "cron/jobs/" --prefix
+    3) 删: ./etcdctl del "name"
+    4) watch: ./etcdctl watch "cron/jobs/" --prefix

@@ -1,0 +1,61 @@
+1 vxlan:
+    一: vxlan的特点是将L2的以太帧封装到UDP报文(L2 over L4)
+
+2 同步系统时间:
+    一: 用date设置系统时间并且用hwclock -w将系统时间和硬件时间同步
+        date -s "2021-04-21 15:52:00"
+        hwclock -w
+    二: 用ntp同步不同服务器的时间:
+        主机A: yum install ntp && systemctl start ntpd
+        主机B: yum install ntp && ntpdate -d [主机A的ip]
+    三: 用chrony精确同步不同服务器的时间
+        https://blog.csdn.net/sr_1114/article/details/83094959
+
+3 etcd集群部署:
+    一: 主机47.115.48.243
+        nohup ./etcd --name docker-node1 \
+        --listen-peer-urls http://0.0.0.0:2380 \
+        --initial-advertise-peer-urls http://47.115.48.243:2380 \
+        --listen-client-urls http://0.0.0.0:2379 \
+        --advertise-client-urls http://47.115.48.243:2379 \
+        --initial-cluster-token etcd-cluster \
+        --initial-cluster docker-node1=http://47.115.48.243:2380,docker-node2=http://185.227.154.61:2380 \
+        --initial-cluster-state new --enable-v2=true&
+    二: 主机185.227.154.61
+        nohup ./etcd --name docker-node2 \
+        --listen-peer-urls http://0.0.0.0:2380 \
+        --initial-advertise-peer-urls http://185.227.154.61:2380 \
+        --listen-client-urls http://0.0.0.0:2379 \
+        --advertise-client-urls http://185.227.154.61:2379 \
+        --initial-cluster-token etcd-cluster \
+        --initial-cluster docker-node1=http://47.115.48.243:2380,docker-node2=http://185.227.154.61:2380 \
+        --initial-cluster-state new --enable-v2=true&
+    三: 集群状态
+        ./etcdctl --endpoints=127.0.0.1:2379,185.227.154.61:2379 endpoint status -w table #打印集群状态
+        ./etcdctl --endpoints=127.0.0.1:2379,185.227.154.61:2379 endpoint health #集群健康检查
+    四: 查看etcd服务是否支持v2版本的api
+        curl -L http://127.0.0.1:2379/v2/stats/self #当前节点信息
+        curl -L http://127.0.0.1:2379/v2/stats/leader #leader节点信息
+
+4 重启docker服务
+    一: 在docker-node1上
+        sudo service docker stop
+        sudo /usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock \
+        --cluster-store=etcd://192.168.205.10:2379 --cluster-advertise=192.168.205.10:2375&
+    二: 在docker-node2上
+        sudo service docker stop
+        sudo /usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock \
+        --cluster-store=etcd://192.168.205.11:2379 --cluster-advertise=192.168.205.11:2375&
+
+5 创建overlay network
+    一: 在docker-node1上创建一个demo的overlay network
+        sudo docker network create -d overlay demo
+    二: 我们会看到在node2上，这个demo的overlay network会被同步创建
+
+
+
+
+
+    
+
+

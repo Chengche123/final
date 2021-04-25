@@ -1,0 +1,16 @@
+1 VOLUME关键字:
+    一: 创建容器中的挂载卷,如果在容器启动时没有指定-v [volume]:[volume],会自动指定主机上对应的目录
+    二: 利用-v参数指定容器中的挂在卷:
+        1) docker run --name test1 -v /data -it ubuntu /bin/bash #docker会自动绑定主机上的一个目录
+        2) docker run --name test1 -v data:/data -it ubuntu /bin/bash #手动绑定主机上的一个目录
+    三: 查看volume docker volume ls
+
+2 最佳实践:
+    一: VOLUME ["/var/lib/mysql"]
+        docker run -v mysql:/var/lib/mysql [image_name]
+
+3 Bind Mounting:
+    一: docker run -v $(pwd):/usr/share/nginx -p 80:80 --name=web nginx
+
+4 Devops相关:
+    一: 用共享目录的方式将开发环境和docker容器打通,非常方便开发

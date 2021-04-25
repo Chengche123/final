@@ -1,0 +1,22 @@
+1 核心特性:
+    一: 将数据存储在集群中的kv存储
+    二: 可以订阅kv变化
+    三: 能应付网络分区故障(网络分区中的结点自己选举出leader)
+
+2 etcd与raft的关系:
+    一: etcd用raft算法在集群中同步kv
+
+3 交互协议:
+    一: http+json
+    二: SDK内置GRPC
+
+4 重要特性:
+    一: 底层存储的key是有序的,可以按目录遍历
+    二: 支持复杂事务,提供类似if...then..else...
+    三: 基于租约机制实现key的ttl过期
+    四: MVCC:
+        1) 同一个key维护多个revision,revision是递增的,可用于实现watch机制
+        2) 可以通过compact命令完成删减revision
+    五: 监听kv变化:
+        1) 通过watch机制,可以监听单个key或者key前缀的变化
+        2) 常用于分布式系统中的配置分发和状态同步

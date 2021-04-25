@@ -1,0 +1,27 @@
+1 常用docker run关键字:
+    一: [image_name]
+        build: ./dir
+        image: webapp:tag
+    二: -p
+        ports:
+          - 3306:3306
+          - 80:80
+    三: -e
+        environment:
+          RACK_ENV: development
+          SHOW: 'true'
+          SESSION_SECRET:
+    四: --network
+        networks:
+          - frontend
+          - backend
+    五: -v
+        volumes:
+          - db-data:/var/lib/postgresql/data
+
+2 非docker run关键字:
+    一: depends_on 控制启动顺序
+        depends_on:
+          - db
+          - redis
+    
