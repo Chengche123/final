@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  whoami:
+    image: jwilder/whoami:latest
+    networks:
+      - my-bridge
+
+  alpine:
+    image: alpine:3.7
+    command: sh -c "while true; do sleep 3600; done"
+    networks:
+      - my-bridge
+
+networks:
+  my-bridge:

@@ -1,0 +1,8 @@
+1 Scratch:
+    一: 空镜像,可以扔Golang
+
+2 Busybox:
+    一: 1M左右,集成了一百多个常用命令
+
+3 Alpine
+    一: 5M左右,功能上比busybox要完善
