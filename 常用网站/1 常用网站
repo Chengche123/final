@@ -15,3 +15,5 @@
 10 查看本机ip: curl cip.cc
 
 11 变量命名: https://unbug.github.io/codelf/
+
+12 一键生成gitignore: https://www.toptal.com/developers/gitignore
