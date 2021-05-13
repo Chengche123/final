@@ -1,0 +1,42 @@
+[
+    {
+        "tag_id": 1,
+        "tag_name": "动画情报"
+    },
+    {
+        "tag_id": 2,
+        "tag_name": "漫画情报"
+    },
+    {
+        "tag_id": 3,
+        "tag_name": "轻小说情报"
+    },
+    {
+        "tag_id": 8,
+        "tag_name": "美图欣赏"
+    },
+    {
+        "tag_id": 7,
+        "tag_name": "游戏资讯"
+    },
+    {
+        "tag_id": 4,
+        "tag_name": "动漫周边"
+    },
+    {
+        "tag_id": 5,
+        "tag_name": "声优情报"
+    },
+    {
+        "tag_id": 9,
+        "tag_name": "漫展情报"
+    },
+    {
+        "tag_id": 6,
+        "tag_name": "音乐资讯"
+    },
+    {
+        "tag_id": 10,
+        "tag_name": "大杂烩"
+    }
+]
