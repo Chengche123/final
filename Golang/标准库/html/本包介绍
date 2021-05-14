@@ -1,2 +1,0 @@
-1 本包主要是分析爬取html页面
-2 官方库: golang.org/x/net/html 非官方库:goquery

@@ -1,3 +1,0 @@
-1 顺序容器的vector deque stack queue可自己根据切片实现 优先级队列和List在container包中
-2 无关联式容器
-3 哈希map和集合由Golang自带
