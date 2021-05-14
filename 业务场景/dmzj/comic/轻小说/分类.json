@@ -1,0 +1,57 @@
+[
+    {
+        "tag_id": 20,
+        "title": "冒险",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/maoxian.jpg"
+    },
+    {
+        "tag_id": 40,
+        "title": "搞笑",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/gaoxiao.jpg"
+    },
+    {
+        "tag_id": 47,
+        "title": "战斗",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/zhandou.jpg"
+    },
+    {
+        "tag_id": 4,
+        "title": "科幻",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/kehuan.jpg"
+    },
+    {
+        "tag_id": 8,
+        "title": "恋爱",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/aiqing.jpg"
+    },
+    {
+        "tag_id": 6,
+        "title": "侦探",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/zhentan.jpg"
+    },
+    {
+        "tag_id": 16,
+        "title": "魔法",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/mofa.jpg"
+    },
+    {
+        "tag_id": 14,
+        "title": "神鬼",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/shengui.jpg"
+    },
+    {
+        "tag_id": 12,
+        "title": "校园",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/xiaoyuan.jpg"
+    },
+    {
+        "tag_id": 2,
+        "title": "恐怖",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/kongbu.jpg"
+    },
+    {
+        "tag_id": 25,
+        "title": "其他",
+        "cover": "https:\/\/images.dmzj1.com\/tuijian\/xiaoshuo\/fenlei\/qita.jpg"
+    }
+]
