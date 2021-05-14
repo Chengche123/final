@@ -15,6 +15,12 @@
 3 reflect.Value:
     函数 reflect.ValueOf 接受任意的 interface{} 类型，并返回一个装载着其动态值的 reflect.Value
 
+4 反射可见性:
+    exported的属性可以读写,unexpected的只可以读
+    exported的方法可以调用,unexpected的方法不可以调用
+
+
+
 
 
 
