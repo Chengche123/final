@@ -1,0 +1,7 @@
+1 windows上保留端口是hyper-V搞的鬼,和docker没啥关系,解决办法:
+    一: 查看保留端口 netsh interface ipv4 show excludedportrange protocol=tcp
+    二: 关闭hyper-V dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+    三: 添加一个注册表项来防止WINDOWS容器主机网络服务（HNS）保留端口，重启生效
+        reg add HKLM\SYSTEM\CurrentControlSet\Services\hns\State /v EnableExcludedPortRange /d 0 /f
+    四: 重新启用HYPER-V dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
+
