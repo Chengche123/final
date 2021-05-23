@@ -1,8 +1,11 @@
-1 可以这么说:
+1 核心思想:
+    一: 简单的使用信号量阻塞队列来排队获取锁
+
+2 可以这么说:
     一: 在Lock函数中,如果mutexLocked为1就把waiter加1然后semacquire阻塞;如果mutexLocked为0就置1然后返回
     二: 在Unlock函数中,mutexLocked必须为1;如果waiter>0就减一然后semrelease,否则直接把mutexLocked置0返回
 
-2 实际实现(代码不太清晰,不建议拿这个说):
+3 实际实现(代码不太清晰,不建议拿这个说):
     // CAS操作，当时还没有抽象出atomic包
     func cas(val *int32, old, new int32) bool
     func semacquire(*int32)

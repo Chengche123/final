@@ -1,0 +1,65 @@
+1 核心思想:
+    一: 排队获取锁确实公平,但性能上不是最优的
+        如果能把锁交给正在运行的g的话: 
+            1) Unlock的g和Lock的g正在不同的p上跑着,此时交付锁不会引起上下文切换
+    二: 增加fast path和slow path
+
+2 代码:
+   type Mutex struct {
+        state int32 // bit0:锁是否被获取; bit1:是否有被唤醒的g; bit2~31:信号量阻塞队列的长度,也就是阻塞等待的waiter数量
+        sema  uint32
+    }
+    const (
+        mutexLocked = 1 << iota // bit0掩码
+        mutexWoken // bit1掩码
+        mutexWaiterShift = iota // 从第几位bit开始是waiter数量
+    )
+
+   func (m *Mutex) Lock() {
+        // Fast path: 幸运case，能够直接获取到锁
+        if atomic.CompareAndSwapInt32(&m.state, 0, mutexLocked) {
+            return
+        }
+
+        awoke := false
+        for {
+            old := m.state
+            new := old | mutexLocked // 新状态加锁
+            if old&mutexLocked != 0 {
+                new = old + 1<<mutexWaiterShift //等待者数量加一
+            }
+            if awoke {
+                // goroutine是被唤醒的，
+                // 新状态清除唤醒标志
+                new &^= mutexWoken
+            }
+            if atomic.CompareAndSwapInt32(&m.state, old, new) {//设置新状态
+                if old&mutexLocked == 0 { // 锁原状态未加锁
+                    break
+                }
+                runtime.Semacquire(&m.sema) // 请求信号量
+                awoke = true
+            }
+        }
+    }
+
+   func (m *Mutex) Unlock() {
+        // Fast path: drop lock bit.
+        new := atomic.AddInt32(&m.state, -mutexLocked) //去掉锁标志
+        if (new+mutexLocked)&mutexLocked == 0 { //本来就没有加锁
+            panic("sync: unlock of unlocked mutex")
+        }
+    
+        old := new
+        for {
+            if old>>mutexWaiterShift == 0 || old&(mutexLocked|mutexWoken) != 0 { // 没有等待者，或者有唤醒的waiter，或者锁原来已加锁
+                return
+            }
+            new = (old - 1<<mutexWaiterShift) | mutexWoken // 新状态，准备唤醒goroutine，并设置唤醒标志
+            if atomic.CompareAndSwapInt32(&m.state, old, new) {
+                runtime.Semrelease(&m.sema)
+                return
+            }
+            old = m.state
+        }
+    }
