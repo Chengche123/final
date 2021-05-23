@@ -1,0 +1,1092 @@
+<!DOCTYPE html><html><head>
+      <title>&#x66F9;&#x5927; 20210523</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\&#x611F;&#x5200;&#x5047;&#x7ACB;\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.17\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="plan9-assembly-%E5%AE%8C%E5%85%A8%E8%A7%A3%E6%9E%90">plan9 assembly &#x5B8C;&#x5168;&#x89E3;&#x6790;</h1>
+
+<p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Go &#x4F7F;&#x7528;&#x4E86; Unix &#x8001;&#x53E4;&#x8463;(&#x8BEF; &#x4EEC;&#x53D1;&#x660E;&#x7684; plan9 &#x6C47;&#x7F16;&#x3002;&#x5C31;&#x7B97;&#x4F60;&#x5BF9; x86 &#x6C47;&#x7F16;&#x6709;&#x6240;&#x4E86;&#x89E3;&#xFF0C;&#x5728; plan9 &#x91CC;&#x8FD8;&#x662F;&#x6709;&#x4E9B;&#x8BB8;&#x533A;&#x522B;&#x3002;&#x8BF4;&#x4E0D;&#x5B9A;&#x4F60;&#x5728;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5076;&#x7136;&#x53D1;&#x73B0;&#x4EE3;&#x7801;&#x91CC;&#x7684; SP &#x770B;&#x8D77;&#x6765;&#x662F; SP&#xFF0C;&#x4F46;&#x5B83;&#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x662F; SP &#x7684;&#x65F6;&#x5019;&#x5C31;&#x6293;&#x72C2;&#x4E86;&#x54C8;&#x54C8;&#x54C8;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x5C06;&#x5BF9; plan9 &#x6C47;&#x7F16;&#x8FDB;&#x884C;&#x5168;&#x9762;&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x540C;&#x65F6;&#x89E3;&#x7B54;&#x4F60;&#x5728;&#x63A5;&#x89E6; plan9 &#x6C47;&#x7F16;&#x65F6;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x5927;&#x90E8;&#x5206;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x5E73;&#x53F0;&#x662F; linux amd64&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x5E73;&#x53F0;&#x6307;&#x4EE4;&#x96C6;&#x548C;&#x5BC4;&#x5B58;&#x5668;&#x90FD;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x5171;&#x540C;&#x63A2;&#x8BA8;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x7531;&#x6C47;&#x7F16;&#x672C;&#x8EAB;&#x7684;&#x6027;&#x8D28;&#x51B3;&#x5B9A;&#x7684;&#x3002;</p>
+<h2 class="mume-header" id="%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">&#x57FA;&#x672C;&#x6307;&#x4EE4;</h2>
+
+<h3 class="mume-header" id="%E6%A0%88%E8%B0%83%E6%95%B4">&#x6808;&#x8C03;&#x6574;</h3>
+
+<p>intel &#x6216; AT&amp;T &#x6C47;&#x7F16;&#x63D0;&#x4F9B;&#x4E86; push &#x548C; pop &#x6307;&#x4EE4;&#x65CF;&#xFF0C;<s>plan9 &#x4E2D;&#x6CA1;&#x6709; push &#x548C; pop</s>&#xFF0C;plan9 &#x4E2D;&#x867D;&#x7136;&#x6709; push &#x548C; pop &#x6307;&#x4EE4;&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x662F;&#x6CA1;&#x6709;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684;&#x6808;&#x7684;&#x8C03;&#x6574;&#x5927;&#x591A;&#x662F;&#x901A;&#x8FC7;&#x5BF9;&#x786C;&#x4EF6; SP &#x5BC4;&#x5B58;&#x5668;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4F8B;&#x5982;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">SUBQ $<span class="token number">0x18</span><span class="token punctuation">,</span> SP <span class="token comment">// &#x5BF9; SP &#x505A;&#x51CF;&#x6CD5;&#xFF0C;&#x4E3A;&#x51FD;&#x6570;&#x5206;&#x914D;&#x51FD;&#x6570;&#x6808;&#x5E27;</span>
+<span class="token operator">...</span>               <span class="token comment">// &#x7701;&#x7565;&#x65E0;&#x7528;&#x4EE3;&#x7801;</span>
+ADDQ $<span class="token number">0x18</span><span class="token punctuation">,</span> SP <span class="token comment">// &#x5BF9; SP &#x505A;&#x52A0;&#x6CD5;&#xFF0C;&#x6E05;&#x9664;&#x51FD;&#x6570;&#x6808;&#x5E27;</span>
+</pre><p>&#x901A;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x548C; X64 &#x5E73;&#x53F0;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4E0B;&#x9762;&#x5206;&#x8282;&#x8BE6;&#x8FF0;&#x3002;</p>
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E6%90%AC%E8%BF%90">&#x6570;&#x636E;&#x642C;&#x8FD0;</h3>
+
+<p>&#x5E38;&#x6570;&#x5728; plan9 &#x6C47;&#x7F16;&#x7528; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>u</mi><mi>m</mi><mtext>&#x8868;&#x793A;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x8D1F;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#x3002;&#x53EF;&#x4EE5;&#x7528;</mtext></mrow><annotation encoding="application/x-tex">num &#x8868;&#x793A;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x8D1F;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#x3002;&#x53EF;&#x4EE5;&#x7528;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">u</span><span class="mord mathnormal">m</span><span class="mord cjk_fallback">&#x8868;&#x793A;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x8D1F;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E3A;&#x5341;&#x8FDB;&#x5236;&#x3002;&#x53EF;&#x4EE5;&#x7528;</span></span></span></span>0x123 &#x7684;&#x5F62;&#x5F0F;&#x6765;&#x8868;&#x793A;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x6570;&#x3002;</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">MOVB $<span class="token number">1</span><span class="token punctuation">,</span> DI      <span class="token comment">// 1 byte</span>
+MOVW $<span class="token number">0x10</span><span class="token punctuation">,</span> BX   <span class="token comment">// 2 bytes</span>
+MOVD $<span class="token number">1</span><span class="token punctuation">,</span> DX      <span class="token comment">// 4 bytes</span>
+MOVQ $<span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> AX     <span class="token comment">// 8 bytes</span>
+</pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x642C;&#x8FD0;&#x7684;&#x957F;&#x5EA6;&#x662F;&#x7531; MOV &#x7684;&#x540E;&#x7F00;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x4E0E; intel &#x6C47;&#x7F16;&#x7A0D;&#x6709;&#x4E0D;&#x540C;&#xFF0C;&#x770B;&#x770B;&#x7C7B;&#x4F3C;&#x7684; X64 &#x6C47;&#x7F16;:</p>
+<pre data-role="codeBlock" data-info="asm" class="language-asm"><code>mov rax, 0x1   // 8 bytes
+mov eax, 0x100 // 4 bytes
+mov ax, 0x22   // 2 bytes
+mov ah, 0x33   // 1 byte
+mov al, 0x44   // 1 byte
+</code></pre><p>plan9 &#x7684;&#x6C47;&#x7F16;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x65B9;&#x5411;&#x662F;&#x548C; intel &#x6C47;&#x7F16;&#x76F8;&#x53CD;&#x7684;&#xFF0C;&#x4E0E; AT&amp;T &#x7C7B;&#x4F3C;&#x3002;</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">MOVQ $<span class="token number">0x10</span><span class="token punctuation">,</span> AX <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> mov rax<span class="token punctuation">,</span> <span class="token number">0x10</span>
+       <span class="token operator">|</span>    <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">|</span>      <span class="token operator">|</span>
+       <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">|</span>
+</pre><p>&#x4E0D;&#x8FC7;&#x51E1;&#x4E8B;&#x603B;&#x6709;&#x4F8B;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x4E86;&#x89E3;&#x8FD9;&#x79CD;&#x610F;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x89C1;&#x53C2;&#x8003;&#x8D44;&#x6599;&#x4E2D;&#x7684; [1]&#x3002;</p>
+<h3 class="mume-header" id="%E5%B8%B8%E8%A7%81%E8%AE%A1%E7%AE%97%E6%8C%87%E4%BB%A4">&#x5E38;&#x89C1;&#x8BA1;&#x7B97;&#x6307;&#x4EE4;</h3>
+
+<pre data-role="codeBlock" data-info="go" class="language-go">ADDQ  AX<span class="token punctuation">,</span> BX   <span class="token comment">// BX += AX</span>
+SUBQ  AX<span class="token punctuation">,</span> BX   <span class="token comment">// BX -= AX</span>
+IMULQ AX<span class="token punctuation">,</span> BX   <span class="token comment">// BX *= AX</span>
+</pre><p>&#x7C7B;&#x4F3C;&#x6570;&#x636E;&#x642C;&#x8FD0;&#x6307;&#x4EE4;&#xFF0C;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x6307;&#x4EE4;&#x7684;&#x540E;&#x7F00;&#x6765;&#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x957F;&#x5EA6;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x3002;&#x4F8B;&#x5982; ADDQ/ADDW/ADDL/ADDB&#x3002;</p>
+<h3 class="mume-header" id="%E6%9D%A1%E4%BB%B6%E8%B7%B3%E8%BD%AC%E6%97%A0%E6%9D%A1%E4%BB%B6%E8%B7%B3%E8%BD%AC">&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;/&#x65E0;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;</h3>
+
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token comment">// &#x65E0;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;</span>
+JMP addr   <span class="token comment">// &#x8DF3;&#x8F6C;&#x5230;&#x5730;&#x5740;&#xFF0C;&#x5730;&#x5740;&#x53EF;&#x4E3A;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x8FC7;&#x5B9E;&#x9645;&#x4E0A;&#x624B;&#x5199;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x4E1C;&#x897F;</span>
+JMP label  <span class="token comment">// &#x8DF3;&#x8F6C;&#x5230;&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x540C;&#x4E00;&#x51FD;&#x6570;&#x5185;&#x7684;&#x6807;&#x7B7E;&#x4F4D;&#x7F6E;</span>
+JMP <span class="token function">2</span><span class="token punctuation">(</span>PC<span class="token punctuation">)</span>  <span class="token comment">// &#x4EE5;&#x5F53;&#x524D;&#x6307;&#x4EE4;&#x4E3A;&#x57FA;&#x7840;&#xFF0C;&#x5411;&#x524D;/&#x540E;&#x8DF3;&#x8F6C; x &#x884C;</span>
+JMP <span class="token operator">-</span><span class="token function">2</span><span class="token punctuation">(</span>PC<span class="token punctuation">)</span> <span class="token comment">// &#x540C;&#x4E0A;</span>
+
+<span class="token comment">// &#x6709;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;</span>
+JZ target <span class="token comment">// &#x5982;&#x679C; zero flag &#x88AB; set &#x8FC7;&#xFF0C;&#x5219;&#x8DF3;&#x8F6C;</span>
+
+</pre><h3 class="mume-header" id="%E6%8C%87%E4%BB%A4%E9%9B%86">&#x6307;&#x4EE4;&#x96C6;</h3>
+
+<p>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6E90;&#x4EE3;&#x7801;&#x7684; <a href="https://github.com/golang/arch/blob/master/x86/x86.csv">arch</a> &#x90E8;&#x5206;&#x3002;</p>
+<p>&#x989D;&#x5916;&#x63D0;&#x4E00;&#x53E5;&#xFF0C;Go 1.10 &#x6DFB;&#x52A0;&#x4E86;&#x5927;&#x91CF;&#x7684; SIMD &#x6307;&#x4EE4;&#x652F;&#x6301;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x8BE5;&#x7248;&#x672C;&#x4EE5;&#x4E0A;&#x7684;&#x8BDD;&#xFF0C;&#x4E0D;&#x50CF;&#x4E4B;&#x524D;&#x5199;&#x90A3;&#x6837;&#x75DB;&#x82E6;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0D;&#x7528;&#x4EBA;&#x8089;&#x586B; byte &#x4E86;&#x3002;</p>
+<h2 class="mume-header" id="%E5%AF%84%E5%AD%98%E5%99%A8">&#x5BC4;&#x5B58;&#x5668;</h2>
+
+<h3 class="mume-header" id="%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8">&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;</h3>
+
+<p>amd64 &#x7684;&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;:</p>
+<pre data-role="codeBlock" data-info="gdb" class="language-gdb"><code>(lldb) reg read
+General Purpose Registers:
+       rax = 0x0000000000000005
+       rbx = 0x000000c420088000
+       rcx = 0x0000000000000000
+       rdx = 0x0000000000000000
+       rdi = 0x000000c420088008
+       rsi = 0x0000000000000000
+       rbp = 0x000000c420047f78
+       rsp = 0x000000c420047ed8
+        r8 = 0x0000000000000004
+        r9 = 0x0000000000000000
+       r10 = 0x000000c420020001
+       r11 = 0x0000000000000202
+       r12 = 0x0000000000000000
+       r13 = 0x00000000000000f1
+       r14 = 0x0000000000000011
+       r15 = 0x0000000000000001
+       rip = 0x000000000108ef85  int`main.main + 213 at int.go:19
+    rflags = 0x0000000000000212
+        cs = 0x000000000000002b
+        fs = 0x0000000000000000
+        gs = 0x0000000000000000
+</code></pre><p>&#x5728; plan9 &#x6C47;&#x7F16;&#x91CC;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x5C42;&#x9762;&#x4F1A;&#x7528;&#x5230;&#x7684;&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;&#x4E3B;&#x8981;&#x662F;: rax, rbx, rcx, rdx, rdi, rsi, r8~r15 &#x8FD9; 14 &#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x867D;&#x7136; rbp &#x548C; rsp &#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7; bp &#x548C; sp &#x4F1A;&#x88AB;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x6808;&#x9876;&#x548C;&#x6808;&#x5E95;&#xFF0C;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x62FF;&#x6765;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#x3002;</p>
+<p>plan9 &#x4E2D;&#x4F7F;&#x7528;&#x5BC4;&#x5B58;&#x5668;&#x4E0D;&#x9700;&#x8981;&#x5E26; r &#x6216; e &#x7684;&#x524D;&#x7F00;&#xFF0C;&#x4F8B;&#x5982; rax&#xFF0C;&#x53EA;&#x8981;&#x5199; AX &#x5373;&#x53EF;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">MOVQ $<span class="token number">101</span><span class="token punctuation">,</span> AX <span class="token operator">=</span> mov rax<span class="token punctuation">,</span> <span class="token number">101</span>
+</pre><p>&#x4E0B;&#x9762;&#x662F;&#x901A;&#x7528;&#x901A;&#x7528;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x540D;&#x5B57;&#x5728; X64 &#x548C; plan9 &#x4E2D;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;:</p>
+<table>
+<thead>
+<tr>
+<th>X64</th>
+<th>rax</th>
+<th>rbx</th>
+<th>rcx</th>
+<th>rdx</th>
+<th>rdi</th>
+<th>rsi</th>
+<th>rbp</th>
+<th>rsp</th>
+<th>r8</th>
+<th>r9</th>
+<th>r10</th>
+<th>r11</th>
+<th>r12</th>
+<th>r13</th>
+<th>r14</th>
+<th>rip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plan9</td>
+<td>AX</td>
+<td>BX</td>
+<td>CX</td>
+<td>DX</td>
+<td>DI</td>
+<td>SI</td>
+<td>BP</td>
+<td>SP</td>
+<td>R8</td>
+<td>R9</td>
+<td>R10</td>
+<td>R11</td>
+<td>R12</td>
+<td>R13</td>
+<td>R14</td>
+<td>PC</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E4%BC%AA%E5%AF%84%E5%AD%98%E5%99%A8">&#x4F2A;&#x5BC4;&#x5B58;&#x5668;</h3>
+
+<p>Go &#x7684;&#x6C47;&#x7F16;&#x8FD8;&#x5F15;&#x5165;&#x4E86; 4 &#x4E2A;&#x4F2A;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x63F4;&#x5F15;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x7684;&#x63CF;&#x8FF0;:</p>
+<blockquote>
+<ul>
+<li><code>FP</code>: Frame pointer: arguments and locals.</li>
+<li><code>PC</code>: Program counter: jumps and branches.</li>
+<li><code>SB</code>: Static base pointer: global symbols.</li>
+<li><code>SP</code>: Stack pointer: top of stack.</li>
+</ul>
+</blockquote>
+<p>&#x5B98;&#x65B9;&#x7684;&#x63CF;&#x8FF0;&#x7A0D;&#x5FAE;&#x6709;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;&#x8FD9;&#x4E9B;&#x8BF4;&#x660E;&#x8FDB;&#x884C;&#x4E00;&#x70B9;&#x6269;&#x5145;:</p>
+<ul>
+<li>FP:  &#x4F7F;&#x7528;&#x5F62;&#x5982; <code>symbol+offset(FP)</code> &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5F15;&#x7528;&#x51FD;&#x6570;&#x7684;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x3002;&#x4F8B;&#x5982; <code>arg0+0(FP)</code>&#xFF0C;<code>arg1+8(FP)</code>&#xFF0C;&#x4F7F;&#x7528; FP &#x4E0D;&#x52A0; symbol &#x65F6;&#xFF0C;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#xFF0C;&#x5728;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x6765;&#x8BB2;&#xFF0C;symbol &#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF0C;&#x52A0; symbol &#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x63D0;&#x5347;&#x4EE3;&#x7801;&#x53EF;&#x8BFB;&#x6027;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x867D;&#x7136;&#x5C06;&#x4F2A;&#x5BC4;&#x5B58;&#x5668; FP &#x79F0;&#x4E4B;&#x4E3A; frame pointer&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x6839;&#x672C;&#x4E0D;&#x662F; frame pointer&#xFF0C;&#x6309;&#x7167;&#x4F20;&#x7EDF;&#x7684; x86 &#x7684;&#x4E60;&#x60EF;&#x6765;&#x8BB2;&#xFF0C;frame pointer &#x662F;&#x6307;&#x5411;&#x6574;&#x4E2A; stack frame &#x5E95;&#x90E8;&#x7684; BP &#x5BC4;&#x5B58;&#x5668;&#x3002;&#x5047;&#x5982;&#x5F53;&#x524D;&#x7684; callee &#x51FD;&#x6570;&#x662F; add&#xFF0C;&#x5728; add &#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x5F15;&#x7528; FP&#xFF0C;&#x8BE5; FP &#x6307;&#x5411;&#x7684;&#x4F4D;&#x7F6E;&#x4E0D;&#x5728; callee &#x7684; stack frame &#x4E4B;&#x5185;&#xFF0C;&#x800C;&#x662F;&#x5728; caller &#x7684; stack frame &#x4E0A;&#x3002;&#x5177;&#x4F53;&#x53EF;&#x53C2;&#x89C1;&#x4E4B;&#x540E;&#x7684; <strong>&#x6808;&#x7ED3;&#x6784;</strong> &#x4E00;&#x7AE0;&#x3002;</li>
+<li>PC: &#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x5728;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x77E5;&#x8BC6;&#x4E2D;&#x5E38;&#x89C1;&#x7684; pc &#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5728; x86 &#x5E73;&#x53F0;&#x4E0B;&#x5BF9;&#x5E94; ip &#x5BC4;&#x5B58;&#x5668;&#xFF0C;amd64 &#x4E0A;&#x5219;&#x662F; rip&#x3002;&#x9664;&#x4E86;&#x4E2A;&#x522B;&#x8DF3;&#x8F6C;&#x4E4B;&#x5916;&#xFF0C;&#x624B;&#x5199; plan9 &#x4EE3;&#x7801;&#x4E0E; PC &#x5BC4;&#x5B58;&#x5668;&#x6253;&#x4EA4;&#x9053;&#x7684;&#x60C5;&#x51B5;&#x8F83;&#x5C11;&#x3002;</li>
+<li>SB: &#x5168;&#x5C40;&#x9759;&#x6001;&#x57FA;&#x6307;&#x9488;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x6765;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x6216;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x4E4B;&#x540E;&#x7684;&#x51FD;&#x6570;&#x77E5;&#x8BC6;&#x548C;&#x793A;&#x4F8B;&#x90E8;&#x5206;&#x4F1A;&#x770B;&#x5230;&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x3002;</li>
+<li>SP: plan9 &#x7684;&#x8FD9;&#x4E2A; SP &#x5BC4;&#x5B58;&#x5668;&#x6307;&#x5411;&#x5F53;&#x524D;&#x6808;&#x5E27;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F7F;&#x7528;&#x5F62;&#x5982; <code>symbol+offset(SP)</code> &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5F15;&#x7528;&#x51FD;&#x6570;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;offset &#x7684;&#x5408;&#x6CD5;&#x53D6;&#x503C;&#x662F; [-framesize, 0)&#xFF0C;&#x6CE8;&#x610F;&#x662F;&#x4E2A;&#x5DE6;&#x95ED;&#x53F3;&#x5F00;&#x7684;&#x533A;&#x95F4;&#x3002;&#x5047;&#x5982;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x662F; 8 &#x5B57;&#x8282;&#xFF0C;&#x90A3;&#x4E48;&#x7B2C;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x5C31;&#x53EF;&#x4EE5;&#x7528; <code>localvar0-8(SP)</code> &#x6765;&#x8868;&#x793A;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x8BCD;&#x4E0D;&#x8868;&#x610F;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x3002;&#x4E0E;&#x786C;&#x4EF6;&#x5BC4;&#x5B58;&#x5668; SP &#x662F;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x5728;&#x6808;&#x5E27; size &#x4E3A; 0 &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F2A;&#x5BC4;&#x5B58;&#x5668; SP &#x548C;&#x786C;&#x4EF6;&#x5BC4;&#x5B58;&#x5668; SP &#x6307;&#x5411;&#x540C;&#x4E00;&#x4F4D;&#x7F6E;&#x3002;&#x624B;&#x5199;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x662F; <code>symbol+offset(SP)</code> &#x5F62;&#x5F0F;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x4F2A;&#x5BC4;&#x5B58;&#x5668; SP&#x3002;&#x5982;&#x679C;&#x662F; <code>offset(SP)</code> &#x5219;&#x8868;&#x793A;&#x786C;&#x4EF6;&#x5BC4;&#x5B58;&#x5668; SP&#x3002;&#x52A1;&#x5FC5;&#x6CE8;&#x610F;&#x3002;&#x5BF9;&#x4E8E;&#x7F16;&#x8BD1;&#x8F93;&#x51FA;(go tool compile -S / go tool objdump)&#x7684;&#x4EE3;&#x7801;&#x6765;&#x8BB2;&#xFF0C;&#x76EE;&#x524D;&#x6240;&#x6709;&#x7684; SP &#x90FD;&#x662F;&#x786C;&#x4EF6;&#x5BC4;&#x5B58;&#x5668; SP&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x5E26; symbol&#x3002;</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x5BF9;&#x5BB9;&#x6613;&#x6DF7;&#x6DC6;&#x7684;&#x51E0;&#x70B9;&#x7B80;&#x5355;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#xFF1A;</p>
+<ol>
+<li>&#x4F2A; SP &#x548C;&#x786C;&#x4EF6; SP &#x4E0D;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#xFF0C;&#x5728;&#x624B;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x4F2A; SP &#x548C;&#x786C;&#x4EF6; SP &#x7684;&#x533A;&#x5206;&#x65B9;&#x6CD5;&#x662F;&#x770B;&#x8BE5; SP &#x524D;&#x662F;&#x5426;&#x6709; symbol&#x3002;&#x5982;&#x679C;&#x6709; symbol&#xFF0C;&#x90A3;&#x4E48;&#x5373;&#x4E3A;&#x4F2A;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x90A3;&#x4E48;&#x8BF4;&#x660E;&#x662F;&#x786C;&#x4EF6; SP &#x5BC4;&#x5B58;&#x5668;&#x3002;</li>
+<li>SP &#x548C; FP &#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x662F;&#x4F1A;&#x53D8;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x5E94;&#x8BE5;&#x5C1D;&#x8BD5;&#x7528;&#x4F2A; SP &#x5BC4;&#x5B58;&#x5668;&#x53BB;&#x627E;&#x90A3;&#x4E9B;&#x7528; FP + offset &#x6765;&#x5F15;&#x7528;&#x7684;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#x51FD;&#x6570;&#x7684;&#x5165;&#x53C2;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x3002;</li>
+<li>&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x8BF4;&#x7684;&#x4F2A; SP &#x6307;&#x5411; stack &#x7684; top&#xFF0C;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;&#x5176;&#x6307;&#x5411;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4F4D;&#x7F6E;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x6574;&#x4E2A;&#x6808;&#x7684;&#x6808;&#x5E95;(&#x9664; caller BP &#x4E4B;&#x5916;)&#xFF0C;&#x6240;&#x4EE5;&#x8BF4; bottom &#x66F4;&#x5408;&#x9002;&#x4E00;&#x4E9B;&#x3002;</li>
+<li>&#x5728; go tool objdump/go tool compile -S &#x8F93;&#x51FA;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x662F;&#x6CA1;&#x6709;&#x4F2A; SP &#x548C; FP &#x5BC4;&#x5B58;&#x5668;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x8BF4;&#x7684;&#x533A;&#x5206;&#x4F2A; SP &#x548C;&#x786C;&#x4EF6; SP &#x5BC4;&#x5B58;&#x5668;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0A;&#x8FF0;&#x4E24;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F;&#x6CA1;&#x6CD5;&#x4F7F;&#x7528;&#x7684;&#x3002;&#x5728;&#x7F16;&#x8BD1;&#x548C;&#x53CD;&#x6C47;&#x7F16;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x771F;&#x5B9E;&#x7684; SP &#x5BC4;&#x5B58;&#x5668;&#x3002;</li>
+<li>FP &#x548C; Go &#x7684;&#x5B98;&#x65B9;&#x6E90;&#x4EE3;&#x7801;&#x91CC;&#x7684; framepointer &#x4E0D;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#xFF0C;&#x6E90;&#x4EE3;&#x7801;&#x91CC;&#x7684; framepointer &#x6307;&#x7684;&#x662F; caller BP &#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x548C; caller &#x7684;&#x4F2A; SP &#x662F;&#x503C;&#x662F;&#x76F8;&#x7B49;&#x7684;&#x3002;</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x8BF4;&#x660E;&#x770B;&#x4E0D;&#x61C2;&#x4E5F;&#x6CA1;&#x5173;&#x7CFB;&#xFF0C;&#x5728;&#x719F;&#x6089;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x6808;&#x7ED3;&#x6784;&#x4E4B;&#x540E;&#x518D;&#x53CD;&#x590D;&#x56DE;&#x6765;&#x67E5;&#x770B;&#x5E94;&#x8BE5;&#x5C31;&#x53EF;&#x4EE5;&#x660E;&#x767D;&#x4E86;&#x3002;&#x4E2A;&#x4EBA;&#x610F;&#x89C1;&#xFF0C;&#x8FD9;&#x4E9B;&#x662F; Go &#x5B98;&#x65B9;&#x6316;&#x7684;&#x5751;&#x3002;&#x3002;</p>
+<h2 class="mume-header" id="%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E">&#x53D8;&#x91CF;&#x58F0;&#x660E;</h2>
+
+<p>&#x5728;&#x6C47;&#x7F16;&#x91CC;&#x6240;&#x8C13;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x5B58;&#x50A8;&#x5728; .rodata &#x6216;&#x8005; .data &#x6BB5;&#x4E2D;&#x7684;&#x53EA;&#x8BFB;&#x503C;&#x3002;&#x5BF9;&#x5E94;&#x5230;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x662F;&#x5DF2;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7684;&#x5168;&#x5C40;&#x7684; const&#x3001;var&#x3001;static &#x53D8;&#x91CF;/&#x5E38;&#x91CF;&#x3002;</p>
+<p>&#x4F7F;&#x7528; DATA &#x7ED3;&#x5408; GLOBL &#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x3002;DATA &#x7684;&#x7528;&#x6CD5;&#x4E3A;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">DATA    symbol<span class="token operator">+</span><span class="token function">offset</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token operator">/</span>width<span class="token punctuation">,</span> value
+</pre><p>&#x5927;&#x591A;&#x6570;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x5B57;&#x9762;&#x610F;&#x601D;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E2A; offset &#x9700;&#x8981;&#x7A0D;&#x5FAE;&#x6CE8;&#x610F;&#x3002;&#x5176;&#x542B;&#x4E49;&#x662F;&#x8BE5;&#x503C;&#x76F8;&#x5BF9;&#x4E8E;&#x7B26;&#x53F7; symbol &#x7684;&#x504F;&#x79FB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x5168;&#x5C40;&#x67D0;&#x4E2A;&#x5730;&#x5740;&#x7684;&#x504F;&#x79FB;&#x3002;</p>
+<p>&#x4F7F;&#x7528; GLOBL &#x6307;&#x4EE4;&#x5C06;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x4E3A; global&#xFF0C;&#x989D;&#x5916;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x662F; flag&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x603B;&#x5927;&#x5C0F;&#x3002;</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">GLOBL <span class="token function">divtab</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> RODATA<span class="token punctuation">,</span> $<span class="token number">64</span>
+</pre><p>GLOBL &#x5FC5;&#x987B;&#x8DDF;&#x5728; DATA &#x6307;&#x4EE4;&#x4E4B;&#x540E;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B9A;&#x4E49;&#x4E86;&#x591A;&#x4E2A; readonly &#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x5B8C;&#x6574;&#x4F8B;&#x5B50;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">DATA age<span class="token operator">+</span><span class="token function">0x00</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">,</span> $<span class="token number">18</span>  <span class="token comment">// forever 18</span>
+GLOBL <span class="token function">age</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> RODATA<span class="token punctuation">,</span> $<span class="token number">4</span>
+
+DATA pi<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">,</span> $<span class="token number">3.1415926</span>
+GLOBL <span class="token function">pi</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> RODATA<span class="token punctuation">,</span> $<span class="token number">8</span>
+
+DATA birthYear<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">,</span> $<span class="token number">1988</span>
+GLOBL <span class="token function">birthYear</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> RODATA<span class="token punctuation">,</span> $<span class="token number">4</span>
+</pre><p>&#x6B63;&#x5982;&#x4E4B;&#x524D;&#x6240;&#x8BF4;&#xFF0C;&#x6240;&#x6709;&#x7B26;&#x53F7;&#x5728;&#x58F0;&#x660E;&#x65F6;&#xFF0C;&#x5176; offset &#x4E00;&#x822C;&#x90FD;&#x662F; 0&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x60F3;&#x5728;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E2D;&#x5B9A;&#x4E49;&#x6570;&#x7EC4;&#xFF0C;&#x6216;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x7528;&#x4E0A;&#x975E; 0 &#x7684; offset &#x4E86;&#xFF0C;&#x4F8B;&#x5982;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">DATA bio<span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">,</span> $<span class="token string">&quot;oh yes i&quot;</span>
+DATA bio<span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">8</span><span class="token punctuation">,</span> $<span class="token string">&quot;am here &quot;</span>
+GLOBL bio<span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> RODATA<span class="token punctuation">,</span> $<span class="token number">16</span>
+</pre><p>&#x5927;&#x90E8;&#x5206;&#x90FD;&#x6BD4;&#x8F83;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53C8;&#x5F15;&#x5165;&#x4E86;&#x65B0;&#x7684;&#x6807;&#x8BB0; <code>&lt;&gt;</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x8DDF;&#x5728;&#x7B26;&#x53F7;&#x540D;&#x4E4B;&#x540E;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x53EA;&#x5728;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x4E2D;&#x751F;&#x6548;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; C &#x8BED;&#x8A00;&#x4E2D;&#x7684; static&#x3002;&#x5982;&#x679C;&#x5728;&#x53E6;&#x5916;&#x6587;&#x4EF6;&#x4E2D;&#x5F15;&#x7528;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x62A5; <code>relocation target not found</code> &#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x672C;&#x5C0F;&#x8282;&#x4E2D;&#x63D0;&#x5230;&#x7684; flag&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x6709;&#x5176;&#x5B83;&#x7684;&#x53D6;&#x503C;:</p>
+<blockquote>
+<ul>
+<li><code>NOPROF</code>  = 1<br>
+(For  <code>TEXT</code>  items.) Don&apos;t profile the marked function. This flag is deprecated.</li>
+<li><code>DUPOK</code>  = 2<br>
+It is legal to have multiple instances of this symbol in a single binary. The linker will choose one of the duplicates to use.</li>
+<li><code>NOSPLIT</code>  = 4<br>
+(For  <code>TEXT</code>  items.) Don&apos;t insert the preamble to check if the stack must be split. The frame for the routine, plus anything it calls, must fit in the spare space at the top of the stack segment. Used to protect routines such as the stack splitting code itself.</li>
+<li><code>RODATA</code>  = 8<br>
+(For  <code>DATA</code>  and  <code>GLOBL</code>  items.) Put this data in a read-only section.</li>
+<li><code>NOPTR</code>  = 16<br>
+(For  <code>DATA</code>  and  <code>GLOBL</code>  items.) This data contains no pointers and therefore does not need to be scanned by the garbage collector.</li>
+<li><code>WRAPPER</code>  = 32<br>
+(For  <code>TEXT</code>  items.) This is a wrapper function and should not count as disabling  <code>recover</code>.</li>
+<li><code>NEEDCTXT</code>  = 64<br>
+(For  <code>TEXT</code>  items.) This function is a closure so it uses its incoming context register.</li>
+</ul>
+</blockquote>
+<p>&#x5F53;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B; flag &#x7684;&#x5B57;&#x9762;&#x91CF;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6C47;&#x7F16;&#x6587;&#x4EF6;&#x4E2D; <code>#include &quot;textflag.h&quot;</code>&#x3002;</p>
+<h2 class="mume-header" id="s-%E5%92%8C-go-%E6%96%87%E4%BB%B6%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E4%BA%92%E9%80%9A">.s &#x548C; .go &#x6587;&#x4EF6;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E92;&#x901A;</h2>
+
+<p>&#x5728; <code>.s</code> &#x6587;&#x4EF6;&#x4E2D;&#x662F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; <code>.go</code> &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#xFF0C;&#x770B;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;:</p>
+<p>refer.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">999</span>
+<span class="token keyword">func</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</pre><p>refer.s:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span>
+
+TEXT &#xB7;<span class="token function">get</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">8</span>
+    MOVQ &#xB7;<span class="token function">a</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+</pre><p>&#xB7;a(SB)&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x7B26;&#x53F7;&#x9700;&#x8981;&#x94FE;&#x63A5;&#x5668;&#x6765;&#x5E2E;&#x6211;&#x4EEC;&#x8FDB;&#x884C;&#x91CD;&#x5B9A;&#x5411;(relocation)&#xFF0C;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x8BE5;&#x7B26;&#x53F7;&#xFF0C;&#x4F1A;&#x8F93;&#x51FA; <code>relocation target not found</code> &#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x5C1D;&#x8BD5;&#x3002;</p>
+<h2 class="mume-header" id="%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E">&#x51FD;&#x6570;&#x58F0;&#x660E;</h2>
+
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684; plan9 &#x7684;&#x6C47;&#x7F16;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token comment">// func add(a, b int) int</span>
+<span class="token comment">//   =&gt; &#x8BE5;&#x58F0;&#x660E;&#x5B9A;&#x4E49;&#x5728;&#x540C;&#x4E00;&#x4E2A; package &#x4E0B;&#x7684;&#x4EFB;&#x610F; .go &#x6587;&#x4EF6;&#x4E2D;</span>
+<span class="token comment">//   =&gt; &#x53EA;&#x6709;&#x51FD;&#x6570;&#x5934;&#xFF0C;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;</span>
+TEXT pkgname&#xB7;<span class="token function">add</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">8</span>
+    MOVQ a<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ a<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX
+    ADDQ AX<span class="token punctuation">,</span> BX
+    MOVQ BX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+</pre><p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x53EB; TEXT &#xFF1F;&#x5982;&#x679C;&#x5BF9;&#x7A0B;&#x5E8F;&#x6570;&#x636E;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x548C;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5206;&#x6BB5;&#x7A0D;&#x6709;&#x4E86;&#x89E3;&#x7684;&#x540C;&#x5B66;&#x5E94;&#x8BE5;&#x77E5;&#x9053;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x662F;&#x5B58;&#x50A8;&#x5728; .text &#x6BB5;&#x4E2D;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x7EA6;&#x5B9A;&#x4FD7;&#x6210;&#x7684;&#x8D77;&#x540D;&#x65B9;&#x5F0F;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#x5728; plan9 &#x4E2D; TEXT &#x662F;&#x4E00;&#x4E2A;&#x6307;&#x4EE4;&#xFF0C;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x9664;&#x4E86; TEXT &#x4E4B;&#x5916;&#x8FD8;&#x6709;&#x524D;&#x9762;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x8BF4;&#x5230;&#x7684; DATA/GLOBL&#x3002;</p>
+<p>&#x5B9A;&#x4E49;&#x4E2D;&#x7684; pkgname &#x90E8;&#x5206;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7684;&#xFF0C;&#x975E;&#x60F3;&#x5199;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E0A;&#x3002;&#x4E0D;&#x8FC7;&#x5199;&#x4E0A; pkgname &#x7684;&#x8BDD;&#xFF0C;&#x5728;&#x91CD;&#x547D;&#x540D; package &#x4E4B;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x6539;&#x4EE3;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#x63A8;&#x8350;&#x6700;&#x597D;&#x8FD8;&#x662F;&#x4E0D;&#x8981;&#x5199;&#x3002;</p>
+<p>&#x4E2D;&#x70B9; <code>&#xB7;</code> &#x6BD4;&#x8F83;&#x7279;&#x6B8A;&#xFF0C;&#x662F;&#x4E00;&#x4E2A; unicode &#x7684;&#x4E2D;&#x70B9;&#xFF0C;&#x8BE5;&#x70B9;&#x5728; mac &#x4E0B;&#x7684;&#x8F93;&#x5165;&#x65B9;&#x6CD5;&#x662F; <code>option+shift+9</code>&#x3002;&#x5728;&#x7A0B;&#x5E8F;&#x88AB;&#x94FE;&#x63A5;&#x4E4B;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4E2D;&#x70B9;<code>&#xB7;</code> &#x90FD;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x53E5;&#x53F7;<code>.</code>&#xFF0C;&#x6BD4;&#x5982;&#x4F60;&#x7684;&#x65B9;&#x6CD5;&#x662F; <code>runtime&#xB7;main</code>&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x4E4B;&#x540E;&#x7684;&#x7A0B;&#x5E8F;&#x91CC;&#x7684;&#x7B26;&#x53F7;&#x5219;&#x662F; <code>runtime.main</code>&#x3002;&#x55EF;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x53D8;&#x6001;&#x3002;&#x7B80;&#x5355;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">                              &#x53C2;&#x6570;&#x53CA;&#x8FD4;&#x56DE;&#x503C;&#x5927;&#x5C0F;
+                                  <span class="token operator">|</span> 
+ TEXT pkgname&#xB7;<span class="token function">add</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span>NOSPLIT<span class="token punctuation">,</span>$<span class="token number">32</span><span class="token operator">-</span><span class="token number">32</span>
+       <span class="token operator">|</span>        <span class="token operator">|</span>               <span class="token operator">|</span>
+      &#x5305;&#x540D;     &#x51FD;&#x6570;&#x540D;         &#x6808;&#x5E27;&#x5927;&#x5C0F;<span class="token punctuation">(</span>&#x5C40;&#x90E8;&#x53D8;&#x91CF;<span class="token operator">+</span>&#x53EF;&#x80FD;&#x9700;&#x8981;&#x7684;&#x989D;&#x5916;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x7A7A;&#x95F4;&#x7684;&#x603B;&#x5927;&#x5C0F;&#xFF0C;&#x4F46;&#x4E0D;&#x5305;&#x62EC;&#x8C03;&#x7528;&#x5176;&#x5B83;&#x51FD;&#x6570;&#x65F6;&#x7684; ret address &#x7684;&#x5927;&#x5C0F;<span class="token punctuation">)</span>
+
+</pre><h2 class="mume-header" id="%E6%A0%88%E7%BB%93%E6%9E%84">&#x6808;&#x7ED3;&#x6784;</h2>
+
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x51FD;&#x6570;&#x7684;&#x6808;&#x7ED3;&#x6784;&#x56FE;:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>                                                                                   
+                       -----------------                                           
+                       current func arg0                                           
+                       ----------------- &lt;----------- FP(pseudo FP)                
+                        caller ret addr                                            
+                       +---------------+                                           
+                       | caller BP(*)  |                                           
+                       ----------------- &lt;----------- SP(pseudo SP&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5F53;&#x524D;&#x6808;&#x5E27;&#x7684; BP &#x4F4D;&#x7F6E;)
+                       |   Local Var0  |                                           
+                       -----------------                                           
+                       |   Local Var1  |                                           
+                       -----------------                                           
+                       |   Local Var2  |                                           
+                       -----------------                -                          
+                       |   ........    |                                           
+                       -----------------                                           
+                       |   Local VarN  |                                           
+                       -----------------                                           
+                       |               |                                           
+                       |               |                                           
+                       |  temporarily  |                                           
+                       |  unused space |                                           
+                       |               |                                           
+                       |               |                                           
+                       -----------------                                           
+                       |  call retn    |                                           
+                       -----------------                                           
+                       |  call ret(n-1)|                                           
+                       -----------------                                           
+                       |  ..........   |                                           
+                       -----------------                                           
+                       |  call ret1    |                                           
+                       -----------------                                           
+                       |  call argn    |                                           
+                       -----------------                                           
+                       |   .....       |                                           
+                       -----------------                                           
+                       |  call arg3    |                                           
+                       -----------------                                           
+                       |  call arg2    |                                           
+                       |---------------|                                           
+                       |  call arg1    |                                           
+                       -----------------   &lt;------------  hardware SP &#x4F4D;&#x7F6E;           
+                         return addr                                               
+                       +---------------+                                           
+                                                                                   
+
+</code></pre><p>&#x4ECE;&#x539F;&#x7406;&#x4E0A;&#x6765;&#x8BB2;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E86;&#x5176;&#x5B83;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48; return addr &#x4E5F;&#x662F;&#x5728; caller &#x7684;&#x6808;&#x4E0A;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x5F80;&#x6808;&#x4E0A;&#x63D2; return addr &#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x7531; CALL &#x6307;&#x4EE4;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x5728; RET &#x65F6;&#xFF0C;SP &#x53C8;&#x4F1A;&#x6062;&#x590D;&#x5230;&#x56FE;&#x4E0A;&#x4F4D;&#x7F6E;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x8BA1;&#x7B97; SP &#x548C;&#x53C2;&#x6570;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x786C;&#x4EF6; SP &#x6307;&#x5411;&#x7684;&#x5C31;&#x662F;&#x56FE;&#x4E0A;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x56FE;&#x4E0A;&#x7684; caller BP&#xFF0C;&#x6307;&#x7684;&#x662F; caller &#x7684; BP &#x5BC4;&#x5B58;&#x5668;&#x503C;&#xFF0C;&#x6709;&#x4E9B;&#x4EBA;&#x628A; caller BP &#x53EB;&#x4F5C; caller &#x7684; frame pointer&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x4E2A;&#x4E60;&#x60EF;&#x662F;&#x4ECE; x86 &#x67B6;&#x6784;&#x6CBF;&#x88AD;&#x6765;&#x7684;&#x3002;Go &#x7684; asm &#x6587;&#x6863;&#x4E2D;&#x628A;&#x4F2A;&#x5BC4;&#x5B58;&#x5668; FP &#x4E5F;&#x79F0;&#x4E3A; frame pointer&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x4E2A; frame pointer &#x6839;&#x672C;&#x4E0D;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;caller BP &#x662F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x7531;&#x7F16;&#x8BD1;&#x5668;&#x63D2;&#x5165;&#x7684;&#xFF0C;&#x7528;&#x6237;&#x624B;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x8BA1;&#x7B97; frame size &#x65F6;&#x662F;&#x4E0D;&#x5305;&#x62EC;&#x8FD9;&#x4E2A; caller BP &#x90E8;&#x5206;&#x7684;&#x3002;&#x662F;&#x5426;&#x63D2;&#x5165; caller BP &#x7684;&#x4E3B;&#x8981;&#x5224;&#x65AD;&#x4F9D;&#x636E;&#x662F;:</p>
+<ol>
+<li>&#x51FD;&#x6570;&#x7684;&#x6808;&#x5E27;&#x5927;&#x5C0F;&#x5927;&#x4E8E; 0</li>
+<li>&#x4E0B;&#x8FF0;&#x51FD;&#x6570;&#x8FD4;&#x56DE; true</li>
+</ol>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">func</span> <span class="token function">Framepointer_enabled</span><span class="token punctuation">(</span>goos<span class="token punctuation">,</span> goarch <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> framepointer_enabled <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> goarch <span class="token operator">==</span> <span class="token string">&quot;amd64&quot;</span> <span class="token operator">&amp;&amp;</span> goos <span class="token operator">!=</span> <span class="token string">&quot;nacl&quot;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5982;&#x679C;&#x7F16;&#x8BD1;&#x5668;&#x5728;&#x6700;&#x7EC8;&#x7684;&#x6C47;&#x7F16;&#x7ED3;&#x679C;&#x4E2D;&#x6CA1;&#x6709;&#x63D2;&#x5165; caller BP(&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x6240;&#x79F0;&#x7684; frame pointer)&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F2A; SP &#x548C;&#x4F2A; FP &#x4E4B;&#x95F4;&#x53EA;&#x6709; 8 &#x4E2A;&#x5B57;&#x8282;&#x7684; caller &#x7684; return address&#xFF0C;&#x800C;&#x63D2;&#x5165;&#x4E86; BP &#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x4F1A;&#x591A;&#x51FA;&#x989D;&#x5916;&#x7684; 8 &#x5B57;&#x8282;&#x3002;&#x4E5F;&#x5C31;&#x8BF4;&#x4F2A; SP &#x548C;&#x4F2A; FP &#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x662F;&#x4E0D;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x95F4;&#x9694; 8 &#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x95F4;&#x9694; 16 &#x4E2A;&#x5B57;&#x8282;&#x3002;&#x5E76;&#x4E14;&#x5224;&#x65AD;&#x4F9D;&#x636E;&#x4F1A;&#x6839;&#x636E;&#x5E73;&#x53F0;&#x548C; Go &#x7684;&#x7248;&#x672C;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x56FE;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;FP &#x4F2A;&#x5BC4;&#x5B58;&#x5668;&#x6307;&#x5411;&#x51FD;&#x6570;&#x7684;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x7684;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x56E0;&#x4E3A;&#x6808;&#x662F;&#x671D;&#x4F4E;&#x5730;&#x5740;&#x65B9;&#x5411;&#x589E;&#x957F;&#xFF0C;&#x4E3A;&#x4E86;&#x901A;&#x8FC7;&#x5BC4;&#x5B58;&#x5668;&#x5F15;&#x7528;&#x53C2;&#x6570;&#x65F6;&#x65B9;&#x4FBF;&#xFF0C;&#x6240;&#x4EE5;&#x53C2;&#x6570;&#x7684;&#x6446;&#x653E;&#x65B9;&#x5411;&#x548C;&#x6808;&#x7684;&#x589E;&#x957F;&#x65B9;&#x5411;&#x662F;&#x76F8;&#x53CD;&#x7684;&#xFF0C;&#x5373;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">                              FP
+high ----------------------<span class="token operator">&gt;</span> low
+argN, <span class="token punctuation">..</span>. arg3, arg2, arg1, arg0
+</pre><p>&#x5047;&#x8BBE;&#x6240;&#x6709;&#x53C2;&#x6570;&#x5747;&#x4E3A; 8 &#x5B57;&#x8282;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528; symname+0(FP) &#x8BBF;&#x95EE;&#x7B2C;&#x4E00;&#x4E2A; &#x53C2;&#x6570;&#xFF0C;symname+8(FP) &#x8BBF;&#x95EE;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;&#x7528;&#x4F2A; SP &#x6765;&#x5F15;&#x7528;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x539F;&#x7406;&#x4E0A;&#x6765;&#x8BB2;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4E0D;&#x8FC7;&#x56E0;&#x4E3A;&#x4F2A; SP &#x6307;&#x5411;&#x7684;&#x662F;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x5E95;&#x90E8;&#xFF0C;&#x6240;&#x4EE5; symname-8(SP) &#x8868;&#x793A;&#x7684;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;symname-16(SP)&#x8868;&#x793A;&#x7B2C;&#x4E8C;&#x4E2A;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x91CC;&#x5047;&#x8BBE;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x5360;&#x7528; 8 &#x4E2A;&#x5B57;&#x8282;&#x3002;</p>
+<p>&#x56FE;&#x7684;&#x6700;&#x4E0A;&#x90E8;&#x7684; caller return address &#x548C; current func arg0 &#x90FD;&#x662F;&#x7531; caller &#x6765;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#x7684;&#x3002;&#x4E0D;&#x7B97;&#x5728;&#x5F53;&#x524D;&#x7684;&#x6808;&#x5E27;&#x5185;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x672C;&#x8EAB;&#x8F83;&#x6A21;&#x7CCA;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x5168;&#x666F;&#x56FE;&#xFF0C;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x8FD9;&#x4E9B;&#x771F;&#x5047; SP/FP/BP &#x5230;&#x5E95;&#x662F;&#x4E2A;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>                                                                                                                              
+                                       caller                                                                                 
+                                 +------------------+                                                                         
+                                 |                  |                                                                         
+       +----------------------&gt;  --------------------                                                                         
+       |                         |                  |                                                                         
+       |                         | caller parent BP |                                                                         
+       |           BP(pseudo SP) --------------------                                                                         
+       |                         |                  |                                                                         
+       |                         |   Local Var0     |                                                                         
+       |                         --------------------                                                                         
+       |                         |                  |                                                                         
+       |                         |   .......        |                                                                         
+       |                         --------------------                                                                         
+       |                         |                  |                                                                         
+       |                         |   Local VarN     |                                                                         
+                                 --------------------                                                                         
+ caller stack frame              |                  |                                                                         
+                                 |   callee arg2    |                                                                         
+       |                         |------------------|                                                                         
+       |                         |                  |                                                                         
+       |                         |   callee arg1    |                                                                         
+       |                         |------------------|                                                                         
+       |                         |                  |                                                                         
+       |                         |   callee arg0    |                                                                         
+       |                         ----------------------------------------------+   FP(virtual register)                       
+       |                         |                  |                          |                                              
+       |                         |   return addr    |  parent return address   |                                              
+       +----------------------&gt;  +------------------+---------------------------    &lt;-------------------------------+         
+                                                    |  caller BP               |                                    |         
+                                                    |  (caller frame pointer)  |                                    |         
+                                     BP(pseudo SP)  ----------------------------                                    |         
+                                                    |                          |                                    |         
+                                                    |     Local Var0           |                                    |         
+                                                    ----------------------------                                    |         
+                                                    |                          |                                              
+                                                    |     Local Var1           |                                              
+                                                    ----------------------------                            callee stack frame
+                                                    |                          |                                              
+                                                    |       .....              |                                              
+                                                    ----------------------------                                    |         
+                                                    |                          |                                    |         
+                                                    |     Local VarN           |                                    |         
+                                  SP(Real Register) ----------------------------                                    |         
+                                                    |                          |                                    |         
+                                                    |                          |                                    |         
+                                                    |                          |                                    |         
+                                                    |                          |                                    |         
+                                                    |                          |                                    |         
+                                                    +--------------------------+    &lt;-------------------------------+         
+                                                                                                                              
+                                                              callee
+</code></pre><h2 class="mume-header" id="argsize-%E5%92%8C-framesize-%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99">argsize &#x548C; framesize &#x8BA1;&#x7B97;&#x89C4;&#x5219;</h2>
+
+<h3 class="mume-header" id="argsize">argsize</h3>
+
+<p>&#x5728;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4E2D;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"> TEXT pkgname&#xB7;<span class="token function">add</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span>NOSPLIT<span class="token punctuation">,</span>$<span class="token number">16</span><span class="token operator">-</span><span class="token number">32</span>
+</pre><p>&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x8BF4;&#x8FC7; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><mo>&#x2212;</mo><mn>32</mn><mtext>&#x8868;&#x793A;</mtext></mrow><annotation encoding="application/x-tex">16-32 &#x8868;&#x793A;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">16</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">32</span><span class="mord cjk_fallback">&#x8868;&#x793A;</span></span></span></span>framesize-argsize&#x3002;Go &#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x90FD;&#x9700;&#x8981;&#x7531; caller &#x5728;&#x5176;&#x6808;&#x5E27;&#x4E0A;&#x5907;&#x597D;&#x7A7A;&#x95F4;&#x3002;callee &#x5728;&#x58F0;&#x660E;&#x65F6;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x77E5;&#x9053;&#x8FD9;&#x4E2A; argsize&#x3002;argsize &#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x662F;&#xFF0C;&#x53C2;&#x6570;&#x5927;&#x5C0F;&#x6C42;&#x548C;+&#x8FD4;&#x56DE;&#x503C;&#x5927;&#x5C0F;&#x6C42;&#x548C;&#xFF0C;&#x4F8B;&#x5982;&#x5165;&#x53C2;&#x662F; 3 &#x4E2A; int64 &#x7C7B;&#x578B;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x662F; 1 &#x4E2A; int64 &#x7C7B;&#x578B;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x7684; argsize =  sizeof(int64) * 4&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x6C38;&#x8FDC;&#x6CA1;&#x6709;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x7684;&#x8FD9;&#x4E48;&#x7F8E;&#x597D;&#xFF0C;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5F80;&#x5F80;&#x6DF7;&#x5408;&#x4E86;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8003;&#x8651;&#x5185;&#x5B58;&#x5BF9;&#x9F50;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x786E;&#x5B9A;&#x81EA;&#x5DF1;&#x7684;&#x51FD;&#x6570;&#x7B7E;&#x540D;&#x9700;&#x8981;&#x591A;&#x5927;&#x7684; argsize&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x76F8;&#x540C;&#x7B7E;&#x540D;&#x7684;&#x7A7A;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E; go tool objdump &#x6765;&#x9006;&#x5411;&#x67E5;&#x627E;&#x5E94;&#x8BE5;&#x5206;&#x914D;&#x591A;&#x5C11;&#x7A7A;&#x95F4;&#x3002;</p>
+<h3 class="mume-header" id="framesize">framesize</h3>
+
+<p>&#x51FD;&#x6570;&#x7684; framesize &#x5C31;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x4E9B;&#x4E86;&#xFF0C;&#x624B;&#x5199;&#x4EE3;&#x7801;&#x7684; framesize &#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x7531;&#x7F16;&#x8BD1;&#x5668;&#x63D2;&#x5165;&#x7684; caller BP&#xFF0C;&#x8981;&#x8003;&#x8651;&#xFF1A;</p>
+<ol>
+<li>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x53CA;&#x5176;&#x6BCF;&#x4E2A;&#x53D8;&#x91CF;&#x7684; size&#x3002;</li>
+<li>&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x5BF9;&#x5176;&#x5B83;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x7684;&#x8BDD;&#xFF0C;&#x8C03;&#x7528;&#x65F6;&#x9700;&#x8981;&#x5C06; callee &#x7684;&#x53C2;&#x6570;&#x3001;&#x8FD4;&#x56DE;&#x503C;&#x8003;&#x8651;&#x5728;&#x5185;&#x3002;&#x867D;&#x7136; return address(rip)&#x7684;&#x503C;&#x4E5F;&#x662F;&#x5B58;&#x50A8;&#x5728; caller &#x7684; stack frame &#x4E0A;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x662F;&#x7531; CALL &#x6307;&#x4EE4;&#x548C; RET &#x6307;&#x4EE4;&#x5B8C;&#x6210; PC &#x5BC4;&#x5B58;&#x5668;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x6062;&#x590D;&#x7684;&#xFF0C;&#x5728;&#x624B;&#x5199;&#x6C47;&#x7F16;&#x65F6;&#xFF0C;&#x540C;&#x6837;&#x4E5F;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E2A; PC &#x5BC4;&#x5B58;&#x5668;&#x5728;&#x6808;&#x4E0A;&#x6240;&#x9700;&#x5360;&#x7528;&#x7684; 8 &#x4E2A;&#x5B57;&#x8282;&#x7684;&#x3002;</li>
+<li>&#x539F;&#x5219;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x53EA;&#x8981;&#x4E0D;&#x628A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x8986;&#x76D6;&#x6389;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x7A0D;&#x5FAE;&#x591A;&#x5206;&#x914D;&#x51E0;&#x4E2A;&#x5B57;&#x8282;&#x7684; framesize &#x4E5F;&#x4E0D;&#x4F1A;&#x6B7B;&#x3002;</li>
+<li>&#x5728;&#x786E;&#x4FDD;&#x903B;&#x8F91;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x4F60;&#x613F;&#x610F;&#x8986;&#x76D6;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4E5F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x3002;&#x53EA;&#x8981;&#x4FDD;&#x8BC1;&#x8FDB;&#x5165;&#x548C;&#x9000;&#x51FA;&#x6C47;&#x7F16;&#x51FD;&#x6570;&#x65F6;&#x7684; caller &#x548C; callee &#x80FD;&#x6B63;&#x786E;&#x62FF;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x3002;</li>
+</ol>
+<h2 class="mume-header" id="%E5%9C%B0%E5%9D%80%E8%BF%90%E7%AE%97">&#x5730;&#x5740;&#x8FD0;&#x7B97;</h2>
+
+<p>&#x5730;&#x5740;&#x8FD0;&#x7B97;&#x4E5F;&#x662F;&#x7528; lea &#x6307;&#x4EE4;&#xFF0C;&#x82F1;&#x6587;&#x539F;&#x610F;&#x4E3A; <code>Load Effective Address</code>&#xFF0C;amd64 &#x5E73;&#x53F0;&#x5730;&#x5740;&#x90FD;&#x662F; 8 &#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x5C31;&#x7528; LEAQ &#x5C31;&#x597D;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">LEAQ <span class="token punctuation">(</span>BX<span class="token punctuation">)</span><span class="token punctuation">(</span>AX<span class="token operator">*</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CX
+<span class="token comment">// &#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684; 8 &#x4EE3;&#x8868; scale</span>
+<span class="token comment">// scale &#x53EA;&#x80FD;&#x662F; 0&#x3001;2&#x3001;4&#x3001;8</span>
+<span class="token comment">// &#x5982;&#x679C;&#x5199;&#x6210;&#x5176;&#x5B83;&#x503C;:</span>
+<span class="token comment">// LEAQ (BX)(AX*3), CX</span>
+<span class="token comment">// ./a.s:6: bad scale: 3</span>
+
+<span class="token comment">// &#x7528; LEAQ &#x7684;&#x8BDD;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x4E24;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x503C;&#x76F4;&#x63A5;&#x76F8;&#x52A0;&#xFF0C;&#x4E5F;&#x5FC5;&#x987B;&#x63D0;&#x4F9B; scale</span>
+<span class="token comment">// &#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x662F;&#x4E0D;&#x884C;&#x7684;</span>
+<span class="token comment">// LEAQ (BX)(AX), CX</span>
+<span class="token comment">// asm: asmidx: bad address 0/2064/2067</span>
+<span class="token comment">// &#x6B63;&#x786E;&#x7684;&#x5199;&#x6CD5;&#x662F;</span>
+LEAQ <span class="token punctuation">(</span>BX<span class="token punctuation">)</span><span class="token punctuation">(</span>AX<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CX
+
+
+<span class="token comment">// &#x5728;&#x5BC4;&#x5B58;&#x5668;&#x8FD0;&#x7B97;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x989D;&#x5916;&#x7684; offset</span>
+LEAQ <span class="token function">16</span><span class="token punctuation">(</span>BX<span class="token punctuation">)</span><span class="token punctuation">(</span>AX<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CX
+
+<span class="token comment">// &#x4E09;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x505A;&#x8FD0;&#x7B97;&#xFF0C;&#x8FD8;&#x662F;&#x522B;&#x60F3;&#x4E86;</span>
+<span class="token comment">// LEAQ DX(BX)(AX*8), CX</span>
+<span class="token comment">// ./a.s:13: expected end of operand, found (</span>
+</pre><p>&#x4F7F;&#x7528; LEAQ &#x7684;&#x597D;&#x5904;&#x4E5F;&#x6BD4;&#x8F83;&#x660E;&#x663E;&#xFF0C;&#x53EF;&#x4EE5;&#x8282;&#x7701;&#x6307;&#x4EE4;&#x6570;&#x3002;&#x5982;&#x679C;&#x7528;&#x57FA;&#x672C;&#x7B97;&#x672F;&#x6307;&#x4EE4;&#x6765;&#x5B9E;&#x73B0; LEAQ &#x7684;&#x529F;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x4E24;~&#x4E09;&#x6761;&#x4EE5;&#x4E0A;&#x7684;&#x8BA1;&#x7B97;&#x6307;&#x4EE4;&#x624D;&#x80FD;&#x5B9E;&#x73B0; LEAQ &#x7684;&#x5B8C;&#x6574;&#x529F;&#x80FD;&#x3002;</p>
+<h2 class="mume-header" id="%E7%A4%BA%E4%BE%8B">&#x793A;&#x4F8B;</h2>
+
+<h3 class="mume-header" id="addsubmul">add/sub/mul</h3>
+
+<p>math.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token comment">// &#x6C47;&#x7F16;&#x51FD;&#x6570;&#x58F0;&#x660E;</span>
+
+<span class="token keyword">func</span> <span class="token function">sub</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token comment">// &#x6C47;&#x7F16;&#x51FD;&#x6570;&#x58F0;&#x660E;</span>
+
+<span class="token keyword">func</span> <span class="token function">mul</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token comment">// &#x6C47;&#x7F16;&#x51FD;&#x6570;&#x58F0;&#x660E;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">sub</span><span class="token punctuation">(</span><span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">mul</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>math.s:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span> <span class="token comment">// &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x7528;&#x5230;&#x4E86; NOSPLIT &#x8FD9;&#x6837;&#x7684; flag&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5C06; textflag.h &#x5305;&#x542B;&#x8FDB;&#x6765;</span>
+
+<span class="token comment">// func add(a, b int) int</span>
+TEXT &#xB7;<span class="token function">add</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">24</span>
+    MOVQ a<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX <span class="token comment">// &#x53C2;&#x6570; a</span>
+    MOVQ b<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX <span class="token comment">// &#x53C2;&#x6570; b</span>
+    ADDQ BX<span class="token punctuation">,</span> AX    <span class="token comment">// AX += BX</span>
+    MOVQ AX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span> <span class="token comment">// &#x8FD4;&#x56DE;</span>
+    RET
+
+<span class="token comment">// func sub(a, b int) int</span>
+TEXT &#xB7;<span class="token function">sub</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">24</span>
+    MOVQ a<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ b<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX
+    SUBQ BX<span class="token punctuation">,</span> AX    <span class="token comment">// AX -= BX</span>
+    MOVQ AX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+
+<span class="token comment">// func mul(a, b int) int</span>
+TEXT &#xB7;<span class="token function">mul</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">24</span>
+    MOVQ  a<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ  b<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX
+    IMULQ BX<span class="token punctuation">,</span> AX    <span class="token comment">// AX *= BX</span>
+    MOVQ  AX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+    <span class="token comment">// &#x6700;&#x540E;&#x4E00;&#x884C;&#x7684;&#x7A7A;&#x884C;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x62A5; unexpected EOF</span>
+</pre><p>&#x628A;&#x8FD9;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x653E;&#x5728;&#x4EFB;&#x610F;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6267;&#x884C; <code>go build</code> &#x5E76;&#x8FD0;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6548;&#x679C;&#x4E86;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BC%AA%E5%AF%84%E5%AD%98%E5%99%A8-sp-%E4%BC%AA%E5%AF%84%E5%AD%98%E5%99%A8-fp-%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%AF%84%E5%AD%98%E5%99%A8-sp">&#x4F2A;&#x5BC4;&#x5B58;&#x5668; SP &#x3001;&#x4F2A;&#x5BC4;&#x5B58;&#x5668; FP &#x548C;&#x786C;&#x4EF6;&#x5BC4;&#x5B58;&#x5668; SP</h3>
+
+<p>&#x6765;&#x5199;&#x4E00;&#x6BB5;&#x7B80;&#x5355;&#x7684;&#x4EE3;&#x7801;&#x8BC1;&#x660E;&#x4F2A; SP&#x3001;&#x4F2A; FP &#x548C;&#x786C;&#x4EF6; SP &#x7684;&#x4F4D;&#x7F6E;&#x5173;&#x7CFB;&#x3002;<br>
+spspfp.s:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span>
+
+<span class="token comment">// func output(int) (int, int, int)</span>
+TEXT &#xB7;<span class="token function">output</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> $<span class="token number">8</span><span class="token operator">-</span><span class="token number">48</span>
+    MOVQ <span class="token function">24</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> DX <span class="token comment">// &#x4E0D;&#x5E26; symbol&#xFF0C;&#x8FD9;&#x91CC;&#x7684; SP &#x662F;&#x786C;&#x4EF6;&#x5BC4;&#x5B58;&#x5668; SP</span>
+    MOVQ DX<span class="token punctuation">,</span> ret3<span class="token operator">+</span><span class="token function">24</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span> <span class="token comment">// &#x7B2C;&#x4E09;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;</span>
+    MOVQ perhapsArg1<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX <span class="token comment">// &#x5F53;&#x524D;&#x51FD;&#x6570;&#x6808;&#x5927;&#x5C0F; &gt; 0&#xFF0C;&#x6240;&#x4EE5; FP &#x5728; SP &#x7684;&#x4E0A;&#x65B9; 16 &#x5B57;&#x8282;&#x5904;</span>
+    MOVQ BX<span class="token punctuation">,</span> ret2<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span> <span class="token comment">// &#x7B2C;&#x4E8C;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;</span>
+    MOVQ arg1<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret1<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>  <span class="token comment">// &#x7B2C;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;</span>
+    RET
+
+</pre><p>spspfp.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">&quot;fmt&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">output</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment">// &#x6C47;&#x7F16;&#x51FD;&#x6570;&#x58F0;&#x660E;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c <span class="token operator">:=</span> <span class="token function">output</span><span class="token punctuation">(</span><span class="token number">987654321</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x8F93;&#x51FA;:</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell"><span class="token number">987654321</span> <span class="token number">987654321</span> <span class="token number">987654321</span>
+</pre><p>&#x548C;&#x4EE3;&#x7801;&#x7ED3;&#x5408;&#x601D;&#x8003;&#xFF0C;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x5F53;&#x524D;&#x7684;&#x6808;&#x7ED3;&#x6784;&#x662F;&#x8FD9;&#x6837;&#x7684;:</p>
+<pre data-role="codeBlock" data-info="shell" class="language-shell">------
+ret2 <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------
+ret1 <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------
+ret0 <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------
+arg0 <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------ FP
+ret addr <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------
+<span class="token builtin class-name">caller</span> BP <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------ pseudo SP
+frame content <span class="token punctuation">(</span><span class="token number">8</span> bytes<span class="token punctuation">)</span>
+------ hardware SP
+</pre><p>&#x672C;&#x5C0F;&#x8282;&#x4F8B;&#x5B50;&#x7684; framesize &#x662F;&#x5927;&#x4E8E; 0 &#x7684;&#xFF0C;&#x8BFB;&#x8005;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x4FEE;&#x6539; framesize &#x4E3A; 0&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x6574;&#x4EE3;&#x7801;&#x4E2D;&#x5F15;&#x7528;&#x4F2A; SP &#x548C;&#x786C;&#x4EF6; SP &#x65F6;&#x7684; offset&#xFF0C;&#x6765;&#x7814;&#x7A76; framesize &#x4E3A; 0 &#x65F6;&#xFF0C;&#x4F2A; FP&#xFF0C;&#x4F2A; SP &#x548C;&#x786C;&#x4EF6; SP &#x4E09;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x672C;&#x5C0F;&#x8282;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x4E3A;&#x4E86;&#x544A;&#x8BC9;&#x5927;&#x5BB6;&#xFF0C;&#x4F2A; SP &#x548C;&#x4F2A; FP &#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x662F;&#x4F1A;&#x53D8;&#x5316;&#x7684;&#xFF0C;&#x624B;&#x5199;&#x65F6;&#x4E0D;&#x5E94;&#x8BE5;&#x7528;&#x4F2A; SP &#x548C; &gt;0 &#x7684; offset &#x6765;&#x5F15;&#x7528;&#x6570;&#x636E;&#xFF0C;&#x5426;&#x5219;&#x7ED3;&#x679C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x4E4E;&#x4F60;&#x7684;&#x9884;&#x6599;&#x3002;</p>
+<h3 class="mume-header" id="%E6%B1%87%E7%BC%96%E8%B0%83%E7%94%A8%E9%9D%9E%E6%B1%87%E7%BC%96%E5%87%BD%E6%95%B0">&#x6C47;&#x7F16;&#x8C03;&#x7528;&#x975E;&#x6C47;&#x7F16;&#x51FD;&#x6570;</h3>
+
+<p>output.s:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span>
+
+<span class="token comment">// func output(a,b int) int</span>
+TEXT &#xB7;<span class="token function">output</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">24</span><span class="token operator">-</span><span class="token number">24</span>
+    MOVQ a<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> DX <span class="token comment">// arg a</span>
+    MOVQ DX<span class="token punctuation">,</span> <span class="token function">0</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span> <span class="token comment">// arg x</span>
+    MOVQ b<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> CX <span class="token comment">// arg b</span>
+    MOVQ CX<span class="token punctuation">,</span> <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span> <span class="token comment">// arg y</span>
+    CALL &#xB7;<span class="token function">add</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span> <span class="token comment">// &#x5728;&#x8C03;&#x7528; add &#x4E4B;&#x524D;&#xFF0C;&#x5DF2;&#x7ECF;&#x628A;&#x53C2;&#x6570;&#x90FD;&#x901A;&#x8FC7;&#x7269;&#x7406;&#x5BC4;&#x5B58;&#x5668; SP &#x642C;&#x5230;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x6808;&#x9876;</span>
+    MOVQ <span class="token function">16</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX <span class="token comment">// add &#x51FD;&#x6570;&#x4F1A;&#x628A;&#x8FD4;&#x56DE;&#x503C;&#x653E;&#x5728;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;</span>
+    MOVQ AX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span> <span class="token comment">// return result</span>
+    RET
+
+</pre><p>output.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x <span class="token operator">+</span> y
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">output</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    s <span class="token operator">:=</span> <span class="token function">output</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</pre><h3 class="mume-header" id="%E6%B1%87%E7%BC%96%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF">&#x6C47;&#x7F16;&#x4E2D;&#x7684;&#x5FAA;&#x73AF;</h3>
+
+<p>&#x901A;&#x8FC7; DECQ &#x548C; JZ &#x7ED3;&#x5408;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x91CC;&#x7684;&#x5FAA;&#x73AF;&#x903B;&#x8F91;:</p>
+<p>sum.s:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span>
+
+<span class="token comment">// func sum(sl []int64) int64</span>
+TEXT &#xB7;<span class="token function">sum</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">32</span>
+    MOVQ $<span class="token number">0</span><span class="token punctuation">,</span> SI
+    MOVQ sl<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX <span class="token comment">// &amp;sl[0], addr of the first elem</span>
+    MOVQ sl<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> CX <span class="token comment">// len(sl)</span>
+    INCQ CX           <span class="token comment">// CX++, &#x56E0;&#x4E3A;&#x8981;&#x5FAA;&#x73AF; len &#x6B21;</span>
+
+start<span class="token punctuation">:</span>
+    DECQ CX       <span class="token comment">// CX--</span>
+    JZ   done
+    ADDQ <span class="token punctuation">(</span>BX<span class="token punctuation">)</span><span class="token punctuation">,</span> SI <span class="token comment">// SI += *BX</span>
+    ADDQ $<span class="token number">8</span><span class="token punctuation">,</span> BX   <span class="token comment">// &#x6307;&#x9488;&#x79FB;&#x52A8;</span>
+    JMP  start
+
+done<span class="token punctuation">:</span>
+    <span class="token comment">// &#x8FD4;&#x56DE;&#x5730;&#x5740;&#x662F; 24 &#x662F;&#x600E;&#x4E48;&#x5F97;&#x6765;&#x7684;&#x5462;&#xFF1F;</span>
+    <span class="token comment">// &#x53EF;&#x4EE5;&#x901A;&#x8FC7; go tool compile -S math.go &#x5F97;&#x77E5;</span>
+    <span class="token comment">// &#x5728;&#x8C03;&#x7528; sum &#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x4F20;&#x5165;&#x4E09;&#x4E2A;&#x503C;&#xFF0C;&#x5206;&#x522B;&#x4E3A;:</span>
+    <span class="token comment">// slice &#x7684;&#x9996;&#x5730;&#x5740;&#x3001;slice &#x7684; len&#xFF0C; slice &#x7684; cap</span>
+    <span class="token comment">// &#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x7684;&#x6C42;&#x548C;&#x53EA;&#x9700;&#x8981; len&#xFF0C;&#x4F46; cap &#x4F9D;&#x7136;&#x4F1A;&#x5360;&#x7528;&#x53C2;&#x6570;&#x7684;&#x7A7A;&#x95F4;</span>
+    <span class="token comment">// &#x5C31;&#x662F; 16(FP)</span>
+    MOVQ SI<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">24</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+</pre><p>sum.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token builtin">int64</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int64</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E6%89%A9%E5%B1%95%E8%AF%9D%E9%A2%98">&#x6269;&#x5C55;&#x8BDD;&#x9898;</h2>
+
+<h3 class="mume-header" id="%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x7ED3;&#x6784;</h3>
+
+<h4 class="mume-header" id="%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B">&#x6570;&#x503C;&#x7C7B;&#x578B;</h4>
+
+<p>&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x503C;&#x7C7B;&#x578B;&#x5F88;&#x591A;:</p>
+<ol>
+<li>int/int8/int16/int32/int64</li>
+<li>uint/uint8/uint16/uint32/uint64</li>
+<li>float32/float64</li>
+<li>byte/rune</li>
+<li>uintptr</li>
+</ol>
+<p>&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x5728;&#x6C47;&#x7F16;&#x4E2D;&#x5C31;&#x662F;&#x4E00;&#x6BB5;&#x5B58;&#x50A8;&#x7740;&#x6570;&#x636E;&#x7684;&#x8FDE;&#x7EED;&#x5185;&#x5B58;&#xFF0C;&#x53EA;&#x662F;&#x5185;&#x5B58;&#x957F;&#x5EA6;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#x770B;&#x597D;&#x6570;&#x636E;&#x957F;&#x5EA6;&#x5C31;&#x884C;&#x3002;</p>
+<h4 class="mume-header" id="slice">slice</h4>
+
+<p>&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x5DF2;&#x7ECF;&#x8BF4;&#x8FC7;&#x4E86;&#xFF0C;slice &#x5728;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x4F1A;&#x5C55;&#x5F00;&#x6210;&#x4E09;&#x4E2A;&#x53C2;&#x6570;:</p>
+<ol>
+<li>&#x9996;&#x5143;&#x7D20;&#x5730;&#x5740;</li>
+<li>slice &#x7684; len</li>
+<li>slice &#x7684; cap</li>
+</ol>
+<p>&#x5728;&#x6C47;&#x7F16;&#x4E2D;&#x5904;&#x7406;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x539F;&#x5219;&#x90A3;&#x5C31;&#x5F88;&#x597D;&#x529E;&#x4E86;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x8FD8;&#x662F;&#x6309;&#x7D22;&#x5F15;&#x64CD;&#x4F5C;&#x968F;&#x4F60;&#x5F00;&#x5FC3;&#x3002;</p>
+<h4 class="mume-header" id="string">string</h4>
+
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token comment">//go:noinline</span>
+<span class="token keyword">func</span> <span class="token function">stringParam</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token string">&quot;abcc&quot;</span>
+    <span class="token function">stringParam</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7528; <code>go tool compile -S</code> &#x8F93;&#x51FA;&#x5176;&#x6C47;&#x7F16;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token number">0x001d</span> <span class="token number">00029</span> <span class="token punctuation">(</span>stringParam<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">)</span>    LEAQ    <span class="token keyword">go</span><span class="token punctuation">.</span><span class="token builtin">string</span><span class="token punctuation">.</span><span class="token string">&quot;abcc&quot;</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> AX  <span class="token comment">// &#x83B7;&#x53D6; RODATA &#x6BB5;&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5730;&#x5740;</span>
+<span class="token number">0x0024</span> <span class="token number">00036</span> <span class="token punctuation">(</span>stringParam<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">)</span>    MOVQ    AX<span class="token punctuation">,</span> <span class="token punctuation">(</span>SP<span class="token punctuation">)</span> <span class="token comment">// &#x5C06;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x5730;&#x5740;&#x653E;&#x5728;&#x6808;&#x9876;&#xFF0C;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;</span>
+<span class="token number">0x0028</span> <span class="token number">00040</span> <span class="token punctuation">(</span>stringParam<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">)</span>    MOVQ    $<span class="token number">4</span><span class="token punctuation">,</span> <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span> <span class="token comment">// &#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;</span>
+<span class="token number">0x0031</span> <span class="token number">00049</span> <span class="token punctuation">(</span>stringParam<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">)</span>    PCDATA  $<span class="token number">0</span><span class="token punctuation">,</span> $<span class="token number">0</span> <span class="token comment">// gc &#x76F8;&#x5173;</span>
+<span class="token number">0x0031</span> <span class="token number">00049</span> <span class="token punctuation">(</span>stringParam<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">)</span>    CALL    <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span><span class="token function">stringParam</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span> <span class="token comment">// &#x8C03;&#x7528; stringParam &#x51FD;&#x6570;</span>
+</pre><p>&#x5728;&#x6C47;&#x7F16;&#x5C42;&#x9762; string &#x5C31;&#x662F;&#x5730;&#x5740; + &#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x3002;</p>
+<h4 class="mume-header" id="struct">struct</h4>
+
+<p>struct &#x5728;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x6BB5;&#x8FDE;&#x7EED;&#x5185;&#x5B58;&#xFF0C;&#x5728;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4F1A;&#x5C06;&#x5176;&#x5C55;&#x5F00;&#x5728; caller &#x7684;&#x6808;&#x4E0A;&#x4F20;&#x7ED9;&#x5BF9;&#x5E94;&#x7684; callee:</p>
+<p>struct.go</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">type</span> address <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    lng <span class="token builtin">int</span>
+    lat <span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> person <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    age    <span class="token builtin">int</span>
+    height <span class="token builtin">int</span>
+    addr   address
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">readStruct</span><span class="token punctuation">(</span>p person<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> p <span class="token operator">=</span> person<span class="token punctuation">{</span>
+        age<span class="token punctuation">:</span>    <span class="token number">99</span><span class="token punctuation">,</span>
+        height<span class="token punctuation">:</span> <span class="token number">88</span><span class="token punctuation">,</span>
+        addr<span class="token punctuation">:</span> address<span class="token punctuation">{</span>
+            lng<span class="token punctuation">:</span> <span class="token number">77</span><span class="token punctuation">,</span>
+            lat<span class="token punctuation">:</span> <span class="token number">66</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d <span class="token operator">:=</span> <span class="token function">readStruct</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>struct.s</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span>
+
+TEXT &#xB7;<span class="token function">readStruct</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">64</span>
+    MOVQ arg0<span class="token operator">+</span><span class="token function">0</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret0<span class="token operator">+</span><span class="token function">32</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    MOVQ arg1<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret1<span class="token operator">+</span><span class="token function">40</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    MOVQ arg2<span class="token operator">+</span><span class="token function">16</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret2<span class="token operator">+</span><span class="token function">48</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    MOVQ arg3<span class="token operator">+</span><span class="token function">24</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret3<span class="token operator">+</span><span class="token function">56</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+</pre><p>&#x4E0A;&#x8FF0;&#x7684;&#x7A0B;&#x5E8F;&#x4F1A;&#x8F93;&#x51FA; 99, 88, 77, 66&#xFF0C;&#x8FD9;&#x8868;&#x660E;&#x5373;&#x4F7F;&#x662F;&#x5185;&#x5D4C;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x5206;&#x5E03;&#x4E0A;&#x4F9D;&#x7136;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#x3002;</p>
+<h4 class="mume-header" id="map">map</h4>
+
+<p>&#x901A;&#x8FC7;&#x5BF9;&#x4E0B;&#x8FF0;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x6C47;&#x7F16;(go tool compile -S)&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x4E2A; map &#x5728;&#x5BF9;&#x67D0;&#x4E2A; key &#x8D4B;&#x503C;&#x65F6;&#x6240;&#x9700;&#x8981;&#x505A;&#x7684;&#x64CD;&#x4F5C;:</p>
+<p>m.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> m <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    m<span class="token punctuation">[</span><span class="token number">43</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    n<span class="token punctuation">[</span><span class="token string">&quot;abc&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token function">println</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x770B;&#x4E00;&#x770B;&#x7B2C;&#x4E03;&#x884C;&#x7684;&#x8F93;&#x51FA;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token number">0x0085</span> <span class="token number">00133</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   LEAQ    <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token function">int</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+<span class="token number">0x008c</span> <span class="token number">00140</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   MOVQ    AX<span class="token punctuation">,</span> <span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+<span class="token number">0x0090</span> <span class="token number">00144</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   LEAQ    <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span><span class="token punctuation">.</span>autotmp_2<span class="token operator">+</span><span class="token function">232</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+<span class="token number">0x0098</span> <span class="token number">00152</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   MOVQ    AX<span class="token punctuation">,</span> <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+<span class="token number">0x009d</span> <span class="token number">00157</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   MOVQ    $<span class="token number">43</span><span class="token punctuation">,</span> <span class="token function">16</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+<span class="token number">0x00a6</span> <span class="token number">00166</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   PCDATA  $<span class="token number">0</span><span class="token punctuation">,</span> $<span class="token number">1</span>
+<span class="token number">0x00a6</span> <span class="token number">00166</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   CALL    runtime<span class="token punctuation">.</span><span class="token function">mapassign_fast64</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span>
+<span class="token number">0x00ab</span> <span class="token number">00171</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   MOVQ    <span class="token function">24</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+<span class="token number">0x00b0</span> <span class="token number">00176</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">)</span>   MOVQ    $<span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>AX<span class="token punctuation">)</span>
+</pre><p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5206;&#x6790;&#x8FC7;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x8FD9;&#x91CC;&#x524D;&#x51E0;&#x884C;&#x90FD;&#x662F;&#x5728;&#x51C6;&#x5907; runtime.mapassign_fast64(SB) &#x7684;&#x53C2;&#x6570;&#x3002;&#x53BB; runtime &#x91CC;&#x770B;&#x770B;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x7B7E;&#x540D;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">func</span> <span class="token function">mapassign_fast64</span><span class="token punctuation">(</span>t <span class="token operator">*</span>maptype<span class="token punctuation">,</span> h <span class="token operator">*</span>hmap<span class="token punctuation">,</span> key <span class="token builtin">uint64</span><span class="token punctuation">)</span> unsafe<span class="token punctuation">.</span>Pointer <span class="token punctuation">{</span>
+</pre><p>&#x4E0D;&#x7528;&#x770B;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x6211;&#x4EEC;&#x4E5F;&#x5927;&#x6982;&#x80FD;&#x63A8;&#x6D4B;&#x51FA;&#x51FD;&#x6570;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x548C;&#x8F93;&#x51FA;&#x53C2;&#x6570;&#x7684;&#x5173;&#x7CFB;&#x4E86;&#xFF0C;&#x628A;&#x5165;&#x53C2;&#x548C;&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x5BF9;&#x5E94;&#x7684;&#x8BDD;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">t <span class="token operator">*</span>maptype
+<span class="token operator">=</span><span class="token operator">&gt;</span>
+LEAQ    <span class="token keyword">type</span><span class="token punctuation">.</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token function">int</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+MOVQ    AX<span class="token punctuation">,</span> <span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+
+h <span class="token operator">*</span>hmap
+<span class="token operator">=</span><span class="token operator">&gt;</span>
+LEAQ    <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span><span class="token punctuation">.</span>autotmp_2<span class="token operator">+</span><span class="token function">232</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+MOVQ    AX<span class="token punctuation">,</span> <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+
+key <span class="token builtin">uint64</span>
+<span class="token operator">=</span><span class="token operator">&gt;</span>
+MOVQ    $<span class="token number">43</span><span class="token punctuation">,</span> <span class="token function">16</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+</pre><p>&#x8FD4;&#x56DE;&#x53C2;&#x6570;&#x5C31;&#x662F; key &#x5BF9;&#x5E94;&#x7684;&#x53EF;&#x4EE5;&#x5199;&#x503C;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x62FF;&#x5230;&#x8BE5;&#x5730;&#x5740;&#x540E;&#x6211;&#x4EEC;&#x628A;&#x60F3;&#x8981;&#x5199;&#x7684;&#x503C;&#x5199;&#x8FDB;&#x53BB;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">MOVQ    <span class="token function">24</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+MOVQ    $<span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>AX<span class="token punctuation">)</span>
+</pre><p>&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x8FD8;&#x633A;&#x590D;&#x6742;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x624B;&#x6284;&#x4E00;&#x904D;&#x5012;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x3002;&#x4E0D;&#x8FC7;&#x8FD8;&#x8981;&#x8003;&#x8651;&#xFF0C;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684; map&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684; runtime &#x4E2D;&#x7684; assign &#x51FD;&#x6570;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x6C47;&#x7F16;&#x672C;&#x8282;&#x7684;&#x793A;&#x4F8B;&#x81EA;&#x884C;&#x5C1D;&#x8BD5;&#x3002;</p>
+<p>&#x6574;&#x4F53;&#x6765;&#x8BB2;&#xFF0C;&#x7528;&#x6C47;&#x7F16;&#x6765;&#x64CD;&#x4F5C; map &#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x660E;&#x667A;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
+<h4 class="mume-header" id="channel">channel</h4>
+
+<p>channel &#x5728; runtime &#x4E5F;&#x662F;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x64CD;&#x4F5C;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x4E5F;&#x662F;&#x8C03;&#x7528; runtime &#x4E2D; chan.go &#x4E2D;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x548C; map &#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5C55;&#x5F00;&#x8BF4;&#x4E86;&#x3002;</p>
+<h3 class="mume-header" id="%E8%8E%B7%E5%8F%96-goroutine-id">&#x83B7;&#x53D6; goroutine id</h3>
+
+<p>Go &#x7684; goroutine &#x662F;&#x4E00;&#x4E2A;&#x53EB; g &#x7684;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x5185;&#x90E8;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x552F;&#x4E00; id&#xFF0C;&#x4E0D;&#x8FC7; runtime &#x6CA1;&#x6709;&#x628A;&#x8FD9;&#x4E2A; id &#x66B4;&#x9732;&#x51FA;&#x6765;&#xFF0C;&#x4F46;&#x4E0D;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x5F88;&#x591A;&#x4EBA;&#x5C31;&#x662F;&#x60F3;&#x628A;&#x8FD9;&#x4E2A; id &#x5F97;&#x5230;&#x3002;&#x4E8E;&#x662F;&#x5C31;&#x6709;&#x4E86;&#x5404;&#x79CD;&#x6216;&#x5176; goroutine id &#x7684;&#x5E93;&#x3002;</p>
+<p>&#x5728; struct &#x4E00;&#x5C0F;&#x8282;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#xFF0C;&#x7ED3;&#x6784;&#x4F53;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x6BB5;&#x8FDE;&#x7EED;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x8D77;&#x59CB;&#x5730;&#x5740;&#x548C;&#x5B57;&#x6BB5;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x7684;&#x8BDD;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x6BB5;&#x6570;&#x636E;&#x642C;&#x8FD0;&#x51FA;&#x6765;:</p>
+<p>go_tls.h:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#ifdef GOARCH_arm
+#define LR R14
+#endif
+
+#ifdef GOARCH_amd64
+#define    <span class="token function">get_tls</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>    MOVQ TLS<span class="token punctuation">,</span> r
+#define    <span class="token function">g</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>    <span class="token function">0</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">(</span>TLS<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span>
+#endif
+
+#ifdef GOARCH_amd64p32
+#define    <span class="token function">get_tls</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>    MOVL TLS<span class="token punctuation">,</span> r
+#define    <span class="token function">g</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>    <span class="token function">0</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">(</span>TLS<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span>
+#endif
+
+#ifdef GOARCH_386
+#define    <span class="token function">get_tls</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>    MOVL TLS<span class="token punctuation">,</span> r
+#define    <span class="token function">g</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>    <span class="token function">0</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">(</span>TLS<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span>
+#endif
+</pre><p>goid.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> goroutineid
+<span class="token keyword">import</span> <span class="token string">&quot;runtime&quot;</span>
+<span class="token keyword">var</span> offsetDict <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">int64</span><span class="token punctuation">{</span>
+    <span class="token comment">// ... &#x7701;&#x7565;&#x4E00;&#x4E9B;&#x884C;</span>
+    <span class="token string">&quot;go1.7&quot;</span><span class="token punctuation">:</span>    <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;go1.7.1&quot;</span><span class="token punctuation">:</span>  <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;go1.7.2&quot;</span><span class="token punctuation">:</span>  <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;go1.7.3&quot;</span><span class="token punctuation">:</span>  <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;go1.7.4&quot;</span><span class="token punctuation">:</span>  <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;go1.7.5&quot;</span><span class="token punctuation">:</span>  <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;go1.7.6&quot;</span><span class="token punctuation">:</span>  <span class="token number">192</span><span class="token punctuation">,</span>
+    <span class="token comment">// ... &#x7701;&#x7565;&#x4E00;&#x4E9B;&#x884C;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> offset <span class="token operator">=</span> offsetDict<span class="token punctuation">[</span>runtime<span class="token punctuation">.</span><span class="token function">Version</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token comment">// GetGoID returns the goroutine id</span>
+<span class="token keyword">func</span> <span class="token function">GetGoID</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int64</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">getGoID</span><span class="token punctuation">(</span>offset<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">getGoID</span><span class="token punctuation">(</span>off <span class="token builtin">int64</span><span class="token punctuation">)</span> <span class="token builtin">int64</span>
+</pre><p>goid.s:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go">#include <span class="token string">&quot;textflag.h&quot;</span>
+#include <span class="token string">&quot;go_tls.h&quot;</span>
+
+<span class="token comment">// func getGoID() int64</span>
+TEXT &#xB7;<span class="token function">getGoID</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> NOSPLIT<span class="token punctuation">,</span> $<span class="token number">0</span><span class="token operator">-</span><span class="token number">16</span>
+    <span class="token function">get_tls</span><span class="token punctuation">(</span>CX<span class="token punctuation">)</span>
+    MOVQ <span class="token function">g</span><span class="token punctuation">(</span>CX<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ <span class="token function">offset</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span><span class="token punctuation">,</span> BX
+    LEAQ <span class="token function">0</span><span class="token punctuation">(</span>AX<span class="token punctuation">)</span><span class="token punctuation">(</span>BX<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> DX
+    MOVQ <span class="token punctuation">(</span>DX<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+    MOVQ AX<span class="token punctuation">,</span> ret<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>FP<span class="token punctuation">)</span>
+    RET
+</pre><p>&#x8FD9;&#x6837;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x83B7;&#x53D6; struct g &#x4E2D;&#x7684; goid &#x5B57;&#x6BB5;&#x7684;&#x5C0F; library&#xFF0C;&#x4F5C;&#x4E3A;&#x73A9;&#x5177;&#x653E;&#x5728;&#x8FD9;&#x91CC;:</p>
+<blockquote>
+<p><a href="https://github.com/cch123/goroutineid">https://github.com/cch123/goroutineid</a></p>
+</blockquote>
+<h3 class="mume-header" id="simd">SIMD</h3>
+
+<p><a href="https://cch123.gitbooks.io/duplicate/content/part3/performance/simd-instruction-class.html">SIMD</a> &#x662F; Single Instruction, Multiple Data &#x7684;&#x7F29;&#x5199;&#xFF0C;&#x5728; Intel &#x5E73;&#x53F0;&#x4E0A;&#x7684; SIMD &#x6307;&#x4EE4;&#x96C6;&#x5148;&#x540E;&#x4E3A; SSE&#xFF0C;AVX&#xFF0C;AVX2&#xFF0C;AVX512&#xFF0C;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x96C6;&#x5F15;&#x5165;&#x4E86;&#x6807;&#x51C6;&#x4EE5;&#x5916;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x548C;&#x5BBD;&#x5EA6;&#x66F4;&#x5927;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x4F8B;&#x5982;:</p>
+<ul>
+<li>128 &#x4F4D;&#x7684; XMM0~XMM31 &#x5BC4;&#x5B58;&#x5668;&#x3002;</li>
+<li>256 &#x4F4D;&#x7684; YMM0~YMM31 &#x5BC4;&#x5B58;&#x5668;&#x3002;</li>
+<li>512 &#x4F4D;&#x7684; ZMM0~ZMM31 &#x5BC4;&#x5B58;&#x5668;&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x4E9B;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x7C7B;&#x4F3C; RAX&#xFF0C;EAX&#xFF0C;AX &#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;&#x6307;&#x4EE4;&#x65B9;&#x9762;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5BF9;&#x591A;&#x7EC4;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x79FB;&#x52A8;&#x6216;&#x8005;&#x8BA1;&#x7B97;&#xFF0C;&#x4F8B;&#x5982;:</p>
+<ul>
+<li>movups : &#x628A;4&#x4E2A;&#x4E0D;&#x5BF9;&#x51C6;&#x7684;&#x5355;&#x7CBE;&#x5EA6;&#x503C;&#x4F20;&#x9001;&#x5230;xmm&#x5BC4;&#x5B58;&#x5668;&#x6216;&#x8005;&#x5185;&#x5B58;</li>
+<li>movaps : &#x628A;4&#x4E2A;&#x5BF9;&#x51C6;&#x7684;&#x5355;&#x7CBE;&#x5EA6;&#x503C;&#x4F20;&#x9001;&#x5230;xmm&#x5BC4;&#x5B58;&#x5668;&#x6216;&#x8005;&#x5185;&#x5B58;</li>
+</ul>
+<p>&#x4E0A;&#x8FF0;&#x6307;&#x4EE4;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5C06;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x5165;&#x53C2;&#x65F6;&#x6709;&#x5F88;&#x5927;&#x6982;&#x7387;&#x4F1A;&#x770B;&#x5230;&#xFF0C;&#x4F8B;&#x5982;:</p>
+<p>arr_par.go:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;fmt&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">pr</span><span class="token punctuation">(</span>input <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">pr</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>go compile -S:</p>
+<pre data-role="codeBlock" data-info="go" class="language-go"><span class="token number">0x001d</span> <span class="token number">00029</span> <span class="token punctuation">(</span>arr_par<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span>    MOVQ    <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span><span class="token function">statictmp_0</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> AX
+<span class="token number">0x0024</span> <span class="token number">00036</span> <span class="token punctuation">(</span>arr_par<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span>    MOVQ    AX<span class="token punctuation">,</span> <span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+<span class="token number">0x0028</span> <span class="token number">00040</span> <span class="token punctuation">(</span>arr_par<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span>    MOVUPS  <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span>statictmp_0<span class="token operator">+</span><span class="token function">8</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span><span class="token punctuation">,</span> X0
+<span class="token number">0x002f</span> <span class="token number">00047</span> <span class="token punctuation">(</span>arr_par<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span>    MOVUPS  X0<span class="token punctuation">,</span> <span class="token function">8</span><span class="token punctuation">(</span>SP<span class="token punctuation">)</span>
+<span class="token number">0x0034</span> <span class="token number">00052</span> <span class="token punctuation">(</span>arr_par<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">)</span>    CALL    <span class="token string">&quot;&quot;</span><span class="token punctuation">.</span><span class="token function">pr</span><span class="token punctuation">(</span>SB<span class="token punctuation">)</span>
+</pre><p>&#x53EF;&#x89C1;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x5DF2;&#x7ECF;&#x8003;&#x8651;&#x5230;&#x4E86;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x4F7F;&#x7528; SIMD &#x6307;&#x4EE4;&#x96C6;&#x6765;&#x5BF9;&#x6570;&#x636E;&#x642C;&#x8FD0;&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#x3002;</p>
+<p>&#x56E0;&#x4E3A; SIMD &#x8FD9;&#x4E2A;&#x8BDD;&#x9898;&#x672C;&#x8EAB;&#x6BD4;&#x8F83;&#x5E7F;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5C55;&#x5F00;&#x7EC6;&#x8BF4;&#x4E86;&#x3002;</p>
+<h2 class="mume-header" id="%E7%89%B9%E5%88%AB%E6%84%9F%E8%B0%A2">&#x7279;&#x522B;&#x611F;&#x8C22;</h2>
+
+<p>&#x7814;&#x7A76;&#x8FC7;&#x7A0B;&#x57FA;&#x672C;&#x78B0;&#x5230;&#x4E0D;&#x592A;&#x660E;&#x767D;&#x7684;&#x90FD;&#x53BB;&#x9A9A;&#x6270;&#x5353;&#x5DE8;&#x5DE8;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x4F4D; <a href="https://mzh.io/">https://mzh.io/</a> &#x5927;&#x5927;&#x3002;&#x7279;&#x522B;&#x611F;&#x8C22;&#x4ED6;&#xFF0C;&#x7ED9;&#x4E86;&#x4E0D;&#x5C11;&#x7EBF;&#x7D22;&#x548C;&#x63D0;&#x793A;&#x3002;</p>
+<h2 class="mume-header" id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+
+<ol>
+<li><a href="https://quasilyte.github.io/blog/post/go-asm-complementary-reference/#external-resources">https://quasilyte.github.io/blog/post/go-asm-complementary-reference/#external-resources</a></li>
+<li><a href="http://davidwong.fr/goasm">http://davidwong.fr/goasm</a></li>
+<li><a href="https://www.doxsey.net/blog/go-and-assembly">https://www.doxsey.net/blog/go-and-assembly</a></li>
+<li><a href="https://github.com/golang/go/files/447163/GoFunctionsInAssembly.pdf">https://github.com/golang/go/files/447163/GoFunctionsInAssembly.pdf</a></li>
+<li><a href="https://golang.org/doc/asm">https://golang.org/doc/asm</a></li>
+</ol>
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;[4]&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8BE5; slide &#x4E2D;&#x7ED9;&#x51FA;&#x7684; callee stack frame &#x4E2D;&#x628A; caller &#x7684; return address &#x4E5F;&#x5305;&#x542B;&#x8FDB;&#x53BB;&#x4E86;&#xFF0C;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x5408;&#x9002;&#x3002;</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
