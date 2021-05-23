@@ -59,3 +59,16 @@
             return
         }
     }
+
+5 互斥量使用注意事项:
+    一: 4种易错场景大盘点:
+            Lock/Unlock 不是成对出现
+            Copy 已使用的 Mutex
+            死锁
+            重入:手误和重入导致的死锁，是最常见的使用 Mutex 的 Bug
+    二: Mutex 本身并没有记录持有这把锁的 goroutine 的信息:
+        1)导致的问题: Unlock可以被任意goroutine调用 不能重入
+        2)解决办法: 
+            方案一: 通过 hacker 的方式获取到 goroutine id，记录下获取锁的 goroutine id
+            方案二: 调用 Lock/Unlock 方法时，由 goroutine 提供一个 token，用来标识它自己
+    

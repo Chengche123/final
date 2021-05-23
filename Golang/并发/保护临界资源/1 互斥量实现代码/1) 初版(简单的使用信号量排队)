@@ -1,0 +1,40 @@
+1 可以这么说:
+    一: 在Lock函数中,如果mutexLocked为1就把waiter加1然后semacquire阻塞;如果mutexLocked为0就置1然后返回
+    二: 在Unlock函数中,mutexLocked必须为1;如果waiter>0就减一然后semrelease,否则直接把mutexLocked置0返回
+
+2 实际实现(代码不太清晰,不建议拿这个说):
+    // CAS操作，当时还没有抽象出atomic包
+    func cas(val *int32, old, new int32) bool
+    func semacquire(*int32)
+    func semrelease(*int32)
+    // 互斥锁的结构，包含两个字段
+    type Mutex struct {
+        key  int32 // 0:锁没有被获取 1:锁已经被获取 n:锁已经被获取且信号量阻塞队列的长度为n-1
+        sema int32 // 信号量专用，用以阻塞/唤醒goroutine
+    }
+
+    // 保证成功在val上增加delta的值
+    func xadd(val *int32, delta int32) (new int32) {
+        for {
+            v := *val
+            if cas(val, v, v+delta) {
+                return v + delta
+            }
+        }
+        panic("unreached")
+    }
+
+    // 请求锁
+    func (m *Mutex) Lock() {
+        if xadd(&m.key, 1) == 1 { //标识加1，如果等于1，成功获取到锁
+            return
+        }
+        semacquire(&m.sema) // 否则阻塞等待
+    }
+
+    func (m *Mutex) Unlock() {
+        if xadd(&m.key, -1) == 0 { // 将标识减去1，如果等于0，则没有其它等待者
+            return
+        }
+        semrelease(&m.sema) // 唤醒其它阻塞的goroutine
+    }    
