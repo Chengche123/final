@@ -1,5 +1,5 @@
 1 核心思想:
-    一: 排队获取锁确实公平,但性能上不是最优的
+    一: 排队获取锁确实公平,但性能上不是最优的,可以让新来的g也参与竞争
         如果能把锁交给正在运行的g的话: 
             1) Unlock的g和Lock的g正在不同的p上跑着,此时交付锁不会引起上下文切换
     二: 增加fast path和slow path
@@ -45,14 +45,15 @@
 
    func (m *Mutex) Unlock() {
         // Fast path: drop lock bit.
-        new := atomic.AddInt32(&m.state, -mutexLocked) //去掉锁标志
+        new := atomic.AddInt32(&m.state, -mutexLocked) //与初版不同,这里直接解锁,让新来的g可以参与竞争
         if (new+mutexLocked)&mutexLocked == 0 { //本来就没有加锁
             panic("sync: unlock of unlocked mutex")
         }
     
         old := new
         for {
-            if old>>mutexWaiterShift == 0 || old&(mutexLocked|mutexWoken) != 0 { // 没有等待者，或者有唤醒的waiter，或者锁原来已加锁
+            // 没有waiter，或者锁已加锁(锁被新来的g抢去了)，或者有唤醒的waiter
+            if old>>mutexWaiterShift == 0 || old&(mutexLocked|mutexWoken) != 0 { 
                 return
             }
             new = (old - 1<<mutexWaiterShift) | mutexWoken // 新状态，准备唤醒goroutine，并设置唤醒标志
