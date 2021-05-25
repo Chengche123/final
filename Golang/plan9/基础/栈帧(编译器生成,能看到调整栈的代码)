@@ -1,0 +1,60 @@
+1 例1:
+    一: go代码
+        //go:noinline
+        func add(a, b int32) (int32, bool) { return a + b, true }
+
+        func main() { add(10, 32) }
+    二: $ GOOS=linux GOARCH=amd64 go tool compile -S main.go:
+        0x0000 TEXT		"".add(SB), NOSPLIT, $0-16
+        0x0000 FUNCDATA	$0, gclocals·f207267fbf96a0178e8758c6e3e0ce28(SB)
+        0x0000 FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+        0x0000 MOVL		"".b+12(SP), AX
+        0x0004 MOVL		"".a+8(SP), CX
+        0x0008 ADDL		CX, AX
+        0x000a MOVL		AX, "".~r2+16(SP)
+        0x000e MOVB		$1, "".~r3+20(SP)
+        0x0013 RET
+
+        0x0000 TEXT		"".main(SB), $24-0
+        ;; ...omitted stack-split prologue...
+        0x000f SUBQ		$24, SP
+        0x0013 MOVQ		BP, 16(SP)
+        0x0018 LEAQ		16(SP), BP
+        0x001d FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+        0x001d FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+        0x001d MOVQ		$137438953482, AX
+        0x0027 MOVQ		AX, (SP)
+        0x002b PCDATA		$0, $0
+        0x002b CALL		"".add(SB)
+        0x0030 MOVQ		16(SP), BP
+        0x0035 ADDQ		$24, SP
+        0x0039 RET
+        ;; ...omitted stack-split epilogue...
+    三: main.add 即将执行 RET 指令时的栈的情况:
+            |    +-------------------------+ <-- 32(SP)              
+            |    |                         |                         
+          G |    |                         |                         
+          R |    |                         |                         
+          O |    | main.main's saved       |                         
+          W |    |     frame-pointer (BP)  |                         
+          S |    |-------------------------| <-- 24(SP)              
+            |    |      [alignment]        |                         
+          D |    | "".~r3 (bool) = 1/true  | <-- 21(SP)              
+          O |    |-------------------------| <-- 20(SP)              
+          W |    |                         |                         
+          N |    | "".~r2 (int32) = 42     |                         
+          W |    |-------------------------| <-- 16(SP)              
+          A |    |                         |                         
+          R |    | "".b (int32) = 32       |                         
+          D |    |-------------------------| <-- 12(SP)              
+          S |    |                         |                         
+            |    | "".a (int32) = 10       |                         
+            |    |-------------------------| <-- 8(SP)               
+            |    |                         |                         
+            |    |                         |                         
+            |    |                         |                         
+          \ | /  | return address to       |                         
+          \|/   |     main.main + 0x30    |                         
+            -    +-------------------------+ <-- 0(SP) (TOP OF STACK)
+          (diagram made with https://textik.com)
+    四: 
