@@ -4,7 +4,7 @@
         7层负载均衡像代理服务器,会与客户端建立连接,还会与真实服务器建立连接
 
 2 LVS:
-    关键字: VIP LVS DIP RS RIP
+    关键字: CIP VIP LVS DIP RS RIP
     一: NAT模式
         1) lvs的nat模式比较特殊，在给RS转发数据包时做了DNAT，但没有做SNAT，
            RS的数据包要回来的话就得把RIP的网关指向DIP

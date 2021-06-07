@@ -1,0 +1,2 @@
+1 _:
+    一: sched.maxmcount = 10000 // m的最大个数
