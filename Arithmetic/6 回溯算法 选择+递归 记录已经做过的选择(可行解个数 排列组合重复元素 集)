@@ -1,0 +1,111 @@
+1 (框架)描述:
+    解决一个回溯问题,实际上就是一棵决策树的遍历过程
+
+2: 总体代码框架:
+result = []
+def backtrack(路径, 选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径, 选择列表)
+        撤销选择
+
+3: 核心代码框架:
+for 选择 in 选择列表:
+    # 做选择
+    将该选择从选择列表移除
+    路径.add(选择)
+    backtrack(路径, 选择列表)
+    # 撤销选择
+    路径.remove(选择)
+    将该选择再加入选择列表(可选)
+
+4 经典问题:
+    无重复元素的全排列
+    N皇后
+    求子集
+    解数独
+
+5 是否只要一个可行解:
+    一: 只要一个: 回溯时及时返回
+    二: 需要所有: 增加一个可以容纳所有可行解的容器
+
+6 组合(包含重复元素):排序+剪枝
+    class Solution
+    {
+    public:
+        void subsets(vector<int> &track, int start, vector<int> &nums)
+        {
+            this->res.push_back(track);
+
+            for (int i = start, size = nums.size(); i < size; ++i)
+            {
+                if(i > start && nums[i] == nums[i-1])
+                    continue;
+                // 将选择加入路径
+                track.push_back(nums[i]);
+                // 将选择从选择列表中移除 并回溯
+                subsets(track, i + 1, nums);
+                // 从路径中移除选择
+                track.pop_back();
+                // 已经选的不需要选了
+            }
+        }
+
+        vector<vector<int>> subsetsWithDup(vector<int>& nums)
+        {
+            vector<int> track{};
+            
+            sort(nums.begin(),nums.end(),less<int>());
+            
+            subsets(track, 0, nums);
+            return this->res;
+        }
+
+    private:
+        vector<vector<int>> res;
+    };
+
+7 排列(包含重复元素):排序+剪枝
+    class Solution {
+    public:
+        void backtrack(vector<int>& nums,vector<int>& track,map<int,bool> m){
+            if(track.size() == size1){
+                res.push_back(track);
+                return;
+            }
+            
+            for(int i = 0 ; i < nums.size() ; ++i){
+                if(m[i] == true)
+                    continue;
+                
+                if(i > 0 && nums[i] == nums[i-1] && m[i-1] == false)
+                    continue;
+                
+                m[i] = true;
+                track.push_back(nums[i]);
+                
+                backtrack(nums,track,m);
+                
+                track.pop_back();
+                m[i] = false;
+            } 
+        }
+        
+        vector<vector<int> > permuteUnique(vector<int>& nums) {
+            size1 = nums.size();
+            vector<int> track;
+            map<int,bool> m;
+            
+            sort(nums.begin(),nums.end(),less<int>());
+            backtrack(nums,track,m);
+            
+            return res;
+        }
+    private:
+        vector<vector<int> > res;
+        int size1 ;
+    };
