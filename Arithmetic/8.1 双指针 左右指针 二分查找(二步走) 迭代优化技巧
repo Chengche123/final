@@ -8,59 +8,69 @@
     如果要求最大值就用搜索右侧边界的二分。
 
 2 二分查找框架:
-    int binarySearch(int[] nums, int target) {
-        int left = 0; 
-        int right = nums.length - 1; // 注意
-
-        while(left <= right) { // 注意
-            int mid = (right + left) / 2;
-            if(nums[mid] == target)
-                return mid; 
-            else if (nums[mid] < target)
-                left = mid + 1; // 注意
-            else if (nums[mid] > target)
-                right = mid - 1; // 注意
+    func binarySearch(ary []int, v int) int {
+        left, right := 0, len(ary)
+        
+        for left < right {
+            mid := left+(right-left)/2
+            if ary[mid] == v {
+                return mid
+            } else if v < ary[mid] {
+                right = mid
+            } else {
+                left = mid + 1
             }
-        return -1;
+        }
+        
+        return -1
     }
 
 3 寻找左侧边界的二分搜索
-    int left_bound(int[] nums, int target) {
-        if (nums.length == 0) return -1;
-        int left = 0;
-        int right = nums.length; // 注意
-
-        while (left < right) { // 注意
-            int mid = (left + right) / 2;
-            if (nums[mid] == target) {
-                right = mid;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid; // 注意
+    func leftBound(ary []int, v int) int {
+        left, right := 0, len(ary)
+        
+        for left < right {
+            mid := left + (right - left) / 2
+            if v <= ary[mid] {
+                right = mid
+            }else {
+                left = mid + 1
             }
         }
-        return left;
+        
+        if right == len(ary) || ary[right] != v {
+            return -1
+        }
+        
+        return right
     }
 
 4 寻找右侧边界的二分查找
-    int right_bound(int[] nums, int target) {
-        if (nums.length == 0) return -1;
-        int left = 0, right = nums.length;
-
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (nums[mid] == target) {
-                left = mid + 1; // 注意
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid;
+    func rightBound(ary []int, v int) int {
+        left, right := 0, len(ary)
+        
+        for left < right {
+            mid := left + (right - left) / 2
+            if v >= ary[mid] {
+                left = mid + 1
+            }else {
+                right = mid
             }
         }
-        return left - 1; // 注意
+        
+        if left == 0 || ary[left - 1] != v {
+            return -1
+        }
+        
+        return left - 1
     }
 
-5 二步走:
+5 二步走(自己总结):
     一: 确定数组中满足条件的项有多少个,是否是边界查找
     二: 确定在每个mid上,应该左缩还是右缩
+
+6 具体来说，想要用二分搜索算法解决问题，分为以下几步：
+    一: 确定x, f(x), target分别是什么，并写出函数f的代码。
+        自变量x是什么呢？题目让求什么，就把什么设为自变量
+    二: 找到x的取值范围作为二分搜索的搜索区间，初始化left和right变量。
+    三: 根据题目的要求，确定应该使用搜索左侧还是搜索右侧的二分搜索算法，写出解法代码。
