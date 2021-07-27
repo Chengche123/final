@@ -6,6 +6,7 @@
 
 # runtime
 ## gmp
+m带p捞g执行, schedule和findrunnable https://www.processon.com/view/link/60fff3690e3e7423a32d8b93  
 ### g
 #### g的创建和systemstack函数
 一 创建newg https://www.processon.com/view/link/60feb63a1e085366ea5097d5  
