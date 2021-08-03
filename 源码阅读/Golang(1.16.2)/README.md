@@ -8,6 +8,8 @@
 ## gmp
 m带p捞g执行, schedule和findrunnable https://www.processon.com/view/link/60fff3690e3e7423a32d8b93  
 ### g
+goexit https://www.processon.com/view/link/6108cd58e401fd6714ba4627  
+newstack(含同步抢占) https://www.processon.com/view/link/6108f9655653bb143a2479cd  
 #### g的创建和systemstack函数
 一 创建newg https://www.processon.com/view/link/60feb63a1e085366ea5097d5  
 二 尝试将newg放进p的本地队列 https://www.processon.com/view/link/60feb6471efad46a20a6eebd  
