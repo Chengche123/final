@@ -1,53 +1,87 @@
 1 前缀和主要适用的场景是原始数组不会被修改的情况下，频繁查询某个区间的累加和:
-    class PrefixSum {
-        // 前缀和数组
-        private int[] prefix;
+    一: Golang快写:
+            func main() {
+                nums := []int{1, 1, 0, 7, 6, 4, 0, 2, 8, 2}
+                prefix := make([]int, len(nums)+1)
 
-        /* 输入一个数组，构造前缀和 */
-        public PrefixSum(int[] nums) {
-            prefix = new int[nums.length + 1];
-            // 计算 nums 的累加和
-            for (int i = 1; i < prefix.length; i++) {
-                prefix[i] = prefix[i - 1] + nums[i - 1];
+                for i := 1; i < len(prefix); i++ {
+                    prefix[i] = prefix[i-1] + nums[i-1]
+                }
+
+                fmt.Println(prefix[5] - prefix[0]) // [0,5)的和
             }
-        }
+    二: java:
+            class PrefixSum {
+                // 前缀和数组
+                private int[] prefix;
 
-        /* 查询闭区间 [i, j] 的累加和 */
-        public int query(int i, int j) {
-            return prefix[j + 1] - prefix[i];
-        }
-    }
+                /* 输入一个数组，构造前缀和 */
+                public PrefixSum(int[] nums) {
+                    prefix = new int[nums.length + 1];
+                    // 计算 nums 的累加和
+                    for (int i = 1; i < prefix.length; i++) {
+                        prefix[i] = prefix[i - 1] + nums[i - 1];
+                    }
+                }
+
+                /* 查询闭区间 [i, j] 的累加和 */
+                public int query(int i, int j) {
+                    return prefix[j + 1] - prefix[i];
+                }
+            }
 
 2 差分数组的主要适用场景是频繁对原始数组的某个区间的元素进行增减:
-    class Difference {
-        // 差分数组
-        private int[] diff;
+    一: Golang快写:
+            func main() {
+                nums := []int{1, 1, 0, 7, 6, 4, 0, 2, 8, 2}
 
-        public Difference(int[] nums) {
-            assert nums.length > 0;
-            diff = new int[nums.length];
-            // 构造差分数组
-            diff[0] = nums[0];
-            for (int i = 1; i < nums.length; i++) {
-                diff[i] = nums[i] - nums[i - 1];
-            }
-        }
+                diff := make([]int, len(nums))
+                diff[0] = nums[0]
+                for i := 1; i < len(diff); i++ {
+                    diff[i] = nums[i] - nums[i-1]
+                }
 
-        /* 给闭区间 [i,j] 增加 val（可以是负数）*/
-        public void increment(int i, int j, int val) {
-            diff[i] += val;
-            if (j + 1 < diff.length) {
-                diff[j + 1] -= val;
-            }
-        }
+                // (0,5] += 3
+                diff[0] += 3
+                diff[5] -= 3
 
-        public int[] result() {
-            int[] res = new int[diff.length];
-            // 根据差分数组构造结果数组
-            res[0] = diff[0];
-            for (int i = 1; i < diff.length; i++) {
-                res[i] = res[i - 1] + diff[i];
+                nums1 := make([]int, len(diff))
+                nums1[0] = diff[0]
+                for i := 1; i < len(nums1); i++ {
+                    nums1[i] = diff[i] + nums1[i-1]
+                }
+                fmt.Println(nums1) // [4 4 3 10 9 4 0 2 8 2]
             }
-            return res;
-        }
-    }
+    二: java:
+            class Difference {
+                // 差分数组
+                private int[] diff;
+
+                public Difference(int[] nums) {
+                    assert nums.length > 0;
+                    diff = new int[nums.length];
+                    // 构造差分数组
+                    diff[0] = nums[0];
+                    for (int i = 1; i < nums.length; i++) {
+                        diff[i] = nums[i] - nums[i - 1];
+                    }
+                }
+
+                /* 给闭区间 [i,j] 增加 val（可以是负数）*/
+                public void increment(int i, int j, int val) {
+                    diff[i] += val;
+                    if (j + 1 < diff.length) {
+                        diff[j + 1] -= val;
+                    }
+                }
+
+                public int[] result() {
+                    int[] res = new int[diff.length];
+                    // 根据差分数组构造结果数组
+                    res[0] = diff[0];
+                    for (int i = 1; i < diff.length; i++) {
+                        res[i] = res[i - 1] + diff[i];
+                    }
+                    return res;
+                }
+            }
