@@ -27,5 +27,5 @@
 2 命令逻辑上的先后顺序:
     一: FROM LABLE RUN 准备环境
         COPY 添加应用程序
-        EXPOSE 暴露端口
-        WORKDIR ENTRYPOINT/CMD 运行应用程序
+        EXPOSE 暴露端口 VOLUME 持久化数据 ENV 环境变量
+        WORKDIR ENTRYPOINT CMD 运行应用程序

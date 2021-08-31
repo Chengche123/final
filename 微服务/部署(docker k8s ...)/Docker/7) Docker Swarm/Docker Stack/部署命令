@@ -1,0 +1,1 @@
+docker stack deploy wordpress --compose-file=docker-compose.yml
