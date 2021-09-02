@@ -1,0 +1,11 @@
+[root@iZuf69qvw4gj2re5entcjcZ pod]# kubectl get deploy
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+**nginx-deployment**   3/3     3            3           2m26s
+[root@iZuf69qvw4gj2re5entcjcZ pod]# kubectl get rs
+NAME                          DESIRED   CURRENT   READY   AGE
+**nginx-deployment-84b8bdb667**   3         3         3       2m29s
+[root@iZuf69qvw4gj2re5entcjcZ pod]# kubectl get pod
+NAME                                READY   STATUS    RESTARTS   AGE
+**nginx-deployment-84b8bdb667-lnrhk**   1/1     Running   0          2m31s
+**nginx-deployment-84b8bdb667-ppbm5**   1/1     Running   0          2m31s
+**nginx-deployment-84b8bdb667-s29q9**   1/1     Running   0          2m31s
