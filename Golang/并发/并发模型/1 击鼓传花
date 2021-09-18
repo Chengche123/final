@@ -1,0 +1,83 @@
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	var limit int
+	fmt.Scan(&limit)
+
+	chs := make([]chan struct{}, 3)
+	for i := 0; i < len(chs); i++ {
+		chs[i] = make(chan struct{}, 1)
+	}
+	chs[0] <- struct{}{}
+
+	var wg sync.WaitGroup
+	wg.Add(3)
+
+	go func() {
+		defer wg.Done()
+		n := 0
+
+		for {
+			if _, ok := <-chs[0]; !ok {
+				return
+			}
+
+			fmt.Print(0, " ")
+
+			if n%2 == 0 {
+				chs[1] <- struct{}{}
+			} else {
+				chs[2] <- struct{}{}
+			}
+			n++
+
+			if n == limit {
+				close(chs[1])
+				close(chs[2])
+				return
+			}
+
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+		n := 1
+
+		for {
+			if _, ok := <-chs[1]; !ok {
+				return
+			}
+
+			fmt.Print(n, " ")
+			n += 2
+
+			chs[0] <- struct{}{}
+		}
+
+	}()
+
+	go func() {
+		defer wg.Done()
+		n := 2
+
+		for {
+			if _, ok := <-chs[2]; !ok {
+				return
+			}
+
+			fmt.Print(n, " ")
+			n += 2
+
+			chs[0] <- struct{}{}
+		}
+
+	}()
+
+	wg.Wait()
+}

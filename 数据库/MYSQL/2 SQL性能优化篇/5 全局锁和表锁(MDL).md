@@ -26,5 +26,9 @@
     三: 写锁: 如果有两个线程要同时给一个表加字段，其中一个要等另一个执行完才能开始执行。
     四: MDL会直到事务提交才释放，在做表结构变更的时候，要小心不要导致锁住线上查询和更新。
 
+7 分别对记录加读锁和写锁:
+    一:
+        mysql> select k from t where id=1 **lock in share mode**;
+        mysql> select k from t where id=1 **for update**;
 
 
